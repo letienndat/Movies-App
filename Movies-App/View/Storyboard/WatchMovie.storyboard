@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Watch Movie View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="WatchMovieViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-su-mzq" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZk-4i-hPC">
+                                <rect key="frame" x="0.0" y="79" width="393" height="773"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FZk-4i-hPC" secondAttribute="bottom" id="7TO-W5-2rn"/>
+                            <constraint firstAttribute="trailing" secondItem="hnz-su-mzq" secondAttribute="trailing" id="CrP-gE-qCE"/>
+                            <constraint firstItem="FZk-4i-hPC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="FEr-Yp-Fke"/>
+                            <constraint firstAttribute="bottom" secondItem="hnz-su-mzq" secondAttribute="bottom" id="JHu-nD-uv1"/>
+                            <constraint firstAttribute="trailing" secondItem="FZk-4i-hPC" secondAttribute="trailing" id="OsE-U2-Xqv"/>
+                            <constraint firstItem="hnz-su-mzq" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="S6V-mt-uqq"/>
+                            <constraint firstItem="hnz-su-mzq" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="kNb-15-oYf"/>
+                            <constraint firstItem="FZk-4i-hPC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="t4g-OB-3FL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="FZk-4i-hPC" id="cDq-kB-Hxh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="4"/>
+        </scene>
+    </scenes>
+</document>

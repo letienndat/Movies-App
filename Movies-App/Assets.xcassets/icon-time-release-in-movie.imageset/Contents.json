@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icon-time-release-in-movie.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,48 @@
+//
+//  TabCastPresenter.swift
+//  Movies-App
+//
+//  Created by Le Tien Dat on 25/02/2025.
+//
+
+import Foundation
+import UIKit
+
+class TabCastPresenter {
+    private let theMovieDBService = TheMovieDBService.shared
+
+    private weak var tabCastViewDelegate: TabCastViewDelegate?
+    private(set) var listCasts: [CastMovie]?
+    var id: Int?
+
+    init(tabCastViewDelegate: TabCastViewDelegate) {
+        self.tabCastViewDelegate = tabCastViewDelegate
+    }
+
+    func fetchCastMovie() {
+        guard let id = id else { return }
+
+        let endpoint = AppConst.endPointCreditsMovie.replacingOccurrences(of: "{movie_id}", with: "\(id)")
+        let params: [String: Any] = [
+            "language": "en-US",
+            "page": 1
+        ]
+        theMovieDBService.fetchCastMovie(endpoint: endpoint, params: params) { [weak self] res in
+            guard let self = self else { return }
+
+            switch res {
+            case .success(let credits):
+                self.listCasts = credits.cast
+                self.tabCastViewDelegate?.showCast()
+            case .failure:
+                break
+            }
+        }
+    }
+
+    func computeHeightContent(view: UICollectionView) {
+        let height = view.collectionViewLayout.collectionViewContentSize.height
+
+        tabCastViewDelegate?.heightContent(height: height)
+    }
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CastTabCollectionViewCell" customModule="Movies_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="198"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="198"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0z-pQ-kHd">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="198"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-noface-cast" translatesAutoresizingMaskIntoConstraints="NO" id="trH-NV-xcg">
+                                <rect key="frame" x="10" y="0.0" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1fi-We-zVb"/>
+                                    <constraint firstAttribute="width" secondItem="trH-NV-xcg" secondAttribute="height" multiplier="1:1" id="lt6-uY-ubq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Cast" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBN-ol-bWA">
+                                <rect key="frame" x="0.0" y="108" width="120" height="90"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="trH-NV-xcg" firstAttribute="centerX" secondItem="j0z-pQ-kHd" secondAttribute="centerX" id="6nq-Fs-JEC"/>
+                            <constraint firstAttribute="trailing" secondItem="iBN-ol-bWA" secondAttribute="trailing" id="8qu-bu-Dsf"/>
+                            <constraint firstItem="trH-NV-xcg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0z-pQ-kHd" secondAttribute="leading" constant="10" id="8wE-uW-2ow"/>
+                            <constraint firstItem="trH-NV-xcg" firstAttribute="top" secondItem="j0z-pQ-kHd" secondAttribute="top" id="Bi6-Au-vgb"/>
+                            <constraint firstItem="iBN-ol-bWA" firstAttribute="leading" secondItem="j0z-pQ-kHd" secondAttribute="leading" id="QIU-zX-UsS"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="trH-NV-xcg" secondAttribute="trailing" constant="10" id="Z6A-99-Kcm"/>
+                            <constraint firstAttribute="bottom" secondItem="iBN-ol-bWA" secondAttribute="bottom" id="fej-SS-9CS"/>
+                            <constraint firstItem="iBN-ol-bWA" firstAttribute="top" secondItem="trH-NV-xcg" secondAttribute="bottom" constant="8" id="x0C-HE-SBL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="j0z-pQ-kHd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0wg-ka-O4I"/>
+                <constraint firstAttribute="trailing" secondItem="j0z-pQ-kHd" secondAttribute="trailing" id="lgF-ut-wV1"/>
+                <constraint firstItem="j0z-pQ-kHd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="po4-NI-bHP"/>
+                <constraint firstAttribute="bottom" secondItem="j0z-pQ-kHd" secondAttribute="bottom" id="zQU-QD-HQQ"/>
+            </constraints>
+            <size key="customSize" width="193" height="198"/>
+            <connections>
+                <outlet property="avatarCast" destination="trH-NV-xcg" id="WLQ-US-Kas"/>
+                <outlet property="labelNameCast" destination="iBN-ol-bWA" id="Mj7-1n-cAr"/>
+            </connections>
+            <point key="canvasLocation" x="173.2824427480916" y="50.70422535211268"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="image-noface-cast" width="360" height="360"/>
+    </resources>
+</document>

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icon-watch-list-tabbar.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
