@@ -16,6 +16,23 @@ enum TypeCellHome: Int {
     case upcomming
     case popular
 
+    var title: String {
+        switch self {
+        case .search:
+            ""
+        case .topRated:
+            "Top Rate"
+        case .nowPlaying:
+            "Now Playing"
+        case .trending:
+            "Trending"
+        case .upcomming:
+            "Upcoming"
+        case .popular:
+            "Popular"
+        }
+    }
+
     var height: CGFloat {
         switch self {
         case .search:

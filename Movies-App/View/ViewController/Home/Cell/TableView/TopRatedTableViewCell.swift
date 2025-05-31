@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import Kingfisher
 
 class TopRatedTableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionView: UICollectionView!
 
     weak var tapMovieDelegate: TapMovieDelegate?
     private var listMovies: ResponseTheMovieDBBase<Movie>?
+    var scrollViewDidScroll: ((CGPoint) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +22,12 @@ class TopRatedTableViewCell: UITableViewCell {
         self.collectionView.showsHorizontalScrollIndicator = false
     }
 
-    func setData(listMovies: ResponseTheMovieDBBase<Movie>?) {
-        self.listMovies = listMovies
+    func setData(data: GroupMovieCellData?) {
+        guard let data else { return }
+
+        self.listMovies = data.movies
         collectionView.reloadData()
+        collectionView.setContentOffset(data.currentOffset, animated: false)
     }
 }
 
@@ -83,5 +86,11 @@ extension TopRatedTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
 extension TopRatedTableViewCell: TapMovieDelegate {
     func didTapOnMovie(movie: Movie) {
         tapMovieDelegate?.didTapOnMovie(movie: movie)
+    }
+}
+
+extension TopRatedTableViewCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollViewDidScroll?(scrollView.contentOffset)
     }
 }

@@ -8,19 +8,75 @@
 import Foundation
 import Alamofire
 
+struct GroupMovieCellData {
+    var movies: ResponseTheMovieDBBase<Movie>?
+    var currentOffset: CGPoint
+
+    init(movies: ResponseTheMovieDBBase<Movie>?, currentOffset: CGPoint) {
+        self.movies = movies
+        self.currentOffset = currentOffset
+    }
+
+    init(movies: ResponseTheMovieDBBase<Movie>?) {
+        self.init(movies: movies, currentOffset: .zero)
+    }
+}
+
 class HomePresenter {
     private weak var homeViewDelegate: HomeViewDelegate?
 
     private let theMovieDBService = TheMovieDBService.shared
 
-    private(set) var listMoviesTopRated: ResponseTheMovieDBBase<Movie>?
-    private(set) var listMoviesNowPlaying: ResponseTheMovieDBBase<Movie>?
-    private(set) var listMoviesTrending: ResponseTheMovieDBBase<Movie>?
-    private(set) var listMoviesUpcoming: ResponseTheMovieDBBase<Movie>?
-    private(set) var listMoviesPopular: ResponseTheMovieDBBase<Movie>?
+    private(set) var listMoviesTopRated: GroupMovieCellData?
+    private(set) var listMoviesNowPlaying: GroupMovieCellData?
+    private(set) var listMoviesTrending: GroupMovieCellData?
+    private(set) var listMoviesUpcoming: GroupMovieCellData?
+    private(set) var listMoviesPopular: GroupMovieCellData?
 
     init(homeViewDelegate: HomeViewDelegate) {
         self.homeViewDelegate = homeViewDelegate
+    }
+
+    func getDataSource(type: TypeCellHome) -> GroupMovieCellData? {
+        switch type {
+        case .search:
+            return nil
+        case .topRated:
+            return listMoviesTopRated
+        case .nowPlaying:
+            return listMoviesNowPlaying
+        case .trending:
+            return listMoviesTrending
+        case .upcomming:
+            return listMoviesUpcoming
+        case .popular:
+            return listMoviesPopular
+        }
+    }
+
+    func updateCurrentOffset(_ newOffset: CGPoint, type: TypeCellHome) {
+        switch type {
+        case .search:
+            break
+        case .topRated:
+            listMoviesTopRated?.currentOffset = newOffset
+        case .nowPlaying:
+            listMoviesNowPlaying?.currentOffset = newOffset
+        case .trending:
+            listMoviesTrending?.currentOffset = newOffset
+        case .upcomming:
+            listMoviesUpcoming?.currentOffset = newOffset
+        case .popular:
+            listMoviesPopular?.currentOffset = newOffset
+        }
+    }
+
+    func resetCurrentOffset() {
+        listMoviesTopRated?.currentOffset = .zero
+        listMoviesNowPlaying?.currentOffset = .zero
+        listMoviesTrending?.currentOffset = .zero
+        listMoviesUpcoming?.currentOffset = .zero
+        listMoviesPopular?.currentOffset = .zero
     }
 
     func fetchAll() {
@@ -78,7 +134,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesTopRated = listMovies
+                self.listMoviesTopRated = GroupMovieCellData(movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -102,7 +158,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesNowPlaying = listMovies
+                self.listMoviesNowPlaying = GroupMovieCellData(movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -126,7 +182,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesTrending = listMovies
+                self.listMoviesTrending = GroupMovieCellData(movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -150,7 +206,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesUpcoming = listMovies
+                self.listMoviesUpcoming = GroupMovieCellData(movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -174,7 +230,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesPopular = listMovies
+                self.listMoviesPopular = GroupMovieCellData(movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }

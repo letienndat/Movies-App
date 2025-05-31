@@ -64,16 +64,16 @@ class HomeViewController: UIViewController {
                 break
             case .nowPlaying:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: "Now Playing", listMovies: homePresenter.listMoviesNowPlaying)
+                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesNowPlaying?.movies)
             case .trending:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: "Trending", listMovies: homePresenter.listMoviesTrending)
+                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesTrending?.movies)
             case .upcomming:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: "Upcoming", listMovies: homePresenter.listMoviesUpcoming)
+                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesUpcoming?.movies)
             case .popular:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: "Popular", listMovies: homePresenter.listMoviesPopular)
+                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesPopular?.movies)
             }
         } else if segue.identifier == "goToScreenSearch" {
             let destinationVC = segue.destination as! SearchViewController
@@ -102,6 +102,7 @@ extension HomeViewController: HomeViewDelegate {
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
+        scrollToTopAllCells()
     }
 
     func fetchProfileError() {
@@ -110,6 +111,10 @@ extension HomeViewController: HomeViewDelegate {
 
         self.view.window?.rootViewController = nav
         self.view.window?.makeKeyAndVisible()
+    }
+
+    private func scrollToTopAllCells() {
+        homePresenter.resetCurrentOffset()
     }
 }
 
@@ -134,8 +139,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case .topRated:
             let cell = tableView.dequeueReusableCell(withIdentifier: TopRatedTableViewCell.reuseIdentifier, for: indexPath) as! TopRatedTableViewCell
-            cell.setData(listMovies: homePresenter.listMoviesTopRated)
+            let dataSource = homePresenter.getDataSource(type: row)
+            cell.setData(data: dataSource)
             cell.tapMovieDelegate = self
+            cell.scrollViewDidScroll = { [weak self] offset in
+                guard let self else { return }
+                self.homePresenter.updateCurrentOffset(offset, type: row)
+            }
 
             return cell
         case .nowPlaying:
@@ -148,8 +158,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                 self.cellHomeSelected = .nowPlaying
                 self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
             }
-            cell.setData(title: "Now Playing", listMovies: homePresenter.listMoviesNowPlaying)
+            let dataSource = homePresenter.getDataSource(type: row)
+            cell.setData(title: row.title, data: dataSource)
             cell.tapMovieDelegate = self
+            cell.scrollViewDidScroll = { [weak self] offset in
+                guard let self else { return }
+                self.homePresenter.updateCurrentOffset(offset, type: row)
+            }
 
             return cell
         case .trending:
@@ -162,8 +177,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                 self.cellHomeSelected = .trending
                 self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
             }
-            cell.setData(title: "Trending", listMovies: homePresenter.listMoviesTrending)
+            let dataSource = homePresenter.getDataSource(type: row)
+            cell.setData(title: row.title, data: dataSource)
             cell.tapMovieDelegate = self
+            cell.scrollViewDidScroll = { [weak self] offset in
+                guard let self else { return }
+                self.homePresenter.updateCurrentOffset(offset, type: row)
+            }
 
             return cell
         case .upcomming:
@@ -176,8 +196,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                 self.cellHomeSelected = .upcomming
                 self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
             }
-            cell.setData(title: "Upcoming", listMovies: homePresenter.listMoviesUpcoming)
+            let dataSource = homePresenter.getDataSource(type: row)
+            cell.setData(title: row.title, data: dataSource)
             cell.tapMovieDelegate = self
+            cell.scrollViewDidScroll = { [weak self] offset in
+                guard let self else { return }
+                self.homePresenter.updateCurrentOffset(offset, type: row)
+            }
 
             return cell
         case .popular:
@@ -190,8 +215,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                 self.cellHomeSelected = .popular
                 self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
             }
-            cell.setData(title: "Popular", listMovies: homePresenter.listMoviesPopular)
+            let dataSource = homePresenter.getDataSource(type: row)
+            cell.setData(title: row.title, data: dataSource)
             cell.tapMovieDelegate = self
+            cell.scrollViewDidScroll = { [weak self] offset in
+                guard let self else { return }
+                self.homePresenter.updateCurrentOffset(offset, type: row)
+            }
 
             return cell
         }

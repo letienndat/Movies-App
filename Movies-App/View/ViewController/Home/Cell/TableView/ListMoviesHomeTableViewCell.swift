@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ListMoviesHomeTableViewCell: UITableViewCell {
 
@@ -18,6 +17,7 @@ class ListMoviesHomeTableViewCell: UITableViewCell {
 
     var closureHandleTappedViewAll: (() -> Void)?
     weak var tapMovieDelegate: TapMovieDelegate?
+    var scrollViewDidScroll: ((CGPoint) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,10 +31,13 @@ class ListMoviesHomeTableViewCell: UITableViewCell {
         self.closureHandleTappedViewAll?()
     }
 
-    func setData(title: String, listMovies: ResponseTheMovieDBBase<Movie>?) {
+    func setData(title: String, data: GroupMovieCellData?) {
         labelTitleCollection.text = title
-        self.listMovies = listMovies
+        guard let data else { return }
+
+        self.listMovies = data.movies
         collectionView.reloadData()
+        collectionView.setContentOffset(data.currentOffset, animated: false)
     }
 }
 
@@ -91,5 +94,11 @@ extension ListMoviesHomeTableViewCell: UICollectionViewDelegate, UICollectionVie
 extension ListMoviesHomeTableViewCell: TapMovieDelegate {
     func didTapOnMovie(movie: Movie) {
         tapMovieDelegate?.didTapOnMovie(movie: movie)
+    }
+}
+
+extension ListMoviesHomeTableViewCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollViewDidScroll?(scrollView.contentOffset)
     }
 }
