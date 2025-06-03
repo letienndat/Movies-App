@@ -31,10 +31,10 @@ class ListMoviesHomeTableViewCell: UITableViewCell {
         self.closureHandleTappedViewAll?()
     }
 
-    func setData(title: String, data: GroupMovieCellData?) {
-        labelTitleCollection.text = title
+    func setData(data: GroupMovieCellData?) {
         guard let data else { return }
 
+        labelTitleCollection.text = data.title
         self.listMovies = data.movies
         collectionView.reloadData()
         collectionView.setContentOffset(data.currentOffset, animated: false)

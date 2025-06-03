@@ -22,13 +22,42 @@ struct AppConst {
     public static let endPointUpdateMovieInWatchlist = "/account/21799740/watchlist"
     public static let endPointWatchlist = "/account/21799740/watchlist/movies"
     public static let endPointGetListVideos = "/movie/{movie_id}/videos"
+    public static let endPointRecommendations = "/discover/movie"
 
     public static let baseURLTMDBImage = "https://image.tmdb.org/t/p/w500"
-
     public static let urlEmbedVideoYouTube = "https://www.youtube.com/embed/{video_id}"
+    public static let baseURLServerTracking = "http://localhost:3000/api/users"
 
     public static let colorRefreshControl = UIColor(hex: 0xFFFFFF)
     public static let colorViewTabSelected = UIColor(hex: 0x3A3F47)
 
     public static let numberItemOfPage = 20
+
+    enum AppTrackingType {
+        case click
+        case watch
+        case addToWatchList
+        case removeFromWatchList
+
+        var parameter: String {
+            switch self {
+            case .click: "click"
+            case .watch: "watch"
+            case .addToWatchList: "add_to_watchlist"
+            case .removeFromWatchList: "remove_from_watchlist"
+            }
+        }
+    }
+
+    enum AppTrackingEndpoint {
+        case tracking
+        case recommendations
+
+        var endpoint: String {
+            switch self {
+            case .tracking: "/track"
+            case .recommendations: "/:email/recommendations"
+            }
+        }
+    }
 }

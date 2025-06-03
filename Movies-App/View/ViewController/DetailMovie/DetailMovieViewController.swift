@@ -43,6 +43,9 @@ class DetailMovieViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Detail"
+
+        /// Tracking
+        detailMoviePresenter.tracking(type: .click)
     }
 
     override func viewWillLayoutSubviews() {
@@ -206,6 +209,9 @@ extension DetailMovieViewController: DetailMovieViewDelegate {
         buttonSaveToWatchList.setImage(UIImage(systemName: isMovieInWatchList ? "bookmark.fill" : "bookmark"), for: .normal)
 
         showAlert(title: "Success", message: message)
+
+        /// Tracking
+        detailMoviePresenter.tracking(type: isMovieInWatchList ? .addToWatchList : .removeFromWatchList)
 
         guard let movie = detailMoviePresenter.movie else { return }
         guard updateWatchListDelegate != nil else {

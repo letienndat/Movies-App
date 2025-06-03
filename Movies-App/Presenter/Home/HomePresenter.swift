@@ -7,18 +7,21 @@
 
 import Foundation
 import Alamofire
+import FirebaseAuth
 
 struct GroupMovieCellData {
+    var title: String
     var movies: ResponseTheMovieDBBase<Movie>?
     var currentOffset: CGPoint
 
-    init(movies: ResponseTheMovieDBBase<Movie>?, currentOffset: CGPoint) {
+    init(title: String, movies: ResponseTheMovieDBBase<Movie>?, currentOffset: CGPoint) {
+        self.title = title
         self.movies = movies
         self.currentOffset = currentOffset
     }
 
-    init(movies: ResponseTheMovieDBBase<Movie>?) {
-        self.init(movies: movies, currentOffset: .zero)
+    init(title: String, movies: ResponseTheMovieDBBase<Movie>?) {
+        self.init(title: title, movies: movies, currentOffset: .zero)
     }
 }
 
@@ -26,12 +29,21 @@ class HomePresenter {
     private weak var homeViewDelegate: HomeViewDelegate?
 
     private let theMovieDBService = TheMovieDBService.shared
+    private let appTrackingService = AppTrackingService.shared
 
     private(set) var listMoviesTopRated: GroupMovieCellData?
     private(set) var listMoviesNowPlaying: GroupMovieCellData?
     private(set) var listMoviesTrending: GroupMovieCellData?
     private(set) var listMoviesUpcoming: GroupMovieCellData?
     private(set) var listMoviesPopular: GroupMovieCellData?
+    private(set) var recommendations: RecommendationDTO?
+    private(set) var listMoviesRecommendForYou: GroupMovieCellData?
+    private(set) var listMoviesYouMightLike: GroupMovieCellData?
+    var titleYouMightLike: String {
+        var title = TypeCellHome.moviesYouMightLike.title
+        title = "\(title) \(recommendations?.genreScores.first?.genre ?? "")"
+        return title
+    }
 
     init(homeViewDelegate: HomeViewDelegate) {
         self.homeViewDelegate = homeViewDelegate
@@ -51,6 +63,10 @@ class HomePresenter {
             return listMoviesUpcoming
         case .popular:
             return listMoviesPopular
+        case .moviesRecommendForYou:
+            return listMoviesRecommendForYou
+        case .moviesYouMightLike:
+            return listMoviesYouMightLike
         }
     }
 
@@ -68,6 +84,10 @@ class HomePresenter {
             listMoviesUpcoming?.currentOffset = newOffset
         case .popular:
             listMoviesPopular?.currentOffset = newOffset
+        case .moviesRecommendForYou:
+            listMoviesRecommendForYou?.currentOffset = newOffset
+        case .moviesYouMightLike:
+            listMoviesYouMightLike?.currentOffset = newOffset
         }
     }
 
@@ -77,6 +97,8 @@ class HomePresenter {
         listMoviesTrending?.currentOffset = .zero
         listMoviesUpcoming?.currentOffset = .zero
         listMoviesPopular?.currentOffset = .zero
+        listMoviesRecommendForYou?.currentOffset = .zero
+        listMoviesYouMightLike?.currentOffset = .zero
     }
 
     func fetchAll() {
@@ -112,6 +134,28 @@ class HomePresenter {
             self?.homeViewDelegate?.displayListMovies(type: .popular)
         }
 
+        dispatchGroup.enter()
+        fetchRecommendations { [weak self] in
+            guard let self else {
+                dispatchGroup.leave()
+                return
+            }
+
+            dispatchGroup.enter()
+            self.fetchMoviesRecommendForYou {
+                self.homeViewDelegate?.displayListMovies(type: .moviesRecommendForYou)
+                dispatchGroup.leave()
+            }
+
+            dispatchGroup.enter()
+            self.fetchMoviesYouMightLike {
+                self.homeViewDelegate?.displayListMovies(type: .moviesYouMightLike)
+                dispatchGroup.leave()
+            }
+
+            dispatchGroup.leave()
+        }
+
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.homeViewDelegate?.doneFetchAll()
         }
@@ -134,7 +178,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesTopRated = GroupMovieCellData(movies: listMovies)
+                self.listMoviesTopRated = GroupMovieCellData(title: TypeCellHome.topRated.title, movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -158,7 +202,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesNowPlaying = GroupMovieCellData(movies: listMovies)
+                self.listMoviesNowPlaying = GroupMovieCellData(title: TypeCellHome.nowPlaying.title, movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -182,7 +226,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesTrending = GroupMovieCellData(movies: listMovies)
+                self.listMoviesTrending = GroupMovieCellData(title: TypeCellHome.trending.title, movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -206,7 +250,7 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesUpcoming = GroupMovieCellData(movies: listMovies)
+                self.listMoviesUpcoming = GroupMovieCellData(title: TypeCellHome.upcomming.title, movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }
@@ -230,7 +274,87 @@ class HomePresenter {
 
             switch res {
             case .success(let listMovies):
-                self.listMoviesPopular = GroupMovieCellData(movies: listMovies)
+                self.listMoviesPopular = GroupMovieCellData(title: TypeCellHome.popular.title, movies: listMovies)
+            case .failure(let err):
+                debugPrint(err)
+            }
+        }
+    }
+
+    func fetchRecommendations(completion: @escaping () -> Void) {
+        guard let email = Auth.getCurrentUser()?.email else { return }
+
+        var endpoint = AppConst.AppTrackingEndpoint.recommendations.endpoint
+        endpoint = endpoint.replacingOccurrences(of: ":email", with: email)
+
+        appTrackingService.fetchRecommendations(endpoint: endpoint) { [weak self] res in
+            guard let self else { return }
+            switch res {
+            case .success(let data):
+                self.recommendations = data
+                AppManager.recommendationDTO = data
+                completion()
+            case .failure:
+                break
+            }
+        }
+    }
+
+    private func fetchMoviesRecommendForYou(completion: @escaping () -> Void) {
+        guard let recommendations,
+              let genres = recommendations.genreScores.map({ String(describing: $0.genreID) }) as? [String]?,
+              let genresParam = genres?.joined(separator: "|")
+        else {
+            return
+        }
+        let params: [String: Any] = [
+            "with_genres": genresParam,
+            "page": "1",
+            "include_adult": false,
+            "language": "en-US"
+        ]
+
+        theMovieDBService.fetchListMovies(
+            endpoint: AppConst.endPointRecommendations,
+            params: params
+        ) { [weak self] res in
+            defer {
+                completion()
+            }
+            guard let self = self else { return }
+
+            switch res {
+            case .success(let listMovies):
+                self.listMoviesRecommendForYou = GroupMovieCellData(title: TypeCellHome.moviesRecommendForYou.title, movies: listMovies)
+            case .failure(let err):
+                debugPrint(err)
+            }
+        }
+    }
+
+    private func fetchMoviesYouMightLike(completion: @escaping () -> Void) {
+        guard let recommendations else { return }
+
+        let genres = String(describing: recommendations.topGenre)
+        let params: [String: Any] = [
+            "with_genres": genres,
+            "page": "1",
+            "include_adult": false,
+            "language": "en-US"
+        ]
+
+        theMovieDBService.fetchListMovies(
+            endpoint: AppConst.endPointRecommendations,
+            params: params
+        ) { [weak self] res in
+            defer {
+                completion()
+            }
+            guard let self = self else { return }
+
+            switch res {
+            case .success(let listMovies):
+                self.listMoviesYouMightLike = GroupMovieCellData(title: titleYouMightLike, movies: listMovies)
             case .failure(let err):
                 debugPrint(err)
             }

@@ -9,19 +9,21 @@ import Foundation
 import UIKit
 
 enum TypeCellHome: Int {
-    case search
+    case search = 0
     case topRated
     case nowPlaying
     case trending
     case upcomming
     case popular
+    case moviesRecommendForYou
+    case moviesYouMightLike
 
     var title: String {
         switch self {
         case .search:
             ""
         case .topRated:
-            "Top Rate"
+            ""
         case .nowPlaying:
             "Now Playing"
         case .trending:
@@ -30,6 +32,10 @@ enum TypeCellHome: Int {
             "Upcoming"
         case .popular:
             "Popular"
+        case .moviesRecommendForYou:
+            "Recommend For You"
+        case .moviesYouMightLike:
+            "You Might Like"
         }
     }
 
@@ -39,7 +45,7 @@ enum TypeCellHome: Int {
             return UITableView.automaticDimension
         case .topRated:
             return computeHeight(numberCell: 2, padding: 24, spacing: 24) + 40
-        case .nowPlaying, .trending, .upcomming, .popular:
+        case .nowPlaying, .trending, .upcomming, .popular, .moviesRecommendForYou, .moviesYouMightLike:
             return computeHeight(numberCell: 3, padding: 24, spacing: 24) + 33 + 5 + 10
         }
     }

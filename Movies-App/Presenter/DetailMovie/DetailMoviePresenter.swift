@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class DetailMoviePresenter {
     private let theMovieDBService = TheMovieDBService.shared
+    private let appTrackingService = AppTrackingService.shared
     private weak var detailMovieViewDelegate: DetailMovieViewDelegate?
 
     private(set) var movie: Movie?
@@ -90,5 +92,19 @@ class DetailMoviePresenter {
                 self.detailMovieViewDelegate?.showError(title: "Error", message: err.rawValue)
             }
         }
+    }
+
+    func tracking(type: AppConst.AppTrackingType) {
+        guard let movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds,
+              let email = Auth.getCurrentUser()?.email
+        else { return }
+
+        let params: [String: Any] = [
+            "email": email,
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        appTrackingService.tracking(type: type, params: params)
     }
 }

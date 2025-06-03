@@ -50,9 +50,9 @@ class ListMoviesViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightBarButton
     }
 
-    func setupData(title: String, listMovies: ResponseTheMovieDBBase<Movie>?) {
+    func setupData(title: String, type: TypeCellHome, listMovies: ResponseTheMovieDBBase<Movie>?) {
         self.title = title
-        let caseTypeMovie = TypeMovie(rawValue: title)
+        let caseTypeMovie = TypeMovie(for: type)
         listMoviesPresenter.setupData(
             movies: listMovies?.results,
             typeMovies: caseTypeMovie,

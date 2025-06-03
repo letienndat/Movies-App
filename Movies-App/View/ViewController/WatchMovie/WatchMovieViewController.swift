@@ -20,6 +20,13 @@ class WatchMovieViewController: UIViewController {
         fetchData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        /// Tracking
+        watchMoviePresenter.tracking()
+    }
+
     func setupNav() {
         title = watchMoviePresenter.movie?.title ?? "Trailer"
         navigationController?.navigationBar.topItem?.title = ""

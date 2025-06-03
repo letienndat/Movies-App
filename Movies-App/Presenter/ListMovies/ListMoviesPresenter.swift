@@ -17,6 +17,9 @@ class ListMoviesPresenter {
     private var totalResults = 0
     private var typeMovies: TypeMovie?
     var isLoading = false
+    var recommendation: RecommendationDTO? {
+        AppManager.recommendationDTO
+    }
 
     init(listMoviesViewDelegate: ListMoviesViewDelegate) {
         self.listMoviesViewDelegate = listMoviesViewDelegate
@@ -59,12 +62,29 @@ class ListMoviesPresenter {
             endpoint = AppConst.endPointGetUpcoming
         case .popular:
             endpoint = AppConst.endPointGetPopular
+        case .recommendForYou, .youMightLike:
+            endpoint = AppConst.endPointRecommendations
         }
 
-        let params: [String: Any] = [
+        var params: [String: Any] = [
             "language": "en-US",
             "page": page
         ]
+        if typeMovies == .recommendForYou || typeMovies == .youMightLike {
+            guard let recommendation else {
+                isLoading = false
+                self.listMoviesViewDelegate?.hideLoadingMore()
+                return
+            }
+            params["include_adult"] = false
+
+            if typeMovies == .recommendForYou {
+                let genreParam = recommendation.genreScores.map({ String(describing: $0.genreID) }).joined(separator: "|")
+                params["with_genres"] = genreParam
+            } else if typeMovies == .youMightLike {
+                params["with_genres"] = "\(recommendation.topGenre)"
+            }
+        }
 
         theMovieDBService.fetchListMovies(endpoint: endpoint, params: params) { [weak self] res in
             guard let self = self else { return }

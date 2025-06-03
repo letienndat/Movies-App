@@ -64,16 +64,47 @@ class HomeViewController: UIViewController {
                 break
             case .nowPlaying:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesNowPlaying?.movies)
+                destinationVC.setupData(
+                    title: cellHomeSelected.title,
+                    type: .nowPlaying,
+                    listMovies: homePresenter.listMoviesNowPlaying?.movies
+                )
             case .trending:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesTrending?.movies)
+                destinationVC.setupData(
+                    title: cellHomeSelected.title,
+                    type: .trending,
+                    listMovies: homePresenter.listMoviesTrending?.movies
+                )
             case .upcomming:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesUpcoming?.movies)
+                destinationVC.setupData(
+                    title: cellHomeSelected.title,
+                    type: .upcomming,
+                    listMovies: homePresenter.listMoviesUpcoming?.movies
+                )
             case .popular:
                 let destinationVC = segue.destination as! ListMoviesViewController
-                destinationVC.setupData(title: cellHomeSelected.title, listMovies: homePresenter.listMoviesPopular?.movies)
+                destinationVC.setupData(
+                    title: cellHomeSelected.title,
+                    type: .popular,
+                    listMovies: homePresenter.listMoviesPopular?.movies
+                )
+            case .moviesRecommendForYou:
+                let destinationVC = segue.destination as! ListMoviesViewController
+                destinationVC.setupData(
+                    title: cellHomeSelected.title,
+                    type: .moviesRecommendForYou,
+                    listMovies: homePresenter.listMoviesRecommendForYou?.movies
+                )
+            case .moviesYouMightLike:
+                let destinationVC = segue.destination as! ListMoviesViewController
+                let title = homePresenter.titleYouMightLike
+                destinationVC.setupData(
+                    title: title,
+                    type: .moviesYouMightLike,
+                    listMovies: homePresenter.listMoviesYouMightLike?.movies
+                )
             }
         } else if segue.identifier == "goToScreenSearch" {
             let destinationVC = segue.destination as! SearchViewController
@@ -99,6 +130,7 @@ extension HomeViewController: HomeViewDelegate {
     }
 
     func doneFetchAll() {
+        tableView.reloadData()
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
@@ -120,7 +152,7 @@ extension HomeViewController: HomeViewDelegate {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        6
+        8
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -148,75 +180,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             }
 
             return cell
-        case .nowPlaying:
+        case .nowPlaying, .trending, .upcomming, .popular, .moviesRecommendForYou, .moviesYouMightLike:
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: ListMoviesHomeTableViewCell.reuseIdentifier,
                 for: indexPath
             ) as! ListMoviesHomeTableViewCell
             cell.closureHandleTappedViewAll = { [weak self] in
                 guard let self = self else { return }
-                self.cellHomeSelected = .nowPlaying
+                self.cellHomeSelected = row
                 self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
             }
             let dataSource = homePresenter.getDataSource(type: row)
-            cell.setData(title: row.title, data: dataSource)
-            cell.tapMovieDelegate = self
-            cell.scrollViewDidScroll = { [weak self] offset in
-                guard let self else { return }
-                self.homePresenter.updateCurrentOffset(offset, type: row)
-            }
-
-            return cell
-        case .trending:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: ListMoviesHomeTableViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! ListMoviesHomeTableViewCell
-            cell.closureHandleTappedViewAll = { [weak self] in
-                guard let self = self else { return }
-                self.cellHomeSelected = .trending
-                self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
-            }
-            let dataSource = homePresenter.getDataSource(type: row)
-            cell.setData(title: row.title, data: dataSource)
-            cell.tapMovieDelegate = self
-            cell.scrollViewDidScroll = { [weak self] offset in
-                guard let self else { return }
-                self.homePresenter.updateCurrentOffset(offset, type: row)
-            }
-
-            return cell
-        case .upcomming:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: ListMoviesHomeTableViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! ListMoviesHomeTableViewCell
-            cell.closureHandleTappedViewAll = { [weak self] in
-                guard let self = self else { return }
-                self.cellHomeSelected = .upcomming
-                self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
-            }
-            let dataSource = homePresenter.getDataSource(type: row)
-            cell.setData(title: row.title, data: dataSource)
-            cell.tapMovieDelegate = self
-            cell.scrollViewDidScroll = { [weak self] offset in
-                guard let self else { return }
-                self.homePresenter.updateCurrentOffset(offset, type: row)
-            }
-
-            return cell
-        case .popular:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: ListMoviesHomeTableViewCell.reuseIdentifier,
-                for: indexPath
-            ) as! ListMoviesHomeTableViewCell
-            cell.closureHandleTappedViewAll = { [weak self] in
-                guard let self = self else { return }
-                self.cellHomeSelected = .popular
-                self.performSegue(withIdentifier: "goToScreenListMovies", sender: self)
-            }
-            let dataSource = homePresenter.getDataSource(type: row)
-            cell.setData(title: row.title, data: dataSource)
+            cell.setData(data: dataSource)
             cell.tapMovieDelegate = self
             cell.scrollViewDidScroll = { [weak self] offset in
                 guard let self else { return }

@@ -26,6 +26,8 @@
 		4A4E52D42D55FDDB00DFC7BC /* ListMoviesHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E52D22D55FDDB00DFC7BC /* ListMoviesHomeTableViewCell.xib */; };
 		4A4E52D72D56035C00DFC7BC /* MovieHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E52D52D56035C00DFC7BC /* MovieHomeCollectionViewCell.swift */; };
 		4A4E52D82D56035C00DFC7BC /* MovieHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E52D62D56035C00DFC7BC /* MovieHomeCollectionViewCell.xib */; };
+		4A5151C62DEEE7D100546199 /* AppTrackingRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C52DEEE7D100546199 /* AppTrackingRes.swift */; };
+		4A5151C92DEEE81800546199 /* AppTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C82DEEE81800546199 /* AppTrackingService.swift */; };
 		4A53B6862D76A0F500C86556 /* WatchMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A53B6852D76A0F500C86556 /* WatchMovie.storyboard */; };
 		4A53B6892D76A17A00C86556 /* WatchMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53B6882D76A17A00C86556 /* WatchMovieViewController.swift */; };
 		4A53B68C2D76B07000C86556 /* ListVideoRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53B68B2D76B07000C86556 /* ListVideoRes.swift */; };
@@ -81,6 +83,8 @@
 		4AC27E052D54AB0300712680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC27E042D54AB0300712680 /* Assets.xcassets */; };
 		4AC27E082D54AB0300712680 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC27E062D54AB0300712680 /* LaunchScreen.storyboard */; };
 		4AC27E172D54AEA200712680 /* ViewBackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC27E162D54AEA200712680 /* ViewBackgroundGradient.swift */; };
+		4AC418092DEF3CAD00C357A2 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC418082DEF3CA600C357A2 /* Common.swift */; };
+		4AC4180D2DEF4C2700C357A2 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC4180C2DEF4C2700C357A2 /* AppManager.swift */; };
 		4AC88A8F2D599FBA00FCBDE1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC88A8E2D599FBA00FCBDE1 /* Movie.swift */; };
 		4AC88A912D59A13500FCBDE1 /* ResponseTheMovieDBBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC88A902D59A13500FCBDE1 /* ResponseTheMovieDBBase.swift */; };
 		4AC88A962D59A48000FCBDE1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC88A952D59A48000FCBDE1 /* HomePresenter.swift */; };
@@ -136,6 +140,8 @@
 		4A4E52D22D55FDDB00DFC7BC /* ListMoviesHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListMoviesHomeTableViewCell.xib; sourceTree = "<group>"; };
 		4A4E52D52D56035C00DFC7BC /* MovieHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A4E52D62D56035C00DFC7BC /* MovieHomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieHomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		4A5151C52DEEE7D100546199 /* AppTrackingRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackingRes.swift; sourceTree = "<group>"; };
+		4A5151C82DEEE81800546199 /* AppTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackingService.swift; sourceTree = "<group>"; };
 		4A53B6852D76A0F500C86556 /* WatchMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WatchMovie.storyboard; sourceTree = "<group>"; };
 		4A53B6882D76A17A00C86556 /* WatchMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMovieViewController.swift; sourceTree = "<group>"; };
 		4A53B68B2D76B07000C86556 /* ListVideoRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVideoRes.swift; sourceTree = "<group>"; };
@@ -194,6 +200,8 @@
 		4AC27E072D54AB0300712680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AC27E092D54AB0300712680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC27E162D54AEA200712680 /* ViewBackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackgroundGradient.swift; sourceTree = "<group>"; };
+		4AC418082DEF3CA600C357A2 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		4AC4180C2DEF4C2700C357A2 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4AC88A8E2D599FBA00FCBDE1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4AC88A902D59A13500FCBDE1 /* ResponseTheMovieDBBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTheMovieDBBase.swift; sourceTree = "<group>"; };
 		4AC88A952D59A48000FCBDE1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -344,6 +352,14 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		4A5151C72DEEE7F100546199 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				4A5151C82DEEE81800546199 /* AppTrackingService.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
 		4A53B6872D76A12100C86556 /* WatchMovie */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +452,7 @@
 		4A62180A2D62CBD0004ECA2A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4AC418082DEF3CA600C357A2 /* Common.swift */,
 				4A62180B2D62CBEF004ECA2A /* CommonValidation.swift */,
 			);
 			path = Utilities;
@@ -619,6 +636,7 @@
 				4ADAD5B52D6D8131008DF163 /* CreditsMovie.swift */,
 				4A60AC442D757BCF005B808A /* UpdateWatchListRes.swift */,
 				4A53B68B2D76B07000C86556 /* ListVideoRes.swift */,
+				4A5151C52DEEE7D100546199 /* AppTrackingRes.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -710,6 +728,7 @@
 		4AC27DFA2D54AB0100712680 /* Movies-App */ = {
 			isa = PBXGroup;
 			children = (
+				4AC4180B2DEF4C1900C357A2 /* AppManager */,
 				4AE1C0942D9FBB02002D240B /* Config */,
 				4AC27E122D54AC4C00712680 /* AppDelegate */,
 				4AC88A972D59A55C00FCBDE1 /* Const */,
@@ -796,11 +815,20 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		4AC4180B2DEF4C1900C357A2 /* AppManager */ = {
+			isa = PBXGroup;
+			children = (
+				4AC4180C2DEF4C2700C357A2 /* AppManager.swift */,
+			);
+			path = AppManager;
+			sourceTree = "<group>";
+		};
 		4AC88A922D59A1B800FCBDE1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */,
 				4ABC76192D66D94600E4995A /* TheMovieDB */,
+				4A5151C72DEEE7F100546199 /* Tracking */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1053,6 +1081,7 @@
 				4A960FA32D6C5B2B00934369 /* DetailMovieViewDelegate.swift in Sources */,
 				4A1484722D5D88B500CB6E5D /* LoginViewController.swift in Sources */,
 				4ADAD5A42D6D4FA8008DF163 /* ReviewTabTableViewCell.swift in Sources */,
+				4A5151C92DEEE81800546199 /* AppTrackingService.swift in Sources */,
 				4A8682982D5EFFD300BB1553 /* ConfigNavigationController.swift in Sources */,
 				4A408D0F2D5C3ABC00F11AB9 /* BaseService.swift in Sources */,
 				4A960F932D6C1F6800934369 /* DetailMovieViewController.swift in Sources */,
@@ -1085,6 +1114,7 @@
 				4ADAD59B2D6D4E55008DF163 /* TabAboutMovieViewController.swift in Sources */,
 				4ABC76152D66B95A00E4995A /* SearchViewDelegate.swift in Sources */,
 				4ACF34532DC7B82A0075F2CB /* Auth.swift in Sources */,
+				4A5151C62DEEE7D100546199 /* AppTrackingRes.swift in Sources */,
 				4AD885C32D65762E00D8D2AF /* GetUserRes.swift in Sources */,
 				4A960FA02D6C5AF900934369 /* DetailMoviePresenter.swift in Sources */,
 				4AA0D8AF2D5F3FB700321BE1 /* LoginReq.swift in Sources */,
@@ -1092,6 +1122,7 @@
 				4AFB8E992D7063F100697346 /* TabAboutMovieViewDelegate.swift in Sources */,
 				4A4E52C42D55D74A00DFC7BC /* TopRatedTableViewCell.swift in Sources */,
 				4AA0D8B12D5F3FC800321BE1 /* LoginRes.swift in Sources */,
+				4AC418092DEF3CAD00C357A2 /* Common.swift in Sources */,
 				4A6218022D62C67E004ECA2A /* SignUpViewController.swift in Sources */,
 				4ADAD5B82D6D8266008DF163 /* TabCastPresenter.swift in Sources */,
 				4AC88A9F2D59D2B200FCBDE1 /* SearchViewController.swift in Sources */,
@@ -1100,6 +1131,7 @@
 				4ADAD5BA2D6D8294008DF163 /* TabCastViewDelegate.swift in Sources */,
 				4A62180F2D62D239004ECA2A /* TagTextFieldAuth.swift in Sources */,
 				4A4E52BB2D55B6CB00DFC7BC /* SearchTableViewCell.swift in Sources */,
+				4AC4180D2DEF4C2700C357A2 /* AppManager.swift in Sources */,
 				4A53B6952D76B59D00C86556 /* WatchMovieViewDelegate.swift in Sources */,
 				4AFB8E962D70486600697346 /* UIView+Ext.swift in Sources */,
 				4AA93AA72D6C055A0026F830 /* ListMoviesViewDelegate.swift in Sources */,
