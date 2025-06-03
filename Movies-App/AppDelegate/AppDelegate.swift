@@ -25,10 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         Thread.sleep(forTimeInterval: 0.5)
 
-        if Auth.isExistCurrentUser() {
-            goToScreenHome()
-        } else {
+        if !AppManager.hasLaunchedBefore {
+            try? Auth.auth().signOut()
+            AppManager.hasLaunchedBefore = true
             goToScreenLogin()
+        } else {
+            if Auth.isExistCurrentUser() {
+                goToScreenHome()
+            } else {
+                goToScreenLogin()
+            }
         }
 
         return true
