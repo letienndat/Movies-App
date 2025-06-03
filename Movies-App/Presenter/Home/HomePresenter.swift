@@ -41,7 +41,7 @@ class HomePresenter {
     private(set) var listMoviesYouMightLike: GroupMovieCellData?
     var titleYouMightLike: String {
         var title = TypeCellHome.moviesYouMightLike.title
-        title = "\(title) \(recommendations?.genreScores.first?.genre ?? "")"
+        title = "\(title) \(recommendations?.topGenreName ?? "")"
         return title
     }
 

@@ -15,6 +15,7 @@ struct AppTrackingRes<T: Codable>: Codable {
 
 struct RecommendationDTO: Codable {
     let topGenre: Int
+    let topGenreName: String
     let genreScores: [GenreScoreDTO]
 }
 

@@ -26,7 +26,8 @@ struct AppConst {
 
     public static let baseURLTMDBImage = "https://image.tmdb.org/t/p/w500"
     public static let urlEmbedVideoYouTube = "https://www.youtube.com/embed/{video_id}"
-    public static let baseURLServerTracking = "http://localhost:3000/api/users"
+//    public static let baseURLServerTracking = "http://localhost:3000/api/users"
+    public static let baseURLServerTracking = "https://movies-app-server-n6u7.onrender.com/api/users"
 
     public static let colorRefreshControl = UIColor(hex: 0xFFFFFF)
     public static let colorViewTabSelected = UIColor(hex: 0x3A3F47)
