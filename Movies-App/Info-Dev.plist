@@ -14,6 +14,12 @@
 	<string>$(URL_EMBED_VIDEO_YOUTUBE)</string>
 	<key>BASE_URL_SERVER_TRACKING</key>
 	<string>$(BASE_URL_SERVER_TRACKING)</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>Atlantis would use Bonjour Service to discover Proxyman app from your local network. Atlantis uses it to transfer the data from your iOS app to Proxyman macOS for debugging purposes.</string>
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_Proxyman._tcp</string>
+    </array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-SemiBold.ttf</string>

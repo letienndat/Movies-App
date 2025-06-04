@@ -11,6 +11,9 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import FacebookCore
+#if DEBUG
+import Atlantis
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+
+#if DEBUG
+        Atlantis.start()
+#endif
 
         FirebaseApp.configure()
         DBDebugToolkit.setup()
