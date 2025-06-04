@@ -2,28 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>API_KEY_THEMOVIEDB</key>
-    <string>$(API_KEY_THEMOVIEDB)</string>
-    <key>SESSION_ID</key>
-    <string>$(SESSION_ID)</string>
-    <key>BASE_URL_THE_MOVIE_DB</key>
-    <string>$(BASE_URL_THE_MOVIE_DB)</string>
-    <key>BASE_URL_TMDB_IMAGE</key>
-    <string>$(BASE_URL_TMDB_IMAGE)</string>
-    <key>URL_EMBED_VIDEO_YOUTUBE</key>
-    <string>$(URL_EMBED_VIDEO_YOUTUBE)</string>
-    <key>BASE_URL_SERVER_TRACKING</key>
-    <string>$(BASE_URL_SERVER_TRACKING)</string>
-    <key>NSLocalNetworkUsageDescription</key>
-    <string>Atlantis would use Bonjour Service to discover Proxyman app from your local network. Atlantis uses it to transfer the data from your iOS app to Proxyman macOS for debugging purposes.</string>
-    <key>NSBonjourServices</key>
-    <array>
-        <string>_Proxyman._tcp</string>
-    </array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Montserrat-SemiBold.ttf</string>
-	</array>
+	<key>ACKNOWLEDGEMENT_PLIST</key>
+	<string>Pods-Movies-App [DEV-ST]-acknowledgements</string>
+	<key>API_KEY_THEMOVIEDB</key>
+	<string>$(API_KEY_THEMOVIEDB)</string>
+	<key>BASE_URL_SERVER_TRACKING</key>
+	<string>$(BASE_URL_SERVER_TRACKING)</string>
+	<key>BASE_URL_THE_MOVIE_DB</key>
+	<string>$(BASE_URL_THE_MOVIE_DB)</string>
+	<key>BASE_URL_TMDB_IMAGE</key>
+	<string>$(BASE_URL_TMDB_IMAGE)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -52,5 +40,17 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_Proxyman._tcp</string>
+	</array>
+	<key>SESSION_ID</key>
+	<string>$(SESSION_ID)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-SemiBold.ttf</string>
+	</array>
+	<key>URL_EMBED_VIDEO_YOUTUBE</key>
+	<string>$(URL_EMBED_VIDEO_YOUTUBE)</string>
 </dict>
 </plist>

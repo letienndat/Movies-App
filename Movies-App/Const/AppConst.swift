@@ -41,6 +41,9 @@ struct AppConst {
     public static var baseURLServerTracking: String {
         XCConfig.baseURLServerTracking.value
     }
+    public static var pathPlistAcknowledgements: String {
+        Bundle.main.object(forInfoDictionaryKey: "ACKNOWLEDGEMENT_PLIST") as! String
+    }
 
     public static let colorRefreshControl = UIColor(hex: 0xFFFFFF)
     public static let colorViewTabSelected = UIColor(hex: 0x3A3F47)

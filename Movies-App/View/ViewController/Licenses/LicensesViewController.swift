@@ -11,14 +11,17 @@ import AcknowList
 class LicensesViewController: UIViewController {
     @IBOutlet private weak var containerView: UIView!
 
-    private let licensesListVC: AcknowListViewController? = {
-        guard let path = Bundle.main.path(forResource: "Pods-Movies-App-acknowledgements", ofType: "plist") else {
-            debugPrint("Can't found file Pods-Movies-App-acknowledgements.plist")
+    private var pathPlistAcknowledgements: String {
+        AppConst.pathPlistAcknowledgements
+    }
+    private var licensesListVC: AcknowListViewController? {
+        guard let path = Bundle.main.path(forResource: pathPlistAcknowledgements, ofType: "plist") else {
+            debugPrint("Can't found file \(pathPlistAcknowledgements).plist")
             return nil
         }
         let vc = AcknowListViewController(fileNamed: path)
         return vc
-    }()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

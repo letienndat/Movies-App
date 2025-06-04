@@ -260,6 +260,7 @@
 		4A53B6942D76B59D00C86556 /* WatchMovieViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMovieViewDelegate.swift; sourceTree = "<group>"; };
 		4A5CC4062D7141970019599D /* HeightContentViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightContentViewDelegate.swift; sourceTree = "<group>"; };
 		4A5CC4092D7141DA0019599D /* PageTabViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabViewDelegate.swift; sourceTree = "<group>"; };
+		4A5D37EF2DF05E5300F4BE13 /* Info-DevST.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-DevST.plist"; sourceTree = "<group>"; };
 		4A60AC312D7535B6005B808A /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		4A60AC342D7535EB005B808A /* WatchListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewDelegate.swift; sourceTree = "<group>"; };
 		4A60AC402D756B6D005B808A /* StateFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateFetch.swift; sourceTree = "<group>"; };
@@ -341,7 +342,6 @@
 		4ADAD5B92D6D8294008DF163 /* TabCastViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCastViewDelegate.swift; sourceTree = "<group>"; };
 		4AE477B62DBF373E003F719B /* DBDebugToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DBDebugToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE7CE7E2DEFD9F800F1C88A /* Movies-App [DEV-ST].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies-App [DEV-ST].app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AE7CE7F2DEFD9F800F1C88A /* Info-DevST.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-DevST.plist"; path = "/Users/letiendat/Documents/dat.lt/Movies-App/Movies-App/Info-DevST.plist"; sourceTree = "<absolute>"; };
 		4AE7CE822DEFDA5700F1C88A /* Config-DevST-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-DevST-Debug.xcconfig"; sourceTree = "<group>"; };
 		4AEBBDE32DF0270F00407C6B /* Pods-Movies-App [DEV-ST]-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Pods-Movies-App [DEV-ST]-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Movies-App [DEV-ST]/Pods-Movies-App [DEV-ST]-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		4AEBBDE52DF0272500407C6B /* Pods-Movies-App [DEV]-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Pods-Movies-App [DEV]-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Movies-App [DEV]/Pods-Movies-App [DEV]-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
@@ -870,7 +870,7 @@
 				4A62180A2D62CBD0004ECA2A /* Utilities */,
 				4AC27E042D54AB0300712680 /* Assets.xcassets */,
 				4AC27E092D54AB0300712680 /* Info-Dev.plist */,
-				4AE7CE7F2DEFD9F800F1C88A /* Info-DevST.plist */,
+				4A5D37EF2DF05E5300F4BE13 /* Info-DevST.plist */,
 				4ACF33552DC774270075F2CB /* GoogleService-Info.plist */,
 				4AEBBDE52DF0272500407C6B /* Pods-Movies-App [DEV]-acknowledgements.plist */,
 				4AEBBDE32DF0270F00407C6B /* Pods-Movies-App [DEV-ST]-acknowledgements.plist */,
@@ -1659,7 +1659,8 @@
 				DEVELOPMENT_TEAM = 2C5DNYDK64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movies-App/Info-Dev.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Movies App";
+				INFOPLIST_KEY_CFBundleDisplayName = "[DEV] Movies App";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Atlantis would use Bonjour Service to discover Proxyman app from your local network. Atlantis uses it to transfer the data from your iOS app to Proxyman macOS for debugging purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1695,7 +1696,8 @@
 				DEVELOPMENT_TEAM = 2C5DNYDK64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movies-App/Info-Dev.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Movies App";
+				INFOPLIST_KEY_CFBundleDisplayName = "[DEV] Movies App";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Atlantis would use Bonjour Service to discover Proxyman app from your local network. Atlantis uses it to transfer the data from your iOS app to Proxyman macOS for debugging purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1731,7 +1733,8 @@
 				DEVELOPMENT_TEAM = 2C5DNYDK64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movies-App/Info-DevST.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Movies App";
+				INFOPLIST_KEY_CFBundleDisplayName = "[DEV-ST] Movies App";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Atlantis would use Bonjour Service to discover Proxyman app from your local network. Atlantis uses it to transfer the data from your iOS app to Proxyman macOS for debugging purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1767,7 +1770,8 @@
 				DEVELOPMENT_TEAM = 2C5DNYDK64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Movies-App/Info-DevST.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Movies App";
+				INFOPLIST_KEY_CFBundleDisplayName = "[DEV-ST] Movies App";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Atlantis would use Bonjour Service to discover Proxyman app from your local network. Atlantis uses it to transfer the data from your iOS app to Proxyman macOS for debugging purposes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
