@@ -67,35 +67,35 @@ class HomeViewController: UIViewController {
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .nowPlaying,
-                    listMovies: homePresenter.listMoviesNowPlaying?.movies
+                    listMovies: homePresenter.listMoviesNowPlaying.movies
                 )
             case .trending:
                 let destinationVC = segue.destination as! ListMoviesViewController
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .trending,
-                    listMovies: homePresenter.listMoviesTrending?.movies
+                    listMovies: homePresenter.listMoviesTrending.movies
                 )
             case .upcomming:
                 let destinationVC = segue.destination as! ListMoviesViewController
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .upcomming,
-                    listMovies: homePresenter.listMoviesUpcoming?.movies
+                    listMovies: homePresenter.listMoviesUpcoming.movies
                 )
             case .popular:
                 let destinationVC = segue.destination as! ListMoviesViewController
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .popular,
-                    listMovies: homePresenter.listMoviesPopular?.movies
+                    listMovies: homePresenter.listMoviesPopular.movies
                 )
             case .moviesRecommendForYou:
                 let destinationVC = segue.destination as! ListMoviesViewController
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .moviesRecommendForYou,
-                    listMovies: homePresenter.listMoviesRecommendForYou?.movies
+                    listMovies: homePresenter.listMoviesRecommendForYou.movies
                 )
             case .moviesYouMightLike:
                 let destinationVC = segue.destination as! ListMoviesViewController
@@ -103,7 +103,7 @@ class HomeViewController: UIViewController {
                 destinationVC.setupData(
                     title: title,
                     type: .moviesYouMightLike,
-                    listMovies: homePresenter.listMoviesYouMightLike?.movies
+                    listMovies: homePresenter.listMoviesYouMightLike.movies
                 )
             }
         } else if segue.identifier == "goToScreenSearch" {
@@ -130,7 +130,6 @@ extension HomeViewController: HomeViewDelegate {
     }
 
     func doneFetchAll() {
-        tableView.reloadData()
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }

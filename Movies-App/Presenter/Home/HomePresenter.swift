@@ -31,22 +31,30 @@ class HomePresenter {
     private let theMovieDBService = TheMovieDBService.shared
     private let appTrackingService = AppTrackingService.shared
 
-    private(set) var listMoviesTopRated: GroupMovieCellData?
-    private(set) var listMoviesNowPlaying: GroupMovieCellData?
-    private(set) var listMoviesTrending: GroupMovieCellData?
-    private(set) var listMoviesUpcoming: GroupMovieCellData?
-    private(set) var listMoviesPopular: GroupMovieCellData?
+    private(set) var listMoviesTopRated: GroupMovieCellData
+    private(set) var listMoviesNowPlaying: GroupMovieCellData
+    private(set) var listMoviesTrending: GroupMovieCellData
+    private(set) var listMoviesUpcoming: GroupMovieCellData
+    private(set) var listMoviesPopular: GroupMovieCellData
     private(set) var recommendations: RecommendationDTO?
-    private(set) var listMoviesRecommendForYou: GroupMovieCellData?
-    private(set) var listMoviesYouMightLike: GroupMovieCellData?
+    private(set) var listMoviesRecommendForYou: GroupMovieCellData
+    private(set) var listMoviesYouMightLike: GroupMovieCellData
     var titleYouMightLike: String {
         var title = TypeCellHome.moviesYouMightLike.title
-        title = "\(title) \(recommendations?.topGenreName ?? "")"
+        let genreName = recommendations?.topGenreName ?? ""
+        title = title.replacingOccurrences(of: ":genre_name", with: genreName)
         return title
     }
 
     init(homeViewDelegate: HomeViewDelegate) {
         self.homeViewDelegate = homeViewDelegate
+        self.listMoviesTopRated = GroupMovieCellData(title: TypeCellHome.topRated.title, movies: nil)
+        self.listMoviesNowPlaying = GroupMovieCellData(title: TypeCellHome.nowPlaying.title, movies: nil)
+        self.listMoviesTrending = GroupMovieCellData(title: TypeCellHome.trending.title, movies: nil)
+        self.listMoviesUpcoming = GroupMovieCellData(title: TypeCellHome.upcomming.title, movies: nil)
+        self.listMoviesPopular = GroupMovieCellData(title: TypeCellHome.popular.title, movies: nil)
+        self.listMoviesRecommendForYou = GroupMovieCellData(title: TypeCellHome.moviesRecommendForYou.title, movies: nil)
+        self.listMoviesYouMightLike = GroupMovieCellData(title: TypeCellHome.moviesYouMightLike.title, movies: nil)
     }
 
     func getDataSource(type: TypeCellHome) -> GroupMovieCellData? {
@@ -75,30 +83,30 @@ class HomePresenter {
         case .search:
             break
         case .topRated:
-            listMoviesTopRated?.currentOffset = newOffset
+            listMoviesTopRated.currentOffset = newOffset
         case .nowPlaying:
-            listMoviesNowPlaying?.currentOffset = newOffset
+            listMoviesNowPlaying.currentOffset = newOffset
         case .trending:
-            listMoviesTrending?.currentOffset = newOffset
+            listMoviesTrending.currentOffset = newOffset
         case .upcomming:
-            listMoviesUpcoming?.currentOffset = newOffset
+            listMoviesUpcoming.currentOffset = newOffset
         case .popular:
-            listMoviesPopular?.currentOffset = newOffset
+            listMoviesPopular.currentOffset = newOffset
         case .moviesRecommendForYou:
-            listMoviesRecommendForYou?.currentOffset = newOffset
+            listMoviesRecommendForYou.currentOffset = newOffset
         case .moviesYouMightLike:
-            listMoviesYouMightLike?.currentOffset = newOffset
+            listMoviesYouMightLike.currentOffset = newOffset
         }
     }
 
     func resetCurrentOffset() {
-        listMoviesTopRated?.currentOffset = .zero
-        listMoviesNowPlaying?.currentOffset = .zero
-        listMoviesTrending?.currentOffset = .zero
-        listMoviesUpcoming?.currentOffset = .zero
-        listMoviesPopular?.currentOffset = .zero
-        listMoviesRecommendForYou?.currentOffset = .zero
-        listMoviesYouMightLike?.currentOffset = .zero
+        listMoviesTopRated.currentOffset = .zero
+        listMoviesNowPlaying.currentOffset = .zero
+        listMoviesTrending.currentOffset = .zero
+        listMoviesUpcoming.currentOffset = .zero
+        listMoviesPopular.currentOffset = .zero
+        listMoviesRecommendForYou.currentOffset = .zero
+        listMoviesYouMightLike.currentOffset = .zero
     }
 
     func fetchAll() {

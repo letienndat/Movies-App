@@ -9,7 +9,15 @@ import Foundation
 import UIKit
 
 struct AppConst {
-    public static let baseURLTheMovieDB = "https://api.themoviedb.org/3"
+    public static var apiKeyTheMovieDB: String {
+        XCConfig.apiKeyTheMovieDB.value
+    }
+    public static var sessionID: String {
+        XCConfig.sessionID.value
+    }
+    public static var baseURLTheMovieDB: String {
+        XCConfig.baseURLTheMovieDB.value
+    }
     public static let endPointGetTopRated = "/movie/top_rated"
     public static let endPointGetNowPlaying = "/movie/now_playing"
     public static let endPointGetTrending = "/trending/movie/day"
@@ -24,10 +32,15 @@ struct AppConst {
     public static let endPointGetListVideos = "/movie/{movie_id}/videos"
     public static let endPointRecommendations = "/discover/movie"
 
-    public static let baseURLTMDBImage = "https://image.tmdb.org/t/p/w500"
-    public static let urlEmbedVideoYouTube = "https://www.youtube.com/embed/{video_id}"
-//    public static let baseURLServerTracking = "http://localhost:3000/api/users"
-    public static let baseURLServerTracking = "https://movies-app-server-n6u7.onrender.com/api/users"
+    public static var baseURLTMDBImage: String {
+        XCConfig.baseURLTMDBImage.value
+    }
+    public static var urlEmbedVideoYouTube: String {
+        XCConfig.urlEmbedVideoYouTube.value
+    }
+    public static var baseURLServerTracking: String {
+        XCConfig.baseURLServerTracking.value
+    }
 
     public static let colorRefreshControl = UIColor(hex: 0xFFFFFF)
     public static let colorViewTabSelected = UIColor(hex: 0x3A3F47)
@@ -60,5 +73,35 @@ struct AppConst {
             case .recommendations: "/:email/recommendations"
             }
         }
+    }
+}
+
+enum XCConfig {
+    case apiKeyTheMovieDB
+    case sessionID
+    case baseURLTheMovieDB
+    case baseURLTMDBImage
+    case urlEmbedVideoYouTube
+    case baseURLServerTracking
+
+    var key: String {
+        switch self {
+        case .apiKeyTheMovieDB: "API_KEY_THEMOVIEDB"
+        case .sessionID: "SESSION_ID"
+        case .baseURLTheMovieDB: "BASE_URL_THE_MOVIE_DB"
+        case .baseURLTMDBImage: "BASE_URL_TMDB_IMAGE"
+        case .urlEmbedVideoYouTube: "URL_EMBED_VIDEO_YOUTUBE"
+        case .baseURLServerTracking: "BASE_URL_SERVER_TRACKING"
+        }
+    }
+}
+
+extension XCConfig {
+    var value: String {
+        getValueFromPlist(key: self)
+    }
+
+    private func getValueFromPlist(key: XCConfig) -> String {
+        Bundle.main.object(forInfoDictionaryKey: key.key) as! String
     }
 }

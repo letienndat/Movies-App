@@ -35,7 +35,7 @@ enum TypeCellHome: Int {
         case .moviesRecommendForYou:
             "Recommend For You"
         case .moviesYouMightLike:
-            "You Might Like"
+            "You Might Like :genre_name"
         }
     }
 

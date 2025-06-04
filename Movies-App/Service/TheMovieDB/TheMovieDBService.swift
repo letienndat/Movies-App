@@ -14,7 +14,7 @@ class TheMovieDBService: BaseService {
     private init() {
         let url = AppConst.baseURLTheMovieDB
 
-        var apiKey: String = (Bundle.main.object(forInfoDictionaryKey: "API_KEY_THEMOVIEDB") as! String)
+        var apiKey = AppConst.apiKeyTheMovieDB
         apiKey = apiKey.replacingOccurrences(of: "\"", with: "")
 
         let headers: HTTPHeaders = [

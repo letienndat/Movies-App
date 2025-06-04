@@ -33,7 +33,7 @@ class DetailMoviePresenter {
         }
 
         let endpoint = AppConst.endPointMovieDetails.replacingOccurrences(of: "{movie_id}", with: "\(id)")
-        let sessionID: String = (Bundle.main.object(forInfoDictionaryKey: "SESSION_ID") as! String)
+        let sessionID = AppConst.sessionID
 
         let params: [String: Any] = [
             "language": "en-US",

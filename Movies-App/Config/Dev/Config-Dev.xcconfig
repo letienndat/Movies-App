@@ -1,0 +1,16 @@
+//
+//  Config-Dev.xcconfig
+//  Movies-App
+//
+//  Created by Le Tien Dat on 11/02/2025.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY_THEMOVIEDB = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNDMzNjhjNmExNDE0ZTVjNGQ1YWMyZTg4OGUxNjQyMyIsIm5iZiI6MTczODgyODg2Ny4yMjU5OTk4LCJzdWIiOiI2N2E0NmM0Mzc3YjhjZWQ0NTY2NmRjMTAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.0yvO1kRb5SZHPZnBwie8-SBRy2HiOliZ0_lhwA0bj9o
+SESSION_ID=a052dcea01c9b5fdd90e7e6d1829f5d55011d330
+BASE_URL_THE_MOVIE_DB = https:/$()/api.themoviedb.org/3
+BASE_URL_TMDB_IMAGE = https:/$()/image.tmdb.org/t/p/w500
+URL_EMBED_VIDEO_YOUTUBE = https:/$()/www.youtube.com/embed/{video_id}
+BASE_URL_SERVER_TRACKING = http:/$()/localhost:3000/api/users
