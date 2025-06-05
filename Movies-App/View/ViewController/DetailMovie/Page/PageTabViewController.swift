@@ -15,7 +15,7 @@ class PageTabViewController: UIPageViewController {
     private var heightTabs: [CGFloat] = [0, 0, 0]
 
     weak var heightContentViewDelegate: HeightContentViewDelegate?
-    var handleSwipePage: ((Int) -> ())?
+    var handleSwipePage: ((Int) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,13 +80,15 @@ extension PageTabViewController: UIPageViewControllerDelegate {
         _ pageViewController: UIPageViewController,
         didFinishAnimating finished: Bool,
         previousViewControllers: [UIViewController],
-        transitionCompleted completed: Bool)
-    {
+        transitionCompleted completed: Bool
+    ) {
         guard completed,
               let currentVC = pageViewController.viewControllers?.first,
               let index = pages.firstIndex(of: currentVC)
         else { return }
 
+        indexCurrentPage = index
         handleSwipePage?(index)
+        heightContentViewDelegate?.heightContent(index: indexCurrentPage, height: heightTabs[index])
     }
 }
