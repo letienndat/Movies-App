@@ -27,7 +27,9 @@ class TabAboutMovieViewController: UIViewController {
     }
 
     func setupData(aboutMovie: String?, width: CGFloat) {
-        self.aboutMovie = aboutMovie ?? ""
+        let about = aboutMovie ?? ""
+        self.aboutMovie = about.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?
+                            "There is no description for this movie." : about
         self.width = width
     }
 }

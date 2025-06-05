@@ -35,13 +35,39 @@ class TabReviewsPresenter {
                 self.listReviews = listReviews.results
                 self.tabReviewViewDelegate?.showReviews()
             case .failure:
-                break
+                self.tabReviewViewDelegate?.fetchError("Can not fetch comments for this movie.")
             }
         }
     }
 
-    func computeHeightContent(view: UITableView) {
-        let height = view.contentSize.height
+    func computeHeightContent(tableView: UITableView, label: UILabel, width: CGFloat) {
+        guard tableView.isHidden else {
+            let height = tableView.contentSize.height
+            tabReviewViewDelegate?.heightContent(height: height)
+            return
+        }
+        let height = heightForView(text: label.text ?? "", font: UIFont.systemFont(ofSize: 12, weight: .regular), width: width, lineSpacing: 5)
         tabReviewViewDelegate?.heightContent(height: height)
+    }
+
+    private func heightForView(text: String, font: UIFont, width: CGFloat, lineSpacing: CGFloat) -> CGFloat {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        paragraphStyle.lineSpacing = lineSpacing
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .paragraphStyle: paragraphStyle
+        ]
+
+        let constraintSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let boundingBox = text.boundingRect(
+            with: constraintSize,
+            options: [.usesLineFragmentOrigin, .usesFontLeading],
+            attributes: attributes,
+            context: nil
+        )
+
+        return ceil(boundingBox.height)
     }
 }
