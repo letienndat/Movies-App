@@ -24,8 +24,7 @@ class TabCastPresenter {
 
         let endpoint = AppConst.endPointCreditsMovie.replacingOccurrences(of: "{movie_id}", with: "\(id)")
         let params: [String: Any] = [
-            "language": "en-US",
-            "page": 1
+            "language": "en-US"
         ]
         theMovieDBService.fetchCastMovie(endpoint: endpoint, params: params) { [weak self] res in
             guard let self = self else { return }
@@ -35,14 +34,18 @@ class TabCastPresenter {
                 self.listCasts = credits.cast
                 self.tabCastViewDelegate?.showCast()
             case .failure:
-                break
+                self.tabCastViewDelegate?.fetchError("Can not fetch casts for this movie.")
             }
         }
     }
 
-    func computeHeightContent(view: UICollectionView) {
-        let height = view.collectionViewLayout.collectionViewContentSize.height
-
+    func computeHeightContent(collectionView: UICollectionView, label: UILabel, width: CGFloat) {
+        guard collectionView.isHidden else {
+            let height = collectionView.contentSize.height
+            tabCastViewDelegate?.heightContent(height: height)
+            return
+        }
+        let height = label.getHeight(font: UIFont.systemFont(ofSize: 12, weight: .regular), width: width, lineSpacing: 5)
         tabCastViewDelegate?.heightContent(height: height)
     }
 }

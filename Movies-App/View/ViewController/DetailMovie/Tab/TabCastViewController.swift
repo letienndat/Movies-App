@@ -9,10 +9,12 @@ import UIKit
 
 class TabCastViewController: UIViewController {
 
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
 
     private lazy var tabCastPresenter = TabCastPresenter(tabCastViewDelegate: self)
     weak var pageTabViewDelegate: PageTabViewDelegate?
+    private var width: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,16 @@ class TabCastViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.layoutIfNeeded()
-        self.tabCastPresenter.computeHeightContent(view: collectionView)
+        self.tabCastPresenter.computeHeightContent(
+            collectionView: collectionView,
+            label: descriptionLabel,
+            width: width
+        )
     }
 
     func setupView() {
         collectionView.register(CastTabCollectionViewCell.nib, forCellWithReuseIdentifier: CastTabCollectionViewCell.reuseIdentifier)
+        collectionView.isHidden = true
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -74,7 +81,24 @@ extension TabCastViewController: TabCastViewDelegate {
     }
 
     func showCast() {
+        guard let listReviews = tabCastPresenter.listCasts,
+              !listReviews.isEmpty
+        else {
+            self.descriptionLabel.text = "There are no casts for this movie."
+            self.descriptionLabel.isHidden = false
+            self.collectionView.isHidden = true
+            return
+        }
+
         self.collectionView.reloadData()
+        self.collectionView.isHidden = false
+        self.descriptionLabel.isHidden = true
         self.view.setNeedsLayout()
+    }
+
+    func fetchError(_ msgErr: String) {
+        descriptionLabel.text = msgErr
+        collectionView.isHidden = true
+        descriptionLabel.isHidden = false
     }
 }

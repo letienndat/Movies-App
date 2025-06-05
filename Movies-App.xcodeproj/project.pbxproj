@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		243FB9859670253F882BA90B /* Pods_Movies_App__DEV_ST_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92235F1A8D33573ECE573544 /* Pods_Movies_App__DEV_ST_.framework */; };
 		4A1484722D5D88B500CB6E5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1484712D5D88B500CB6E5D /* LoginViewController.swift */; };
+		4A151A752DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */; };
+		4A151A762DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */; };
 		4A2D00A72DC066CA004A2DA1 /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D00A52DC066CA004A2DA1 /* LicensesViewController.swift */; };
 		4A408D0F2D5C3ABC00F11AB9 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */; };
 		4A435E2A2D5AE0CB001DA596 /* HomeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A435E292D5AE0CB001DA596 /* HomeViewDelegate.swift */; };
@@ -232,6 +234,7 @@
 /* Begin PBXFileReference section */
 		050DE0DD7595F959B417C4CA /* Pods-Movies-App [DEV-ST].release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies-App [DEV-ST].release.xcconfig"; path = "Target Support Files/Pods-Movies-App [DEV-ST]/Pods-Movies-App [DEV-ST].release.xcconfig"; sourceTree = "<group>"; };
 		4A1484712D5D88B500CB6E5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+heightView.swift"; sourceTree = "<group>"; };
 		4A2D00A52DC066CA004A2DA1 /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
 		4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		4A435E292D5AE0CB001DA596 /* HomeViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDelegate.swift; sourceTree = "<group>"; };
@@ -452,6 +455,7 @@
 				4ABC76272D67308E00E4995A /* UIImageView+Ext.swift */,
 				4AFB8E952D70486600697346 /* UIView+Ext.swift */,
 				4ACF34502DC7B7F10075F2CB /* Auth+Ext.swift */,
+				4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1348,6 +1352,7 @@
 				4AC88A9C2D59D26900FCBDE1 /* ListMoviesViewController.swift in Sources */,
 				4AA0D8A82D5F3DF100321BE1 /* LoginPresenter.swift in Sources */,
 				4AC88A912D59A13500FCBDE1 /* ResponseTheMovieDBBase.swift in Sources */,
+				4A151A752DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */,
 				4A6217F92D62C333004ECA2A /* SignUpRes.swift in Sources */,
 				4ADAD5B02D6D6EC3008DF163 /* ReviewMovie.swift in Sources */,
 				4A960F8E2D6C11DF00934369 /* TypeMovie.swift in Sources */,
@@ -1444,6 +1449,7 @@
 				4AE7CE182DEFD9F800F1C88A /* ListMoviesViewController.swift in Sources */,
 				4AE7CE192DEFD9F800F1C88A /* LoginPresenter.swift in Sources */,
 				4AE7CE1A2DEFD9F800F1C88A /* ResponseTheMovieDBBase.swift in Sources */,
+				4A151A762DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */,
 				4AE7CE1B2DEFD9F800F1C88A /* SignUpRes.swift in Sources */,
 				4AE7CE1C2DEFD9F800F1C88A /* ReviewMovie.swift in Sources */,
 				4AE7CE1D2DEFD9F800F1C88A /* TypeMovie.swift in Sources */,

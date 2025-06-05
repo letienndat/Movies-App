@@ -76,6 +76,7 @@ extension TabReviewsViewController: TabReviewsViewDelegate {
             self.tableView.isHidden = true
             return
         }
+
         self.tableView.reloadData()
         self.tableView.isHidden = false
         self.descriptionLabel.isHidden = true

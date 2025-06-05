@@ -9,5 +9,6 @@ import Foundation
 
 protocol TabCastViewDelegate: AnyObject {
     func showCast()
+    func fetchError(_ msgErr: String)
     func heightContent(height: CGFloat)
 }
