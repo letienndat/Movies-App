@@ -167,6 +167,9 @@ class DetailMovieViewController: UIViewController {
     }
 
     func makeTabSelect(indexTab: Int) {
+        indexTabSelected = indexTab
+        scrollView.setContentOffset(.zero, animated: true)
+
         if let labelTitle = tabbars[indexTab] as UILabel? {
             labelTitle.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         }
@@ -174,8 +177,6 @@ class DetailMovieViewController: UIViewController {
         if let labelTitleOld = tabbars[indexTabSelected] as UILabel? {
             labelTitleOld.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         }
-
-        indexTabSelected = indexTab
 
         UIView.animate(withDuration: 0.3) {
             self.constraintLeadingViewTabSelected.constant = self.tabbars[indexTab].frame.minX
