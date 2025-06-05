@@ -7,30 +7,9 @@
 
 import Foundation
 import UIKit
-import Kingfisher
 import SDWebImage
 
 extension UIImageView {
-//    @discardableResult
-//    public func setImage(
-//        with urlString: String?,
-//        placeholder: Placeholder? = nil,
-//        options: KingfisherOptionsInfo? = [
-//            .processor(DefaultImageProcessor.default),
-//            .cacheOriginalImage
-//        ],
-//        completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) -> DownloadTask?
-//    {
-//        guard let urlString = urlString, let url = URL(string: urlString) else { return nil }
-//        
-//        return kf.setImage(
-//            with: url,
-//            placeholder: placeholder,
-//            options: options,
-//            completionHandler: completionHandler
-//        )
-//    }
-
     public func setImage(
         with urlString: String?,
         placeholder: UIImage? = nil,

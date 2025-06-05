@@ -5,7 +5,6 @@ use_frameworks!
 
 def available_pods
   pod 'Alamofire', '~>5.9.0'
-  pod 'Kingfisher', '~>7.10.0'
   pod 'THLabel', '~> 1.4.0'
   pod 'DBDebugToolkit'
   pod 'SDWebImage', '~>5.19.5'
@@ -16,6 +15,7 @@ def available_pods
   pod 'GoogleSignIn'
   pod 'FacebookLogin'
   pod 'atlantis-proxyman'
+  pod 'SnapKit', '~> 5.7.0'
 end
 
 target 'Movies-App [DEV]' do
