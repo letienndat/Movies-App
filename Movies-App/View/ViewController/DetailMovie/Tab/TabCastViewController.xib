@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-JQ-ESx">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <rect key="frame" x="29" y="0.0" width="335" height="852"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xV3-rj-tqr">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="14.333333333333334"/>
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="14.333333333333334"/>
                             <attributedString key="attributedText">
                                 <fragment content="Loading...">
                                     <attributes>
@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LkG-eY-xYO">
-                            <rect key="frame" x="0.0" y="14.333333333333314" width="393" height="837.66666666666674"/>
+                            <rect key="frame" x="0.0" y="14.333333333333314" width="335" height="837.66666666666674"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aBR-VE-GF3">
                                 <size key="itemSize" width="128" height="128"/>
@@ -53,8 +53,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Rdv-JQ-ESx" secondAttribute="bottom" id="MNS-ox-D2m"/>
-                <constraint firstAttribute="trailing" secondItem="Rdv-JQ-ESx" secondAttribute="trailing" id="e9b-Qx-Swy"/>
-                <constraint firstItem="Rdv-JQ-ESx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ehh-Lh-xVk"/>
+                <constraint firstAttribute="trailing" secondItem="Rdv-JQ-ESx" secondAttribute="trailing" constant="29" id="e9b-Qx-Swy"/>
+                <constraint firstItem="Rdv-JQ-ESx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="ehh-Lh-xVk"/>
                 <constraint firstItem="Rdv-JQ-ESx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uf1-8A-kmu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

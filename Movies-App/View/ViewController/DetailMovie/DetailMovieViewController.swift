@@ -81,6 +81,10 @@ class DetailMovieViewController: UIViewController {
 
         pageVC.movie = detailMoviePresenter.movie
         pageVC.heightContentViewDelegate = self
+        pageVC.handleSwipePage = { [weak self] indexTab in
+            guard let self else { return }
+            self.makeTabSelect(indexTab: indexTab)
+        }
 
         containerPage.addSubview(pageVC.view)
 
@@ -159,7 +163,6 @@ class DetailMovieViewController: UIViewController {
     }
 
     func selectTab(index: Int) {
-        indexTabSelected = index
         pageVC.selectTab(index: index)
     }
 
@@ -171,6 +174,8 @@ class DetailMovieViewController: UIViewController {
         if let labelTitleOld = tabbars[indexTabSelected] as UILabel? {
             labelTitleOld.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         }
+
+        indexTabSelected = indexTab
 
         UIView.animate(withDuration: 0.3) {
             self.constraintLeadingViewTabSelected.constant = self.tabbars[indexTab].frame.minX

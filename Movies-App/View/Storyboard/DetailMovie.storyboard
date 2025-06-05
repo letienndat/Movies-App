@@ -12,12 +12,12 @@
         <!--Detail-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController title="Detail" id="Y6W-OH-hqX" customClass="DetailMovieViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="Y6W-OH-hqX" customClass="DetailMovieViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWe-Fy-MWQ" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWe-Fy-MWQ" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -256,7 +256,7 @@
                                                 <viewLayoutGuide key="frameLayoutGuide" id="ci9-uL-pex"/>
                                             </scrollView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBt-jw-er8">
-                                                <rect key="frame" x="29" y="468" width="335" height="100"/>
+                                                <rect key="frame" x="0.0" y="468" width="393" height="100"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="250" constant="100" id="kI6-sQ-Wjv"/>
@@ -276,8 +276,8 @@
                                             <constraint firstItem="cvk-n1-SSH" firstAttribute="leading" secondItem="4Zd-gC-UrN" secondAttribute="leading" id="Ov0-fO-4ol"/>
                                             <constraint firstItem="xZF-3r-m7X" firstAttribute="top" secondItem="4Zd-gC-UrN" secondAttribute="top" id="PBL-xB-qmk"/>
                                             <constraint firstItem="kSv-Oz-hDp" firstAttribute="top" secondItem="cn2-H5-ESG" secondAttribute="bottom" constant="24" id="Pt8-oK-erT"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZBt-jw-er8" secondAttribute="trailing" constant="29" id="QdB-Ec-W6w"/>
-                                            <constraint firstItem="ZBt-jw-er8" firstAttribute="leading" secondItem="4Zd-gC-UrN" secondAttribute="leading" constant="29" id="RAD-NF-LLv"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZBt-jw-er8" secondAttribute="trailing" id="QdB-Ec-W6w"/>
+                                            <constraint firstItem="ZBt-jw-er8" firstAttribute="leading" secondItem="4Zd-gC-UrN" secondAttribute="leading" id="RAD-NF-LLv"/>
                                             <constraint firstAttribute="trailing" secondItem="kSv-Oz-hDp" secondAttribute="trailing" constant="29" id="dcr-K4-58i"/>
                                             <constraint firstAttribute="trailing" secondItem="xZF-3r-m7X" secondAttribute="trailing" id="eLO-47-A7h"/>
                                             <constraint firstItem="2Jd-jj-yYn" firstAttribute="leading" secondItem="cn2-H5-ESG" secondAttribute="trailing" constant="12" id="mF3-OL-XUg"/>

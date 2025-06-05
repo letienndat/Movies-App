@@ -15,9 +15,12 @@ class PageTabViewController: UIPageViewController {
     private var heightTabs: [CGFloat] = [0, 0, 0]
 
     weak var heightContentViewDelegate: HeightContentViewDelegate?
+    var handleSwipePage: ((Int) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataSource = self
+        delegate = self
         setupView()
         selectTab(index: 0)
     }
@@ -53,5 +56,37 @@ extension PageTabViewController: PageTabViewDelegate {
     func heightContent(index: Int, height: CGFloat) {
         heightTabs[index] = height
         heightContentViewDelegate?.heightContent(index: index, height: height)
+    }
+}
+
+extension PageTabViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+
+        let previousIndex = currentIndex - 1
+        return pages[safe: previousIndex]
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+
+        let nextIndex = currentIndex + 1
+        return pages[safe: nextIndex]
+    }
+}
+
+extension PageTabViewController: UIPageViewControllerDelegate {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool)
+    {
+        guard completed,
+              let currentVC = pageViewController.viewControllers?.first,
+              let index = pages.firstIndex(of: currentVC)
+        else { return }
+
+        handleSwipePage?(index)
     }
 }

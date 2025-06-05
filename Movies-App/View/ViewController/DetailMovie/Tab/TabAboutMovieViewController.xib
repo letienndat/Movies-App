@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoN-P4-sYz">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <rect key="frame" x="29" y="0.0" width="335" height="852"/>
                     <attributedString key="attributedText">
                         <fragment content="text">
                             <attributes>
@@ -37,8 +37,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="SoN-P4-sYz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6YH-5c-mLe"/>
-                <constraint firstAttribute="trailing" secondItem="SoN-P4-sYz" secondAttribute="trailing" id="H7W-n4-tV9"/>
-                <constraint firstItem="SoN-P4-sYz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LbY-9y-7e1"/>
+                <constraint firstAttribute="trailing" secondItem="SoN-P4-sYz" secondAttribute="trailing" constant="29" id="H7W-n4-tV9"/>
+                <constraint firstItem="SoN-P4-sYz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="LbY-9y-7e1"/>
                 <constraint firstAttribute="bottom" secondItem="SoN-P4-sYz" secondAttribute="bottom" id="gkk-DN-zxT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
