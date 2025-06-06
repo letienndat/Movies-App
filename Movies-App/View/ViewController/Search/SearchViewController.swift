@@ -85,6 +85,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard self.isMovingToParent else { return }
         textFieldSearch.becomeFirstResponder()
     }
 

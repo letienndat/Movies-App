@@ -67,7 +67,7 @@ extension TabReviewsViewController: TabReviewsViewDelegate {
         pageTabViewDelegate?.heightContent(index: 1, height: height)
     }
 
-    func showReviews() {
+    func showReviews(isLoadMore: Bool) {
         guard let listReviews = tabReviewsPresenter.listReviews,
               !listReviews.isEmpty
         else {
@@ -81,7 +81,11 @@ extension TabReviewsViewController: TabReviewsViewDelegate {
         self.tableView.isHidden = false
         self.descriptionLabel.isHidden = true
         self.tableView.reloadData()
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+        if isLoadMore {
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+                self.tabReviewsPresenter.isLoading = false
+            }
+        } else {
             self.tabReviewsPresenter.isLoading = false
         }
         self.view.setNeedsLayout()

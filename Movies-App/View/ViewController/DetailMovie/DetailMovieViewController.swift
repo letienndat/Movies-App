@@ -139,8 +139,7 @@ class DetailMovieViewController: UIViewController {
 
     @objc
     private func handleTapTabbar(_ sender: UITapGestureRecognizer) {
-        guard let tag = sender.view?.tag else { return }
-        guard tag != indexTabSelected else { return }
+        guard let tag = sender.view?.tag, tag != indexTabSelected else { return }
         makeTabSelect(indexTab: tag)
         selectTab(index: tag)
     }
@@ -168,8 +167,6 @@ class DetailMovieViewController: UIViewController {
     }
 
     func makeTabSelect(indexTab: Int) {
-        indexTabSelected = indexTab
-
         if let labelTitle = tabbars[indexTab] as UILabel? {
             labelTitle.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         }
@@ -177,6 +174,8 @@ class DetailMovieViewController: UIViewController {
         if let labelTitleOld = tabbars[indexTabSelected] as UILabel? {
             labelTitleOld.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         }
+
+        indexTabSelected = indexTab
 
         UIView.animate(withDuration: 0.3) {
             self.constraintLeadingViewTabSelected.constant = self.tabbars[indexTab].frame.minX

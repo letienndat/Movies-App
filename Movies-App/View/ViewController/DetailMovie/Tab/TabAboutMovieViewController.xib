@@ -25,7 +25,7 @@
                         <fragment content="text">
                             <attributes>
                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" metaFont="cellTitle"/>
+                                <font key="NSFont" size="12" name=".SFNS-Regular"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>

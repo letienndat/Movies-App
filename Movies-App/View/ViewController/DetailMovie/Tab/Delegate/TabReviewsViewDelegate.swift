@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TabReviewsViewDelegate: AnyObject {
-    func showReviews()
+    func showReviews(isLoadMore: Bool)
     func fetchError(_ msgErr: String)
     func heightContent(height: CGFloat)
     func showLoadingMore()

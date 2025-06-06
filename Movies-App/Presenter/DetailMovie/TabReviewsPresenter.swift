@@ -60,7 +60,7 @@ class TabReviewsPresenter {
                 self.totalPages = listReviews.totalPages
                 self.totalResults = listReviews.totalResults
                 self.listReviews = (self.listReviews ?? []) + listReviews.results
-                self.tabReviewViewDelegate?.showReviews()
+                self.tabReviewViewDelegate?.showReviews(isLoadMore: isLoadMore)
             case .failure:
                 self.page -= 1
                 self.isLoading = false
