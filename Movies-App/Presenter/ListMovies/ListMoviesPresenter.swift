@@ -70,12 +70,15 @@ class ListMoviesPresenter {
             "language": "en-US",
             "page": page
         ]
+
+        var isShuffle = false
         if typeMovies == .recommendForYou || typeMovies == .youMightLike {
             guard let recommendation else {
                 isLoading = false
                 self.listMoviesViewDelegate?.hideLoadingMore()
                 return
             }
+            isShuffle = true
             params["include_adult"] = false
 
             if typeMovies == .recommendForYou {
@@ -85,8 +88,11 @@ class ListMoviesPresenter {
                 params["with_genres"] = "\(recommendation.topGenre)"
             }
         }
-
-        theMovieDBService.fetchListMovies(endpoint: endpoint, params: params) { [weak self] res in
+        theMovieDBService.fetchListMovies(
+            endpoint: endpoint,
+            params: params,
+            isShuffle: isShuffle
+        ) { [weak self] res in
             guard let self = self else { return }
 
             if isLoadMore {

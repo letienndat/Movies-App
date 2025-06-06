@@ -9,7 +9,7 @@ import Foundation
 
 struct ResponseTheMovieDBBase<T: Decodable>: Decodable {
     let page: Int
-    let results: [T]
+    var results: [T]
     let totalPages: Int
     let totalResults: Int
 
@@ -17,5 +17,9 @@ struct ResponseTheMovieDBBase<T: Decodable>: Decodable {
         case page, results
         case totalPages = "total_pages"
         case totalResults = "total_results"
+    }
+
+    mutating func shuffleResults() {
+        self.results.shuffle()
     }
 }

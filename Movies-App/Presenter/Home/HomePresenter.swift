@@ -324,7 +324,8 @@ class HomePresenter {
 
         theMovieDBService.fetchListMovies(
             endpoint: AppConst.endPointRecommendations,
-            params: params
+            params: params,
+            isShuffle: true
         ) { [weak self] res in
             defer {
                 completion()
@@ -353,7 +354,8 @@ class HomePresenter {
 
         theMovieDBService.fetchListMovies(
             endpoint: AppConst.endPointRecommendations,
-            params: params
+            params: params,
+            isShuffle: true
         ) { [weak self] res in
             defer {
                 completion()

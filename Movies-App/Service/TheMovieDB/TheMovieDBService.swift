@@ -28,6 +28,7 @@ class TheMovieDBService: BaseService {
     func fetchListMovies(
         endpoint: String,
         params: [String: Any]?,
+        isShuffle: Bool = false,
         completion: @escaping ((Result<ResponseTheMovieDBBase<Movie>, AppError>) -> Void)
     ) {
         AF.request(
@@ -38,7 +39,10 @@ class TheMovieDBService: BaseService {
         )
             .responseDecodable(of: ResponseTheMovieDBBase<Movie>.self) { res in
                 switch res.result {
-                case .success(let movies):
+                case .success(var movies):
+                    if isShuffle {
+                        movies.shuffleResults()
+                    }
                     completion(.success(movies))
                 case .failure(let err):
                     completion(.failure(AppError(from: err)))
