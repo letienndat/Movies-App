@@ -57,6 +57,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToScreenListMovies" {
             guard let cellHomeSelected = cellHomeSelected else { return }
+            segue.destination.hidesBottomBarWhenPushed = true
             switch cellHomeSelected {
             case .search:
                 break
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController {
                 break
             case .nowPlaying:
                 let destinationVC = segue.destination as! ListMoviesViewController
+                destinationVC.hidesBottomBarWhenPushed = true
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .nowPlaying,
@@ -71,6 +73,7 @@ class HomeViewController: UIViewController {
                 )
             case .trending:
                 let destinationVC = segue.destination as! ListMoviesViewController
+                destinationVC.hidesBottomBarWhenPushed = true
                 destinationVC.setupData(
                     title: cellHomeSelected.title,
                     type: .trending,

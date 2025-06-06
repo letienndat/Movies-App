@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController {
     private let buttonShowPassword = UIButton(type: .system)
     private let datePicker = UIDatePicker()
 
-    private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
     private lazy var signUpPresenter = SignUpPresenter(signUpViewDelegate: self)
 
     override func viewDidLoad() {
@@ -30,15 +29,6 @@ class SignUpViewController: UIViewController {
 
     private func setupView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-
-        activityIndicator.color = AppConst.colorRefreshControl
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
-
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
 
         textFieldFullName.padding = UIEdgeInsets(top: 0, left: 13.54, bottom: 0, right: 13.54)
         textFieldPassword.padding = UIEdgeInsets(top: 0, left: 13.54, bottom: 0, right: 0)
@@ -161,12 +151,12 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpViewDelegate {
     func showLoading() {
-        self.activityIndicator.startAnimating()
+        showHUD()
     }
 
     func hideLoading() {
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
+            self.hideHUD()
         }
     }
 

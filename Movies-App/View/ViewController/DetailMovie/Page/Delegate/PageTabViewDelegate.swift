@@ -9,4 +9,6 @@ import Foundation
 
 protocol PageTabViewDelegate: AnyObject {
     func heightContent(index: Int, height: CGFloat)
+    func showLoading()
+    func hideLoading()
 }

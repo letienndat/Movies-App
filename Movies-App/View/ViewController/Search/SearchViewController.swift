@@ -13,8 +13,6 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var viewNotifyEmpty: UIView!
     @IBOutlet private weak var textFieldSearch: PaddingTextField!
 
-    private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
-
     private lazy var searchPresenter = SearchPresenter(searchViewDelegate: self)
 
     override func viewDidLoad() {
@@ -56,15 +54,6 @@ class SearchViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-
-        activityIndicator.color = AppConst.colorRefreshControl
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
-
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
 
         buttonSearch.addTarget(self, action: #selector(handleSearch), for: .touchUpInside)
     }
@@ -171,12 +160,12 @@ extension SearchViewController: SearchViewDelegate {
     }
 
     func showLoading() {
-        activityIndicator.startAnimating()
+        showHUD()
     }
 
     func hideLoading() {
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
+            self.hideHUD()
         }
     }
 
@@ -191,7 +180,6 @@ extension SearchViewController: UIScrollViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let screenHeight = scrollView.frame.size.height
 
-        // Scroll to end tableView
         if offsetY > contentHeight - screenHeight {
             searchPresenter.search(isLoadMore: true)
         }

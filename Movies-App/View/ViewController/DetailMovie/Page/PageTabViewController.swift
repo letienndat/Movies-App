@@ -57,6 +57,14 @@ extension PageTabViewController: PageTabViewDelegate {
         heightTabs[index] = height
         heightContentViewDelegate?.heightContent(index: index, height: height)
     }
+
+    func showLoading() {
+        heightContentViewDelegate?.showLoading()
+    }
+
+    func hideLoading() {
+        heightContentViewDelegate?.hideLoading()
+    }
 }
 
 extension PageTabViewController: UIPageViewControllerDataSource {

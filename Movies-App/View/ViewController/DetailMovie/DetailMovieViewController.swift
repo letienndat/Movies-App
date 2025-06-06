@@ -58,6 +58,7 @@ class DetailMovieViewController: UIViewController {
         scrollView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(handlePullReload), for: .valueChanged)
 
+        scrollView.delegate = self
         setupLayout()
 
         for (index, view) in tabbars.enumerated() {
@@ -240,6 +241,32 @@ extension DetailMovieViewController: HeightContentViewDelegate {
     func heightContent(index: Int, height: CGFloat) {
         if indexTabSelected == index {
             constraintHeightContainerView.constant = height
+        }
+    }
+
+    func showLoading() {
+        showHUD()
+    }
+
+    func hideLoading() {
+        DispatchQueue.main.async {
+            self.hideHUD()
+        }
+    }
+}
+
+extension DetailMovieViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let tabReview = pageVC.viewControllers?.first as? TabReviewsViewController else {
+            return
+        }
+
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let screenHeight = scrollView.frame.size.height
+
+        if offsetY > contentHeight - screenHeight {
+            tabReview.fetchData(isLoadMore: true)
         }
     }
 }

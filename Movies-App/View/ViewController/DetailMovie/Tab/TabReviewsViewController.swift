@@ -42,8 +42,8 @@ class TabReviewsViewController: UIViewController {
         tabReviewsPresenter.id = id
     }
 
-    func fetchData() {
-        tabReviewsPresenter.fetchReviewsMovie()
+    func fetchData(isLoadMore: Bool = false) {
+        tabReviewsPresenter.fetchReviewsMovie(isLoadMore: isLoadMore)
     }
 }
 
@@ -74,12 +74,14 @@ extension TabReviewsViewController: TabReviewsViewDelegate {
             self.descriptionLabel.text = "There are no comments for this movie."
             self.descriptionLabel.isHidden = false
             self.tableView.isHidden = true
+            self.tabReviewsPresenter.isLoading = false
             return
         }
 
-        self.tableView.reloadData()
         self.tableView.isHidden = false
         self.descriptionLabel.isHidden = true
+        self.tableView.reloadData()
+        self.tabReviewsPresenter.isLoading = false
         self.view.setNeedsLayout()
     }
 
@@ -87,5 +89,15 @@ extension TabReviewsViewController: TabReviewsViewDelegate {
         descriptionLabel.text = msgErr
         tableView.isHidden = true
         descriptionLabel.isHidden = false
+    }
+
+    func showLoadingMore() {
+        pageTabViewDelegate?.showLoading()
+    }
+
+    func hideLoadingMore() {
+        DispatchQueue.main.async {
+            self.pageTabViewDelegate?.hideLoading()
+        }
     }
 }

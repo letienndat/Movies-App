@@ -12,7 +12,6 @@ class WatchListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var viewNotifyEmptyListMovie: UIView!
 
-    private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
     private lazy var refreshControl = UIRefreshControl()
     lazy var watchListPresenter = WatchListPresenter(watchListViewDelegate: self)
 
@@ -38,15 +37,6 @@ class WatchListViewController: UIViewController {
         refreshControl.tintColor = AppConst.colorRefreshControl
         refreshControl.addTarget(self, action: #selector(handlePullReload), for: .valueChanged)
         tableView.refreshControl = refreshControl
-
-        activityIndicator.color = AppConst.colorRefreshControl
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
-
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
     }
 
     private func fetchData() {
@@ -102,12 +92,12 @@ extension WatchListViewController: WatchListViewDelegate {
     }
 
     func showLoadingMore() {
-        activityIndicator.startAnimating()
+        showHUD()
     }
 
     func hideLoadingMore() {
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
+            self.hideHUD()
         }
     }
 
@@ -126,7 +116,6 @@ extension WatchListViewController: UIScrollViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let screenHeight = scrollView.frame.size.height
 
-        // Scroll to end tableView
         if offsetY > contentHeight - screenHeight {
             watchListPresenter.fetchWatchList(stateFetch: .loadMore)
         }

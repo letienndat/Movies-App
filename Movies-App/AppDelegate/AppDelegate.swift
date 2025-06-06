@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if DEBUG
         Atlantis.start()
 #endif
-
         FirebaseApp.configure()
         DBDebugToolkit.setup()
         UINavigationBar.appearance().barStyle = .black

@@ -11,12 +11,12 @@ import UIKit
 enum TypeCellHome: Int {
     case search = 0
     case topRated
+    case moviesRecommendForYou
+    case moviesYouMightLike
     case nowPlaying
     case trending
     case upcomming
     case popular
-    case moviesRecommendForYou
-    case moviesYouMightLike
 
     var title: String {
         switch self {

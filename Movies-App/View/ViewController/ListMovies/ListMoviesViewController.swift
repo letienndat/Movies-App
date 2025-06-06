@@ -11,7 +11,6 @@ class ListMoviesViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
     private lazy var refreshControl = UIRefreshControl()
     private lazy var listMoviesPresenter = ListMoviesPresenter(listMoviesViewDelegate: self)
 
@@ -29,15 +28,6 @@ class ListMoviesViewController: UIViewController {
         refreshControl.tintColor = AppConst.colorRefreshControl
         refreshControl.addTarget(self, action: #selector(handlePullReload), for: .valueChanged)
         tableView.refreshControl = refreshControl
-
-        activityIndicator.color = AppConst.colorRefreshControl
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
-
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
     }
 
     private func setupNav() {
@@ -100,12 +90,12 @@ extension ListMoviesViewController: ListMoviesViewDelegate {
     }
 
     func showLoadingMore() {
-        activityIndicator.startAnimating()
+        showHUD()
     }
 
     func hideLoadingMore() {
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
+            self.hideHUD()
         }
     }
 
@@ -124,7 +114,6 @@ extension ListMoviesViewController: UIScrollViewDelegate {
         let contentHeight = scrollView.contentSize.height
         let screenHeight = scrollView.frame.size.height
 
-        // Scroll to end tableView
         if offsetY > contentHeight - screenHeight {
             listMoviesPresenter.fetchMovies(isLoadMore: true)
         }
