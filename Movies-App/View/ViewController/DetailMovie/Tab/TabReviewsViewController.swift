@@ -81,7 +81,9 @@ extension TabReviewsViewController: TabReviewsViewDelegate {
         self.tableView.isHidden = false
         self.descriptionLabel.isHidden = true
         self.tableView.reloadData()
-        self.tabReviewsPresenter.isLoading = false
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+            self.tabReviewsPresenter.isLoading = false
+        }
         self.view.setNeedsLayout()
     }
 
