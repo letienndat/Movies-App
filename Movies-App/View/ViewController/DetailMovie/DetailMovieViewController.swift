@@ -169,7 +169,6 @@ class DetailMovieViewController: UIViewController {
 
     func makeTabSelect(indexTab: Int) {
         indexTabSelected = indexTab
-        scrollView.setContentOffset(.zero, animated: true)
 
         if let labelTitle = tabbars[indexTab] as UILabel? {
             labelTitle.font = UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -239,9 +238,8 @@ extension DetailMovieViewController: DetailMovieViewDelegate {
 
 extension DetailMovieViewController: HeightContentViewDelegate {
     func heightContent(index: Int, height: CGFloat) {
-        if indexTabSelected == index {
-            constraintHeightContainerView.constant = height
-        }
+        guard indexTabSelected == index else { return }
+        constraintHeightContainerView.constant = height
     }
 
     func showLoading() {
