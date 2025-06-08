@@ -88,7 +88,7 @@ extension ProfileViewController: ProfileViewDelegate {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
         }
-        labelFullName.text = profile.displayName ?? "Fullname"
+        labelFullName.text = profile.displayName ?? profile.email ?? "Fullname"
         imageAvatar.setImage(with: profile.photoURL?.absoluteString, placeholder: UIImage(named: "avatar-profile"))
     }
 

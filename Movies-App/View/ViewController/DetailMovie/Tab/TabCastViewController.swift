@@ -37,6 +37,7 @@ class TabCastViewController: UIViewController {
         collectionView.isHidden = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.collectionViewLayout = createLayout()
     }
 
     func setupData(id: Int?) {
@@ -63,15 +64,30 @@ extension TabCastViewController: UICollectionViewDataSource, UICollectionViewDel
 
         return cell
     }
-}
 
-extension TabCastViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumLineSpacingForSectionAt section: Int
-    ) -> CGFloat {
-        24
+    func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(128)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(128)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: item,
+            count: 2 // 2 column
+        )
+        group.interItemSpacing = .fixed(65) // spacing item in row: 65
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .zero
+        section.interGroupSpacing = 24 // spacing item in row: 24
+
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }
 
