@@ -25,5 +25,6 @@ class ReviewTabTableViewCell: UITableViewCell {
         labelRating.text = String(review?.authorDetails.rating ?? 0)
         labelNameAuthor.text = (review?.author.isEmpty ?? true) ? "Name Author" : review?.author
         textViewContentCommentByAuthor.text = review?.content ?? ""
+        textViewContentCommentByAuthor.formatHTMLAndMarkDown(review?.content ?? "")
     }
 }

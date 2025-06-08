@@ -17,4 +17,18 @@ extension UIColor {
 
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
+
+    func isApproximatelyBlack(threshold: CGFloat = 0.01) -> Bool {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+
+        if self.getRed(&r, green: &g, blue: &b, alpha: &a) {
+            return abs(r) < threshold && abs(g) < threshold
+                && abs(b) < threshold
+        }
+
+        return false
+    }
 }

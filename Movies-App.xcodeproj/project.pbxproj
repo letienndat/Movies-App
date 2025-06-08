@@ -74,6 +74,8 @@
 		4AA0D8AF2D5F3FB700321BE1 /* LoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0D8AE2D5F3FB700321BE1 /* LoginReq.swift */; };
 		4AA0D8B12D5F3FC800321BE1 /* LoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0D8B02D5F3FC800321BE1 /* LoginRes.swift */; };
 		4AA0D8B42D5F419F00321BE1 /* LoginViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0D8B32D5F419F00321BE1 /* LoginViewDelegate.swift */; };
+		4AA54A9A2DF5D5F200E78059 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 4AA54A992DF5D5F200E78059 /* Ink */; };
+		4AA54A9C2DF5D60800E78059 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 4AA54A9B2DF5D60800E78059 /* Ink */; };
 		4AA93AA42D6C05380026F830 /* ListMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA93AA32D6C05380026F830 /* ListMoviesPresenter.swift */; };
 		4AA93AA72D6C055A0026F830 /* ListMoviesViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA93AA62D6C055A0026F830 /* ListMoviesViewDelegate.swift */; };
 		4AB2D2322D6EBDBE00E1D9E7 /* PageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2D2302D6EBDBE00E1D9E7 /* PageTabViewController.swift */; };
@@ -116,6 +118,8 @@
 		4ADAD5B62D6D8131008DF163 /* CreditsMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B52D6D8131008DF163 /* CreditsMovie.swift */; };
 		4ADAD5B82D6D8266008DF163 /* TabCastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B72D6D8266008DF163 /* TabCastPresenter.swift */; };
 		4ADAD5BA2D6D8294008DF163 /* TabCastViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B92D6D8294008DF163 /* TabCastViewDelegate.swift */; };
+		4ADE1CE22DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */; };
+		4ADE1CE32DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */; };
 		4AE7CE092DEFD9F800F1C88A /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D00A52DC066CA004A2DA1 /* LicensesViewController.swift */; };
 		4AE7CE0A2DEFD9F800F1C88A /* CreditsMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B52D6D8131008DF163 /* CreditsMovie.swift */; };
 		4AE7CE0B2DEFD9F800F1C88A /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDA63A2DACA003009D8E81 /* AppTabBarController.swift */; };
@@ -288,7 +292,6 @@
 		4A6218222D633961004ECA2A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4A6218252D6339F1004ECA2A /* ProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDelegate.swift; sourceTree = "<group>"; };
 		4A6218282D633A35004ECA2A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
-		4A7FE4332D5C501000980242 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4A8682942D5ED48B00BB1553 /* TypeCellHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCellHome.swift; sourceTree = "<group>"; };
 		4A8682972D5EFFD300BB1553 /* ConfigNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNavigationController.swift; sourceTree = "<group>"; };
 		4A8682B32D5F2D0000BB1553 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -346,6 +349,7 @@
 		4ADAD5B52D6D8131008DF163 /* CreditsMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsMovie.swift; sourceTree = "<group>"; };
 		4ADAD5B72D6D8266008DF163 /* TabCastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCastPresenter.swift; sourceTree = "<group>"; };
 		4ADAD5B92D6D8294008DF163 /* TabCastViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCastViewDelegate.swift; sourceTree = "<group>"; };
+		4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+formatHTMLAndMarkDown.swift"; sourceTree = "<group>"; };
 		4AE477B62DBF373E003F719B /* DBDebugToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DBDebugToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE7CE7E2DEFD9F800F1C88A /* Movies-App [DEV-ST].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies-App [DEV-ST].app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE7CE822DEFDA5700F1C88A /* Config-DevST-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-DevST-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -354,7 +358,6 @@
 		4AEBBDE72DF0289700407C6B /* Config-Dev-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Dev-Release.xcconfig"; sourceTree = "<group>"; };
 		4AEBBDE82DF028C200407C6B /* Config-DevST-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-DevST-Release.xcconfig"; sourceTree = "<group>"; };
 		4AEDA63A2DACA003009D8E81 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
-		4AF44B102D5DF07200EDA3AA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4AFB8E952D70486600697346 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		4AFB8E982D7063F100697346 /* TabAboutMovieViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAboutMovieViewDelegate.swift; sourceTree = "<group>"; };
 		4AFB8E9A2D70643300697346 /* TabAboutMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAboutMoviePresenter.swift; sourceTree = "<group>"; };
@@ -371,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9001F8B71B4A5DC1829A97FE /* Pods_Movies_App__DEV_.framework in Frameworks */,
+				4AA54A9A2DF5D5F200E78059 /* Ink in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				243FB9859670253F882BA90B /* Pods_Movies_App__DEV_ST_.framework in Frameworks */,
+				4AA54A9C2DF5D60800E78059 /* Ink in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +465,7 @@
 				4ACF34502DC7B7F10075F2CB /* Auth+Ext.swift */,
 				4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */,
 				4A151A772DF1EBEF00D3EF2A /* Array+Ext.swift */,
+				4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -651,8 +657,6 @@
 		4A8682B12D5F2C9E00BB1553 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				4A7FE4332D5C501000980242 /* RegisterViewController.swift */,
-				4AF44B102D5DF07200EDA3AA /* RegisterViewController.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1147,6 +1151,9 @@
 				Base,
 			);
 			mainGroup = 4AC27DEF2D54AB0100712680;
+			packageReferences = (
+				4AA54A982DF5D5F200E78059 /* XCRemoteSwiftPackageReference "Ink" */,
+			);
 			productRefGroup = 4AC27DF92D54AB0100712680 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1415,6 +1422,7 @@
 				4AA0D8B42D5F419F00321BE1 /* LoginViewDelegate.swift in Sources */,
 				4ADAD5B32D6D7F25008DF163 /* CastTabCollectionViewCell.swift in Sources */,
 				4A60AC352D7535EB005B808A /* WatchListViewDelegate.swift in Sources */,
+				4ADE1CE32DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift in Sources */,
 				4A5CC40A2D7141DA0019599D /* PageTabViewDelegate.swift in Sources */,
 				4A6218112D62DE9B004ECA2A /* PaddingTextField.swift in Sources */,
 				4ADAD5992D6D4E55008DF163 /* TabCastViewController.swift in Sources */,
@@ -1513,6 +1521,7 @@
 				4AE7CE512DEFD9F800F1C88A /* LoginViewDelegate.swift in Sources */,
 				4AE7CE522DEFD9F800F1C88A /* CastTabCollectionViewCell.swift in Sources */,
 				4AE7CE532DEFD9F800F1C88A /* WatchListViewDelegate.swift in Sources */,
+				4ADE1CE22DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift in Sources */,
 				4AE7CE542DEFD9F800F1C88A /* PageTabViewDelegate.swift in Sources */,
 				4AE7CE552DEFD9F800F1C88A /* PaddingTextField.swift in Sources */,
 				4AE7CE562DEFD9F800F1C88A /* TabCastViewController.swift in Sources */,
@@ -1838,6 +1847,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4AA54A982DF5D5F200E78059 /* XCRemoteSwiftPackageReference "Ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Ink";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4AA54A992DF5D5F200E78059 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AA54A982DF5D5F200E78059 /* XCRemoteSwiftPackageReference "Ink" */;
+			productName = Ink;
+		};
+		4AA54A9B2DF5D60800E78059 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AA54A982DF5D5F200E78059 /* XCRemoteSwiftPackageReference "Ink" */;
+			productName = Ink;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AC27DF02D54AB0100712680 /* Project object */;
 }
