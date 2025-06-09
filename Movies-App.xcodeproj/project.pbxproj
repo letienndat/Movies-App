@@ -13,6 +13,8 @@
 		4A151A762DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */; };
 		4A151A782DF1EBEF00D3EF2A /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A772DF1EBEF00D3EF2A /* Array+Ext.swift */; };
 		4A151A792DF1EBEF00D3EF2A /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A772DF1EBEF00D3EF2A /* Array+Ext.swift */; };
+		4A28C7FA2DF6C13600CA1644 /* AppManager+StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A28C7F92DF6C13600CA1644 /* AppManager+StorageKeys.swift */; };
+		4A28C7FB2DF6C13600CA1644 /* AppManager+StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A28C7F92DF6C13600CA1644 /* AppManager+StorageKeys.swift */; };
 		4A2D00A72DC066CA004A2DA1 /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D00A52DC066CA004A2DA1 /* LicensesViewController.swift */; };
 		4A408D0F2D5C3ABC00F11AB9 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */; };
 		4A435E2A2D5AE0CB001DA596 /* HomeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A435E292D5AE0CB001DA596 /* HomeViewDelegate.swift */; };
@@ -242,6 +244,7 @@
 		4A1484712D5D88B500CB6E5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+heightView.swift"; sourceTree = "<group>"; };
 		4A151A772DF1EBEF00D3EF2A /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		4A28C7F92DF6C13600CA1644 /* AppManager+StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppManager+StorageKeys.swift"; sourceTree = "<group>"; };
 		4A2D00A52DC066CA004A2DA1 /* LicensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesViewController.swift; sourceTree = "<group>"; };
 		4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		4A435E292D5AE0CB001DA596 /* HomeViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDelegate.swift; sourceTree = "<group>"; };
@@ -962,6 +965,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC4180C2DEF4C2700C357A2 /* AppManager.swift */,
+				4A28C7F92DF6C13600CA1644 /* AppManager+StorageKeys.swift */,
 			);
 			path = AppManager;
 			sourceTree = "<group>";
@@ -1403,6 +1407,7 @@
 				4A6218262D6339F1004ECA2A /* ProfileViewDelegate.swift in Sources */,
 				4ADAD5BA2D6D8294008DF163 /* TabCastViewDelegate.swift in Sources */,
 				4A62180F2D62D239004ECA2A /* TagTextFieldAuth.swift in Sources */,
+				4A28C7FB2DF6C13600CA1644 /* AppManager+StorageKeys.swift in Sources */,
 				4A4E52BB2D55B6CB00DFC7BC /* SearchTableViewCell.swift in Sources */,
 				4AC4180D2DEF4C2700C357A2 /* AppManager.swift in Sources */,
 				4A53B6952D76B59D00C86556 /* WatchMovieViewDelegate.swift in Sources */,
@@ -1502,6 +1507,7 @@
 				4AE7CE3E2DEFD9F800F1C88A /* ProfileViewDelegate.swift in Sources */,
 				4AE7CE3F2DEFD9F800F1C88A /* TabCastViewDelegate.swift in Sources */,
 				4AE7CE402DEFD9F800F1C88A /* TagTextFieldAuth.swift in Sources */,
+				4A28C7FA2DF6C13600CA1644 /* AppManager+StorageKeys.swift in Sources */,
 				4AE7CE412DEFD9F800F1C88A /* SearchTableViewCell.swift in Sources */,
 				4AE7CE422DEFD9F800F1C88A /* AppManager.swift in Sources */,
 				4AE7CE432DEFD9F800F1C88A /* WatchMovieViewDelegate.swift in Sources */,

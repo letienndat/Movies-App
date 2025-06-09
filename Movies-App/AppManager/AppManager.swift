@@ -8,16 +8,19 @@
 import Foundation
 
 class AppManager {
+    private static let standard = UserDefaults.standard
+
     static var hasLaunchedBefore: Bool {
         get {
-            if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
-                UserDefaults.standard.set(false, forKey: "hasLaunchedBefore")
+            if !standard.bool(forKey: StorageKeys.keyHasLaunchedBefore) {
+                standard.set(false, forKey: StorageKeys.keyHasLaunchedBefore)
             }
-            return UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+            return standard.bool(forKey: StorageKeys.keyHasLaunchedBefore)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "hasLaunchedBefore")
+            standard.set(newValue, forKey: StorageKeys.keyHasLaunchedBefore)
         }
     }
+
     static var recommendationDTO: RecommendationDTO?
 }
