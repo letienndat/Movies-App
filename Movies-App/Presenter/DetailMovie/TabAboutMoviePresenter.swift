@@ -10,6 +10,7 @@ import UIKit
 
 class TabAboutMoviePresenter {
     private weak var tabAboutMovieViewDelegate: TabAboutMovieViewDelegate?
+    var movie: Movie?
 
     init(tabAboutMovieViewDelegate: TabAboutMovieViewDelegate) {
         self.tabAboutMovieViewDelegate = tabAboutMovieViewDelegate

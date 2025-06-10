@@ -50,23 +50,29 @@ struct AppConst {
 
     public static let numberItemOfPage = 20
 
-    enum AppTrackingType {
-        case click
-        case watch
+    enum TrackingEvent {
+        case tapDetailMovie
+        case watchMovie
         case addToWatchList
         case removeFromWatchList
+        case tapTabAboutMovie
+        case tapTabReviewsMovie
+        case tapTabCastMovie
 
         var parameter: String {
             switch self {
-            case .click: "click"
-            case .watch: "watch"
+            case .tapDetailMovie: "tap_detail_movie"
+            case .watchMovie: "watch_movie"
             case .addToWatchList: "add_to_watchlist"
             case .removeFromWatchList: "remove_from_watchlist"
+            case .tapTabAboutMovie: "tap_tab_about_movie"
+            case .tapTabReviewsMovie: "tap_tab_remove_movie"
+            case .tapTabCastMovie: "tap_tab_cast_movie"
             }
         }
     }
 
-    enum AppTrackingEndpoint {
+    enum TrackingEndpoint {
         case tracking
         case recommendations
 
