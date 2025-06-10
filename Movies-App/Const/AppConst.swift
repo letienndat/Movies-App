@@ -66,7 +66,7 @@ struct AppConst {
             case .addToWatchList: "add_to_watchlist"
             case .removeFromWatchList: "remove_from_watchlist"
             case .tapTabAboutMovie: "tap_tab_about_movie"
-            case .tapTabReviewsMovie: "tap_tab_remove_movie"
+            case .tapTabReviewsMovie: "tap_tab_reviews_movie"
             case .tapTabCastMovie: "tap_tab_cast_movie"
             }
         }
