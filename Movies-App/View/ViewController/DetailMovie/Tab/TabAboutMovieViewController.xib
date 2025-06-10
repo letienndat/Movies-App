@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabAboutMovieViewController" customModule="Movies_App__DEV_" customModuleProvider="target">
             <connections>
-                <outlet property="labelAboutMovie" destination="SoN-P4-sYz" id="TGi-Qj-eo2"/>
+                <outlet property="labelAboutMovie" destination="SoN-P4-sYz" id="E1k-st-P4C"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +25,7 @@
                         <fragment content="text">
                             <attributes>
                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <font key="NSFont" size="12" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="cellTitle"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>

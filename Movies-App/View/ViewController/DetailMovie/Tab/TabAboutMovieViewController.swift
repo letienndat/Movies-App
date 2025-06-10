@@ -18,8 +18,12 @@ class TabAboutMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let movie = tabAboutMoviePresenter.movie else { return }
-
+        guard let movie = tabAboutMoviePresenter.movie,
+              !movie.overview.isEmpty
+        else {
+            labelAboutMovie.text = "There is no description for this movie."
+            return
+        }
         labelAboutMovie.text = movie.overview
     }
 
@@ -46,14 +50,6 @@ class TabAboutMovieViewController: UIViewController {
     func setupData(movie: Movie?, width: CGFloat) {
         self.tabAboutMoviePresenter.movie = movie
         self.width = width
-
-        guard let movie = tabAboutMoviePresenter.movie,
-              !movie.overview.isEmpty
-        else {
-            labelAboutMovie.text = "There is no description for this movie."
-            return
-        }
-        labelAboutMovie.text = movie.overview
     }
 }
 

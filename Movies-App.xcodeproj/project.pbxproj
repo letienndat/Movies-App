@@ -235,12 +235,12 @@
 		4AEBBDE42DF0270F00407C6B /* Pods-Movies-App [DEV-ST]-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBBDE32DF0270F00407C6B /* Pods-Movies-App [DEV-ST]-acknowledgements.plist */; };
 		4AEBBDE62DF0272500407C6B /* Pods-Movies-App [DEV]-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AEBBDE52DF0272500407C6B /* Pods-Movies-App [DEV]-acknowledgements.plist */; };
 		4AEDA63B2DACA003009D8E81 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDA63A2DACA003009D8E81 /* AppTabBarController.swift */; };
-		4AEDCB5B2DF85E5500D86649 /* APIEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB5A2DF85E5500D86649 /* APIEventMonitor.swift */; };
-		4AEDCB5C2DF85E5500D86649 /* APIEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB5A2DF85E5500D86649 /* APIEventMonitor.swift */; };
 		4AEDCB5E2DF85F1900D86649 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB5D2DF85F1900D86649 /* APILogger.swift */; };
 		4AEDCB5F2DF85F1900D86649 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB5D2DF85F1900D86649 /* APILogger.swift */; };
 		4AEDCB612DF85F5B00D86649 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB602DF85F5B00D86649 /* String+Ex.swift */; };
 		4AEDCB622DF85F5B00D86649 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB602DF85F5B00D86649 /* String+Ex.swift */; };
+		4AEDCB642DF86F7300D86649 /* APIEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB632DF86F7300D86649 /* APIEventMonitor.swift */; };
+		4AEDCB652DF86F7300D86649 /* APIEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDCB632DF86F7300D86649 /* APIEventMonitor.swift */; };
 		4AFB8E962D70486600697346 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFB8E952D70486600697346 /* UIView+Ext.swift */; };
 		4AFB8E992D7063F100697346 /* TabAboutMovieViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFB8E982D7063F100697346 /* TabAboutMovieViewDelegate.swift */; };
 		4AFB8E9B2D70643300697346 /* TabAboutMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFB8E9A2D70643300697346 /* TabAboutMoviePresenter.swift */; };
@@ -370,9 +370,9 @@
 		4AEBBDE72DF0289700407C6B /* Config-Dev-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Dev-Release.xcconfig"; sourceTree = "<group>"; };
 		4AEBBDE82DF028C200407C6B /* Config-DevST-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-DevST-Release.xcconfig"; sourceTree = "<group>"; };
 		4AEDA63A2DACA003009D8E81 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
-		4AEDCB5A2DF85E5500D86649 /* APIEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEventMonitor.swift; sourceTree = "<group>"; };
 		4AEDCB5D2DF85F1900D86649 /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		4AEDCB602DF85F5B00D86649 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
+		4AEDCB632DF86F7300D86649 /* APIEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEventMonitor.swift; sourceTree = "<group>"; };
 		4AFB8E952D70486600697346 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		4AFB8E982D7063F100697346 /* TabAboutMovieViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAboutMovieViewDelegate.swift; sourceTree = "<group>"; };
 		4AFB8E9A2D70643300697346 /* TabAboutMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAboutMoviePresenter.swift; sourceTree = "<group>"; };
@@ -1104,7 +1104,7 @@
 		4AEDCB592DF85E4D00D86649 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				4AEDCB5A2DF85E5500D86649 /* APIEventMonitor.swift */,
+				4AEDCB632DF86F7300D86649 /* APIEventMonitor.swift */,
 				4AEDCB5D2DF85F1900D86649 /* APILogger.swift */,
 			);
 			path = Common;
@@ -1388,6 +1388,7 @@
 				4A960FA32D6C5B2B00934369 /* DetailMovieViewDelegate.swift in Sources */,
 				4A1484722D5D88B500CB6E5D /* LoginViewController.swift in Sources */,
 				4ADAD5A42D6D4FA8008DF163 /* ReviewTabTableViewCell.swift in Sources */,
+				4AEDCB652DF86F7300D86649 /* APIEventMonitor.swift in Sources */,
 				4A5151C92DEEE81800546199 /* AppService.swift in Sources */,
 				4A8682982D5EFFD300BB1553 /* ConfigNavigationController.swift in Sources */,
 				4AEDCB622DF85F5B00D86649 /* String+Ex.swift in Sources */,
@@ -1414,7 +1415,6 @@
 				4A8682952D5ED48B00BB1553 /* TypeCellHome.swift in Sources */,
 				4A6217FB2D62C489004ECA2A /* SignUpPresenter.swift in Sources */,
 				4AC88A8F2D599FBA00FCBDE1 /* Movie.swift in Sources */,
-				4AEDCB5C2DF85E5500D86649 /* APIEventMonitor.swift in Sources */,
 				4ADAD5AC2D6D6D5C008DF163 /* TabReviewsViewDelegate.swift in Sources */,
 				4A4E52B72D55B5A100DFC7BC /* HomeViewController.swift in Sources */,
 				4A62180C2D62CBEF004ECA2A /* CommonValidation.swift in Sources */,
@@ -1492,6 +1492,7 @@
 				4AE7CE0D2DEFD9F800F1C88A /* DetailMovieViewDelegate.swift in Sources */,
 				4AE7CE0E2DEFD9F800F1C88A /* LoginViewController.swift in Sources */,
 				4AE7CE0F2DEFD9F800F1C88A /* ReviewTabTableViewCell.swift in Sources */,
+				4AEDCB642DF86F7300D86649 /* APIEventMonitor.swift in Sources */,
 				4AE7CE102DEFD9F800F1C88A /* AppService.swift in Sources */,
 				4AE7CE112DEFD9F800F1C88A /* ConfigNavigationController.swift in Sources */,
 				4AEDCB612DF85F5B00D86649 /* String+Ex.swift in Sources */,
@@ -1518,7 +1519,6 @@
 				4AE7CE252DEFD9F800F1C88A /* TypeCellHome.swift in Sources */,
 				4AE7CE262DEFD9F800F1C88A /* SignUpPresenter.swift in Sources */,
 				4AE7CE272DEFD9F800F1C88A /* Movie.swift in Sources */,
-				4AEDCB5B2DF85E5500D86649 /* APIEventMonitor.swift in Sources */,
 				4AE7CE282DEFD9F800F1C88A /* TabReviewsViewDelegate.swift in Sources */,
 				4AE7CE292DEFD9F800F1C88A /* HomeViewController.swift in Sources */,
 				4AE7CE2A2DEFD9F800F1C88A /* CommonValidation.swift in Sources */,

@@ -6,7 +6,6 @@
 //
 
 import Alamofire
-import Foundation
 
 class APILogger {
     static func logRequest(_ request: URLRequest) {
@@ -23,6 +22,7 @@ class APILogger {
         var logOutput = """
             **************** HTTP REQUEST **********************
             \(timestamp)
+            **** REQUEST ****
             $ curl -v \\
             \t-X \(method) \\
             """
@@ -37,7 +37,6 @@ class APILogger {
         }
 
         logOutput += "\n\t\"\(url)\""
-
         print(logOutput)
     }
 
@@ -47,14 +46,27 @@ class APILogger {
         let url = response.request?.url?.absoluteString ?? ""
         let headers = response.response?.allHeaderFields ?? [:]
         let data =
-            response.data.flatMap { String(data: $0, encoding: .utf8) } ?? ""
-
+            response.data.flatMap { String(data: $0, encoding: .utf8) }
+            ?? "None"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         let timestamp = dateFormatter.string(from: Date())
 
-        let logOutput = """
-            **************** HTTP SUCCESS \(statusCode) **********************
+        // Kiểm tra trạng thái result bằng switch thay vì isSuccess
+        let status: String
+        var logHeader = "RESPONSE "
+        switch response.result {
+        case .success:
+            status = "SUCCESS"
+            logHeader +=
+                statusCode >= 200 && statusCode < 300
+                ? "HTTP \(status) \(statusCode)" : "HTTP ERROR \(statusCode)"
+        case .failure:
+            logHeader += "HTTP ERROR \(statusCode)"
+        }
+
+        var logOutput = """
+            **************** \(logHeader) **********************
             \(timestamp)
             **** RESPONSE ****
             \(method) \(url)
@@ -62,8 +74,22 @@ class APILogger {
             \(headers.map { "\($0.key): \($0.value)" }.joined(separator: "\n"))
             **** BODY ****
             \(data.prettyPrintedJSON ?? data)
-            ********************************************************
             """
+
+        if case .failure(let error) = response.result {
+            logOutput += """
+                **** ERROR ****
+                \(error.localizedDescription)
+                """
+            if let underlyingError = error.underlyingError {
+                logOutput += """
+                    \nUnderlying Error: \(underlyingError.localizedDescription)
+                    """
+            }
+        }
+
+        logOutput +=
+            "\n********************************************************"
 
         print(logOutput)
     }

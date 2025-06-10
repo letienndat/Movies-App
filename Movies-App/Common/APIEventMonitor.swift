@@ -10,23 +10,41 @@ import Foundation
 
 class APIEventMonitor: EventMonitor {
     func requestDidResume(_ request: Request) {
-        APILogger.logRequest(request.request!)
+        guard let urlRequest = request.request else {
+            print("⚠️ Request is nil")
+            return
+        }
+        APILogger.logRequest(urlRequest)
     }
 
-    func request(
-        _ request: Request,
-        didParseResponse response: DataResponse<Data?, AFError>
+    func request<Value>(
+        _ request: DataRequest,
+        didParseResponse response: DataResponse<Value, AFError>
     ) {
-        guard let data = response.data else { return }
+        let dataResponse: AFDataResponse<Data>
 
-        let dataResponse = AFDataResponse<Data>(
-            request: response.request,
-            response: response.response,
-            data: data,
-            metrics: response.metrics,
-            serializationDuration: response.serializationDuration,
-            result: .success(data)
-        )
+        switch response.result {
+        case .success:
+            let data = response.data ?? Data()
+            dataResponse = AFDataResponse<Data>(
+                request: response.request,
+                response: response.response,
+                data: data,
+                metrics: response.metrics,
+                serializationDuration: response.serializationDuration,
+                result: .success(data)
+            )
+        case .failure(let error):
+            let data = response.data ?? Data()
+            dataResponse = AFDataResponse<Data>(
+                request: response.request,
+                response: response.response,
+                data: data,
+                metrics: response.metrics,
+                serializationDuration: response.serializationDuration,
+                result: .failure(error)
+            )
+        }
 
         APILogger.logResponse(dataResponse)
     }
