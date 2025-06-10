@@ -34,7 +34,7 @@
 		4A4E52D72D56035C00DFC7BC /* MovieHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E52D52D56035C00DFC7BC /* MovieHomeCollectionViewCell.swift */; };
 		4A4E52D82D56035C00DFC7BC /* MovieHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E52D62D56035C00DFC7BC /* MovieHomeCollectionViewCell.xib */; };
 		4A5151C62DEEE7D100546199 /* AppTrackingRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C52DEEE7D100546199 /* AppTrackingRes.swift */; };
-		4A5151C92DEEE81800546199 /* AppTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C82DEEE81800546199 /* AppTrackingService.swift */; };
+		4A5151C92DEEE81800546199 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C82DEEE81800546199 /* AppService.swift */; };
 		4A53B6862D76A0F500C86556 /* WatchMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A53B6852D76A0F500C86556 /* WatchMovie.storyboard */; };
 		4A53B6892D76A17A00C86556 /* WatchMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53B6882D76A17A00C86556 /* WatchMovieViewController.swift */; };
 		4A53B68C2D76B07000C86556 /* ListVideoRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A53B68B2D76B07000C86556 /* ListVideoRes.swift */; };
@@ -120,6 +120,8 @@
 		4ADAD5B62D6D8131008DF163 /* CreditsMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B52D6D8131008DF163 /* CreditsMovie.swift */; };
 		4ADAD5B82D6D8266008DF163 /* TabCastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B72D6D8266008DF163 /* TabCastPresenter.swift */; };
 		4ADAD5BA2D6D8294008DF163 /* TabCastViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5B92D6D8294008DF163 /* TabCastViewDelegate.swift */; };
+		4ADC83822DF7BA7000B95F9A /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADC83812DF7BA7000B95F9A /* TrackingService.swift */; };
+		4ADC83832DF7BA7000B95F9A /* TrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADC83812DF7BA7000B95F9A /* TrackingService.swift */; };
 		4ADE1CE22DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */; };
 		4ADE1CE32DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */; };
 		4AE7CE092DEFD9F800F1C88A /* LicensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D00A52DC066CA004A2DA1 /* LicensesViewController.swift */; };
@@ -129,7 +131,7 @@
 		4AE7CE0D2DEFD9F800F1C88A /* DetailMovieViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A960FA22D6C5B2B00934369 /* DetailMovieViewDelegate.swift */; };
 		4AE7CE0E2DEFD9F800F1C88A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1484712D5D88B500CB6E5D /* LoginViewController.swift */; };
 		4AE7CE0F2DEFD9F800F1C88A /* ReviewTabTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAD5A22D6D4FA8008DF163 /* ReviewTabTableViewCell.swift */; };
-		4AE7CE102DEFD9F800F1C88A /* AppTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C82DEEE81800546199 /* AppTrackingService.swift */; };
+		4AE7CE102DEFD9F800F1C88A /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5151C82DEEE81800546199 /* AppService.swift */; };
 		4AE7CE112DEFD9F800F1C88A /* ConfigNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682972D5EFFD300BB1553 /* ConfigNavigationController.swift */; };
 		4AE7CE122DEFD9F800F1C88A /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */; };
 		4AE7CE132DEFD9F800F1C88A /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A960F922D6C1F6800934369 /* DetailMovieViewController.swift */; };
@@ -271,7 +273,7 @@
 		4A4E52D52D56035C00DFC7BC /* MovieHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A4E52D62D56035C00DFC7BC /* MovieHomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieHomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		4A5151C52DEEE7D100546199 /* AppTrackingRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackingRes.swift; sourceTree = "<group>"; };
-		4A5151C82DEEE81800546199 /* AppTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTrackingService.swift; sourceTree = "<group>"; };
+		4A5151C82DEEE81800546199 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		4A53B6852D76A0F500C86556 /* WatchMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WatchMovie.storyboard; sourceTree = "<group>"; };
 		4A53B6882D76A17A00C86556 /* WatchMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMovieViewController.swift; sourceTree = "<group>"; };
 		4A53B68B2D76B07000C86556 /* ListVideoRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVideoRes.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		4ADAD5B52D6D8131008DF163 /* CreditsMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsMovie.swift; sourceTree = "<group>"; };
 		4ADAD5B72D6D8266008DF163 /* TabCastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCastPresenter.swift; sourceTree = "<group>"; };
 		4ADAD5B92D6D8294008DF163 /* TabCastViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCastViewDelegate.swift; sourceTree = "<group>"; };
+		4ADC83812DF7BA7000B95F9A /* TrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingService.swift; sourceTree = "<group>"; };
 		4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+formatHTMLAndMarkDown.swift"; sourceTree = "<group>"; };
 		4AE477B62DBF373E003F719B /* DBDebugToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DBDebugToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE7CE7E2DEFD9F800F1C88A /* Movies-App [DEV-ST].app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies-App [DEV-ST].app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -507,12 +510,12 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		4A5151C72DEEE7F100546199 /* Tracking */ = {
+		4A5151C72DEEE7F100546199 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				4A5151C82DEEE81800546199 /* AppTrackingService.swift */,
+				4A5151C82DEEE81800546199 /* AppService.swift */,
 			);
-			path = Tracking;
+			path = App;
 			sourceTree = "<group>";
 		};
 		4A53B6872D76A12100C86556 /* WatchMovie */ = {
@@ -986,7 +989,8 @@
 			children = (
 				4A408D0E2D5C3ABC00F11AB9 /* BaseService.swift */,
 				4ABC76192D66D94600E4995A /* TheMovieDB */,
-				4A5151C72DEEE7F100546199 /* Tracking */,
+				4A5151C72DEEE7F100546199 /* App */,
+				4ADC83802DF7BA6100B95F9A /* Tracking */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1052,6 +1056,14 @@
 				4ADAD5B92D6D8294008DF163 /* TabCastViewDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		4ADC83802DF7BA6100B95F9A /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				4ADC83812DF7BA7000B95F9A /* TrackingService.swift */,
+			);
+			path = Tracking;
 			sourceTree = "<group>";
 		};
 		4AE1C0942D9FBB02002D240B /* Config */ = {
@@ -1376,7 +1388,7 @@
 				4A960FA32D6C5B2B00934369 /* DetailMovieViewDelegate.swift in Sources */,
 				4A1484722D5D88B500CB6E5D /* LoginViewController.swift in Sources */,
 				4ADAD5A42D6D4FA8008DF163 /* ReviewTabTableViewCell.swift in Sources */,
-				4A5151C92DEEE81800546199 /* AppTrackingService.swift in Sources */,
+				4A5151C92DEEE81800546199 /* AppService.swift in Sources */,
 				4A8682982D5EFFD300BB1553 /* ConfigNavigationController.swift in Sources */,
 				4AEDCB622DF85F5B00D86649 /* String+Ex.swift in Sources */,
 				4A408D0F2D5C3ABC00F11AB9 /* BaseService.swift in Sources */,
@@ -1462,6 +1474,7 @@
 				4A53B6892D76A17A00C86556 /* WatchMovieViewController.swift in Sources */,
 				4A60AC492D75916D005B808A /* StateUpdateWatchList.swift in Sources */,
 				4ABED52B2D75337600EEFDFC /* WatchListPresenter.swift in Sources */,
+				4ADC83822DF7BA7000B95F9A /* TrackingService.swift in Sources */,
 				4A53B68C2D76B07000C86556 /* ListVideoRes.swift in Sources */,
 				4ABC761B2D66D96D00E4995A /* TheMovieDBService.swift in Sources */,
 				4AC27E172D54AEA200712680 /* ViewBackgroundGradient.swift in Sources */,
@@ -1479,7 +1492,7 @@
 				4AE7CE0D2DEFD9F800F1C88A /* DetailMovieViewDelegate.swift in Sources */,
 				4AE7CE0E2DEFD9F800F1C88A /* LoginViewController.swift in Sources */,
 				4AE7CE0F2DEFD9F800F1C88A /* ReviewTabTableViewCell.swift in Sources */,
-				4AE7CE102DEFD9F800F1C88A /* AppTrackingService.swift in Sources */,
+				4AE7CE102DEFD9F800F1C88A /* AppService.swift in Sources */,
 				4AE7CE112DEFD9F800F1C88A /* ConfigNavigationController.swift in Sources */,
 				4AEDCB612DF85F5B00D86649 /* String+Ex.swift in Sources */,
 				4AE7CE122DEFD9F800F1C88A /* BaseService.swift in Sources */,
@@ -1565,6 +1578,7 @@
 				4AE7CE5C2DEFD9F800F1C88A /* WatchMovieViewController.swift in Sources */,
 				4AE7CE5D2DEFD9F800F1C88A /* StateUpdateWatchList.swift in Sources */,
 				4AE7CE5E2DEFD9F800F1C88A /* WatchListPresenter.swift in Sources */,
+				4ADC83832DF7BA7000B95F9A /* TrackingService.swift in Sources */,
 				4AE7CE5F2DEFD9F800F1C88A /* ListVideoRes.swift in Sources */,
 				4AE7CE602DEFD9F800F1C88A /* TheMovieDBService.swift in Sources */,
 				4AE7CE612DEFD9F800F1C88A /* ViewBackgroundGradient.swift in Sources */,

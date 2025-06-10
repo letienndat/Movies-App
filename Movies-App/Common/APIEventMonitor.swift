@@ -17,16 +17,17 @@ class APIEventMonitor: EventMonitor {
         _ request: Request,
         didParseResponse response: DataResponse<Data?, AFError>
     ) {
-        if let data = response.data {
-            let dataResponse = AFDataResponse<Data>(
-                request: response.request,
-                response: response.response,
-                data: data,
-                metrics: response.metrics,
-                serializationDuration: response.serializationDuration,
-                result: .success(data)
-            )
-            APILogger.logResponse(dataResponse)
-        }
+        guard let data = response.data else { return }
+
+        let dataResponse = AFDataResponse<Data>(
+            request: response.request,
+            response: response.response,
+            data: data,
+            metrics: response.metrics,
+            serializationDuration: response.serializationDuration,
+            result: .success(data)
+        )
+
+        APILogger.logResponse(dataResponse)
     }
 }

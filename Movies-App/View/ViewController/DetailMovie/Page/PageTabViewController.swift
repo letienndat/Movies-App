@@ -27,15 +27,15 @@ class PageTabViewController: UIPageViewController {
         let pageAboutMovie = TabAboutMovieViewController(nibName: "TabAboutMovieViewController", bundle: nil)
         pageAboutMovie.pageTabViewDelegate = self
         let padding: CGFloat = 29
-        pageAboutMovie.setupData(aboutMovie: movie?.overview, width: view.bounds.width - (CGFloat(2) * padding))
+        pageAboutMovie.setupData(movie: movie, width: view.bounds.width - (CGFloat(2) * padding))
 
         let pageReviews = TabReviewsViewController(nibName: "TabReviewsViewController", bundle: nil)
         pageReviews.pageTabViewDelegate = self
-        pageReviews.setupData(id: movie?.id)
+        pageReviews.setupData(movie: movie)
 
         let pageCast = TabCastViewController(nibName: "TabCastViewController", bundle: nil)
         pageCast.pageTabViewDelegate = self
-        pageCast.setupData(id: movie?.id)
+        pageCast.setupData(movie: movie)
 
         pages = [pageAboutMovie, pageReviews, pageCast]
     }

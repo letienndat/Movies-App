@@ -22,6 +22,21 @@ class TabCastViewController: UIViewController {
         fetchData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        /// Tracking
+        guard let movie = tabCastPresenter.movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds
+        else { return }
+
+        let params: [String: Any] = [
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        AppTracking.tracking(.tapTabCastMovie, params: params)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.layoutIfNeeded()
@@ -40,8 +55,8 @@ class TabCastViewController: UIViewController {
         collectionView.collectionViewLayout = createLayout()
     }
 
-    func setupData(id: Int?) {
-        tabCastPresenter.id = id
+    func setupData(movie: Movie?) {
+        tabCastPresenter.movie = movie
     }
 
     func fetchData() {

@@ -24,7 +24,15 @@ class WatchMovieViewController: UIViewController {
         super.viewWillAppear(animated)
 
         /// Tracking
-        watchMoviePresenter.tracking()
+        guard let movie = watchMoviePresenter.movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds
+        else { return }
+
+        let params: [String: Any] = [
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        AppTracking.tracking(.watchMovie, params: params)
     }
 
     func setupNav() {
