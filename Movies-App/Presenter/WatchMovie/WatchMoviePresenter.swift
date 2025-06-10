@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 class WatchMoviePresenter {
     private let theMovieDBService = TheMovieDBService.shared
-    private let appTrackingService = AppTrackingService.shared
 
     private(set) var movie: Movie?
     private(set) var video: VideoRes?
@@ -40,19 +38,5 @@ class WatchMoviePresenter {
                 self.watchMovieViewDelegate?.showError(title: "Error", message: err.rawValue)
             }
         }
-    }
-
-    func tracking() {
-        guard let movie,
-              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds,
-              let email = Auth.getCurrentUser()?.email
-        else { return }
-
-        let params: [String: Any] = [
-            "email": email,
-            "movie_id": movie.id,
-            "genres": genres
-        ]
-        appTrackingService.tracking(type: .watch, params: params)
     }
 }

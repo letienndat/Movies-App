@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DetailMovieViewController: UIViewController {
 
@@ -44,7 +45,17 @@ class DetailMovieViewController: UIViewController {
         super.viewWillAppear(animated)
 
         /// Tracking
-        detailMoviePresenter.tracking(type: .click)
+        guard let movie = detailMoviePresenter.movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds,
+              let email = Auth.getCurrentUser()?.email
+        else { return }
+
+        let params: [String: Any] = [
+            "email": email,
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        AppTracking.tracking(.click, params: params)
     }
 
     override func viewWillLayoutSubviews() {
@@ -217,7 +228,18 @@ extension DetailMovieViewController: DetailMovieViewDelegate {
         showAlert(title: "Success", message: message)
 
         /// Tracking
-        detailMoviePresenter.tracking(type: isMovieInWatchList ? .addToWatchList : .removeFromWatchList)
+        guard let movie = detailMoviePresenter.movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds,
+              let email = Auth.getCurrentUser()?.email
+        else { return }
+
+        let event: AppConst.TrackingEvent = isMovieInWatchList ? .addToWatchList : .removeFromWatchList
+        let params: [String: Any] = [
+            "email": email,
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        AppTracking.tracking(event, params: nil)
 
         guard let movie = detailMoviePresenter.movie else { return }
         guard updateWatchListDelegate != nil else {

@@ -50,7 +50,7 @@ struct AppConst {
 
     public static let numberItemOfPage = 20
 
-    enum AppTrackingType {
+    enum TrackingEvent {
         case click
         case watch
         case addToWatchList
@@ -66,7 +66,7 @@ struct AppConst {
         }
     }
 
-    enum AppTrackingEndpoint {
+    enum TrackingEndpoint {
         case tracking
         case recommendations
 

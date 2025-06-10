@@ -29,7 +29,7 @@ class HomePresenter {
     private weak var homeViewDelegate: HomeViewDelegate?
 
     private let theMovieDBService = TheMovieDBService.shared
-    private let appTrackingService = AppTrackingService.shared
+    private let appService = AppService.shared
 
     private(set) var listMoviesTopRated: GroupMovieCellData
     private(set) var listMoviesNowPlaying: GroupMovieCellData
@@ -292,10 +292,10 @@ class HomePresenter {
     func fetchRecommendations(completion: @escaping () -> Void) {
         guard let email = Auth.getCurrentUser()?.email else { return }
 
-        var endpoint = AppConst.AppTrackingEndpoint.recommendations.endpoint
+        var endpoint = AppConst.TrackingEndpoint.recommendations.endpoint
         endpoint = endpoint.replacingOccurrences(of: ":email", with: email)
 
-        appTrackingService.fetchRecommendations(endpoint: endpoint) { [weak self] res in
+        appService.fetchRecommendations(endpoint: endpoint) { [weak self] res in
             guard let self else { return }
             switch res {
             case .success(let data):

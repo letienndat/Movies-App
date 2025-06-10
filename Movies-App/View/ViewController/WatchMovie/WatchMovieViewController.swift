@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import FirebaseAuth
 
 class WatchMovieViewController: UIViewController {
 
@@ -24,7 +25,17 @@ class WatchMovieViewController: UIViewController {
         super.viewWillAppear(animated)
 
         /// Tracking
-        watchMoviePresenter.tracking()
+        guard let movie = watchMoviePresenter.movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds,
+              let email = Auth.getCurrentUser()?.email
+        else { return }
+
+        let params: [String: Any] = [
+            "email": email,
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        AppTracking.tracking(.watch, params: params)
     }
 
     func setupNav() {
