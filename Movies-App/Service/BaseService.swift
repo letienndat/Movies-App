@@ -14,6 +14,8 @@ class BaseService {
     var parameter: [String: Any]?
     var headers: HTTPHeaders?
 
+    let AF = Session(eventMonitors: [APIEventMonitor()])
+
     init(url: String) {
         self.url = url
     }

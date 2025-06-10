@@ -36,8 +36,7 @@ class AppTrackingService: BaseService {
         )
         .responseDecodable(of: AppTrackingRes<RecommendationDTO>.self) { res in
             switch res.result {
-            case .success(let data):
-                printJSON(data)
+            case .success: break
             case .failure(let err):
                 debugPrint(err.localizedDescription)
             }
@@ -56,7 +55,6 @@ class AppTrackingService: BaseService {
         .responseDecodable(of: AppTrackingRes<RecommendationDTO>.self) { res in
             switch res.result {
             case .success(let data):
-                printJSON(data)
                 guard let data = data.data else { return }
                 completion(.success(data))
             case .failure(let err):
