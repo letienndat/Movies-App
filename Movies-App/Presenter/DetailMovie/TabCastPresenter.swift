@@ -13,14 +13,14 @@ class TabCastPresenter {
 
     private weak var tabCastViewDelegate: TabCastViewDelegate?
     private(set) var listCasts: [CastMovie]?
-    var id: Int?
+    var movie: Movie?
 
     init(tabCastViewDelegate: TabCastViewDelegate) {
         self.tabCastViewDelegate = tabCastViewDelegate
     }
 
     func fetchCastMovie() {
-        guard let id = id else { return }
+        guard let id = movie?.id else { return }
 
         let endpoint = AppConst.endPointCreditsMovie.replacingOccurrences(of: "{movie_id}", with: "\(id)")
         let params: [String: Any] = [

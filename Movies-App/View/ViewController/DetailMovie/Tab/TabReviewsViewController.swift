@@ -21,6 +21,21 @@ class TabReviewsViewController: UIViewController {
         fetchData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        /// Tracking
+        guard let movie = tabReviewsPresenter.movie,
+              let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds
+        else { return }
+
+        let params: [String: Any] = [
+            "movie_id": movie.id,
+            "genres": genres
+        ]
+        AppTracking.tracking(.tapTabReviewsMovie, params: params)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.view.layoutIfNeeded()
@@ -38,8 +53,8 @@ class TabReviewsViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    func setupData(id: Int?) {
-        tabReviewsPresenter.id = id
+    func setupData(movie: Movie?) {
+        tabReviewsPresenter.movie = movie
     }
 
     func fetchData(isLoadMore: Bool = false) {

@@ -13,7 +13,7 @@ class TabReviewsPresenter {
 
     private weak var tabReviewViewDelegate: TabReviewsViewDelegate?
     private(set) var listReviews: [ReviewMovie]?
-    var id: Int?
+    var movie: Movie?
     private var page = 1
     private var totalPages = 0
     private var totalResults = 0
@@ -41,7 +41,7 @@ class TabReviewsPresenter {
             tabReviewViewDelegate?.showLoadingMore()
         }
 
-        guard let id = id else { return }
+        guard let id = movie?.id else { return }
 
         let endpoint = AppConst.endPointReviewsMovie.replacingOccurrences(of: "{movie_id}", with: "\(id)")
         let params: [String: Any] = [

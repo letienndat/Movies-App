@@ -7,8 +7,9 @@
 
 import Foundation
 import Alamofire
+import FirebaseAuth
 
-fileprivate class TrackingService: BaseService {
+private class TrackingService: BaseService {
     static let shared = TrackingService()
 
     private init() {
@@ -48,7 +49,10 @@ fileprivate class TrackingService: BaseService {
 class AppTracking {
     private static let trackingService = TrackingService.shared
 
-    static func tracking(_ event: AppConst.TrackingEvent, params: [String: Any]?) {
-        trackingService.tracking(event: event, params: params ?? [:])
+    static func tracking(_ event: AppConst.TrackingEvent, params: [String: Any]) {
+        guard let email = Auth.getCurrentUser()?.email else { return }
+        var params = params
+        params["email"] = email
+        trackingService.tracking(event: event, params: params)
     }
 }
