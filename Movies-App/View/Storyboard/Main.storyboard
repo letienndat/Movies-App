@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="zZf-CT-AOY">
             <objects>
-                <navigationController id="LxJ-Pg-Uxi" customClass="ConfigNavigationController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="LxJ-Pg-Uxi" customClass="ConfigNavigationController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="icon-home-tabbar" id="pWt-or-Umt"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Olu-RD-Liu">
@@ -34,12 +34,12 @@
         <!--Watch List-->
         <scene sceneID="Yk7-ol-YEn">
             <objects>
-                <viewController title="Watch List" id="aEM-S6-fSB" customClass="WatchListViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Watch List" id="aEM-S6-fSB" customClass="WatchListViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G1A-mn-y6a">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suF-b2-q3i" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suF-b2-q3i" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -132,7 +132,7 @@
         <!--Watch List-->
         <scene sceneID="v3F-1Y-499">
             <objects>
-                <navigationController id="e0P-4y-NuS" customClass="ConfigNavigationController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="e0P-4y-NuS" customClass="ConfigNavigationController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Watch List" image="icon-watch-list-tabbar" id="LaA-i1-y1n"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0qS-LP-rhZ">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -152,12 +152,12 @@
         <!--My Profile-->
         <scene sceneID="J0r-Ui-a0u">
             <objects>
-                <viewController id="UOR-hq-Zgi" customClass="ProfileViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UOR-hq-Zgi" customClass="ProfileViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q36-DB-7H5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhl-F1-jId" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhl-F1-jId" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -738,7 +738,7 @@
         <!--Open Source Licenses-->
         <scene sceneID="dRu-e2-KyL">
             <objects>
-                <viewController id="oNB-j5-gWi" customClass="LicensesViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oNB-j5-gWi" customClass="LicensesViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FPY-2F-Sg6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -769,7 +769,7 @@
         <!--Profile-->
         <scene sceneID="mYc-ge-F68">
             <objects>
-                <navigationController id="4vG-BU-bXr" customClass="ConfigNavigationController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="4vG-BU-bXr" customClass="ConfigNavigationController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="Hxl-6M-pT1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Rs-eq-hoh">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -797,12 +797,12 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnM-2L-lb8" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnM-2L-lb8" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1gM-t7-sWB">
@@ -843,7 +843,7 @@
         <!--App Tab Bar Controller-->
         <scene sceneID="U0S-iy-xyQ">
             <objects>
-                <tabBarController storyboardIdentifier="TabbarMain" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O4b-3Z-AoQ" customClass="AppTabBarController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarMain" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O4b-3Z-AoQ" customClass="AppTabBarController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="GTw-ya-UXD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -866,19 +866,19 @@
         <!--Search-->
         <scene sceneID="KUG-Ie-ABm">
             <objects>
-                <viewController title="Search" id="IRq-qN-SOV" customClass="SearchViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="IRq-qN-SOV" customClass="SearchViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8ec-8O-hJ6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-0i-RFc" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-0i-RFc" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGx-FT-wQY">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="he3-4l-zdw" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="he3-4l-zdw" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                         <rect key="frame" x="25" y="36" width="343" height="42"/>
                                         <color key="backgroundColor" red="0.1803921568627451" green="0.019607843137254902" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -950,16 +950,24 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2ot-Fp-2cx">
+                                        <rect key="frame" x="0.0" y="83" width="393" height="666"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2ot-Fp-2cx" secondAttribute="trailing" id="1KZ-6L-t7h"/>
                                     <constraint firstAttribute="bottom" secondItem="7yy-Ke-xJl" secondAttribute="bottom" id="B9x-Zb-UTQ"/>
                                     <constraint firstItem="7yy-Ke-xJl" firstAttribute="top" secondItem="he3-4l-zdw" secondAttribute="bottom" constant="5" id="QDp-Cl-Qi4"/>
                                     <constraint firstItem="he3-4l-zdw" firstAttribute="leading" secondItem="aGx-FT-wQY" secondAttribute="leading" constant="25" id="Tat-3r-GXz"/>
                                     <constraint firstItem="he3-4l-zdw" firstAttribute="top" secondItem="aGx-FT-wQY" secondAttribute="top" constant="36" id="UiB-fD-t0Y"/>
                                     <constraint firstAttribute="trailing" secondItem="he3-4l-zdw" secondAttribute="trailing" constant="25" id="hX9-iC-4of"/>
+                                    <constraint firstItem="2ot-Fp-2cx" firstAttribute="leading" secondItem="aGx-FT-wQY" secondAttribute="leading" id="kZz-yE-B8x"/>
                                     <constraint firstItem="7yy-Ke-xJl" firstAttribute="leading" secondItem="aGx-FT-wQY" secondAttribute="leading" id="oZB-uL-mu0"/>
                                     <constraint firstAttribute="trailing" secondItem="7yy-Ke-xJl" secondAttribute="trailing" id="pU4-Vt-1Ha"/>
+                                    <constraint firstItem="2ot-Fp-2cx" firstAttribute="top" secondItem="he3-4l-zdw" secondAttribute="bottom" constant="5" id="wDB-wX-jJF"/>
+                                    <constraint firstAttribute="bottom" secondItem="2ot-Fp-2cx" secondAttribute="bottom" id="yjW-cb-Ov2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -980,7 +988,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="t81-YF-wh1"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="nVh-UF-zwe" id="U6K-uq-8oZ"/>
+                        <outlet property="tableViewContent" destination="nVh-UF-zwe" id="U6K-uq-8oZ"/>
+                        <outlet property="tableViewHistorySearch" destination="2ot-Fp-2cx" id="CLp-oO-Pmi"/>
                         <outlet property="textFieldSearch" destination="he3-4l-zdw" id="0zs-dl-mEy"/>
                         <outlet property="viewNotifyEmpty" destination="yz0-VU-JNY" id="xer-oA-DiH"/>
                     </connections>
@@ -992,7 +1001,7 @@
         <!--Search-->
         <scene sceneID="vsq-pc-hWR">
             <objects>
-                <navigationController id="NJb-Yp-Waq" customClass="ConfigNavigationController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="NJb-Yp-Waq" customClass="ConfigNavigationController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="icon-search-tabbar" id="iO9-VB-SuF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JiS-XX-0xX">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1012,12 +1021,12 @@
         <!--List Movies-->
         <scene sceneID="iFv-G1-9my">
             <objects>
-                <viewController title="List Movies" id="2s6-su-1Eh" customClass="ListMoviesViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="List Movies" id="2s6-su-1Eh" customClass="ListMoviesViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="drs-ia-Na8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYR-2y-LlO" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYR-2y-LlO" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -1079,7 +1088,7 @@
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

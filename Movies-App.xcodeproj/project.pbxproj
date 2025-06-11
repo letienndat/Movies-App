@@ -649,6 +649,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		4A7D68FC2DF9840300724240 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		4A8682932D5ED47C00BB1553 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,6 +1023,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC88A9E2D59D2B200FCBDE1 /* SearchViewController.swift */,
+				4A7D68FC2DF9840300724240 /* Cell */,
 				4ABC76122D66B93F00E4995A /* Delegate */,
 			);
 			path = Search;

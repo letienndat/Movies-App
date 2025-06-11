@@ -16,6 +16,9 @@ final class SearchPresenter {
     private var totalPages = 0
     private var totalResults = 0
     private(set) var movies: [Movie]?
+    var historySearch: [String] {
+        AppManager.historySearch ?? []
+    }
     var isLoading = false
 
     init(searchViewDelegate: SearchViewDelegate) {
@@ -75,5 +78,27 @@ final class SearchPresenter {
                     self.isLoading = false
                 }
         }
+    }
+
+    func updateHistorySearch(_ keyword: String) {
+        let keyword = keyword.trimmingCharacters(in: .whitespacesAndNewlines)
+        var cache = historySearch
+
+        if let index = cache.firstIndex(where: { $0 == keyword }) {
+            cache.remove(at: index)
+        }
+        cache.insert(keyword, at: 0)
+        AppManager.historySearch = cache
+    }
+
+    func removeHistorySearch(_ index: Int) -> String? {
+        guard let value = historySearch[safe: index] else {
+            return nil
+        }
+
+        var cache = historySearch
+        cache.remove(at: index)
+        AppManager.historySearch = cache
+        return value
     }
 }

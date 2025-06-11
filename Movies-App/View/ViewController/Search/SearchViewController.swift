@@ -9,7 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableViewContent: UITableView!
+    @IBOutlet private weak var tableViewHistorySearch: UITableView!
     @IBOutlet private weak var viewNotifyEmpty: UIView!
     @IBOutlet private weak var textFieldSearch: PaddingTextField!
 
@@ -23,11 +24,15 @@ class SearchViewController: UIViewController {
     }
 
     private func setupView() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.keyboardDismissMode = .interactive
-        tableView.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableViewContent.translatesAutoresizingMaskIntoConstraints = false
+        tableViewContent.keyboardDismissMode = .interactive
+        tableViewContent.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
+        tableViewContent.delegate = self
+        tableViewContent.dataSource = self
+
+        tableViewHistorySearch.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
+        tableViewHistorySearch.delegate = self
+        tableViewHistorySearch.dataSource = self
 
         textFieldSearch.delegate = self
         textFieldSearch.padding = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 10)
@@ -104,12 +109,12 @@ class SearchViewController: UIViewController {
     private func keyboardWillShow(_ notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardHeight = keyboardFrame.cgRectValue.height
-        tableView.contentInset.bottom = keyboardHeight
+        tableViewContent.contentInset.bottom = keyboardHeight
     }
 
     @objc
     private func keyboardWillHide(_ notification: Notification) {
-        tableView.contentInset.bottom = 0
+        tableViewContent.contentInset.bottom = 0
     }
 
     deinit {
@@ -145,18 +150,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: SearchViewDelegate {
     func reloadTableView(isLoadMore: Bool) {
-        tableView.isHidden = false
+        tableViewContent.isHidden = false
         viewNotifyEmpty.isHidden = true
-        tableView.reloadData()
+        tableViewContent.reloadData()
         searchPresenter.isLoading = false
 
         if !isLoadMore {
-            tableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+            tableViewContent.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
         }
     }
 
     func showNotifyEmpty() {
-        tableView.isHidden = true
+        tableViewContent.isHidden = true
         viewNotifyEmpty.isHidden = false
     }
 
