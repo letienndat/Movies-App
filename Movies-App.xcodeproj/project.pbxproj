@@ -66,6 +66,10 @@
 		4A8682952D5ED48B00BB1553 /* TypeCellHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682942D5ED48B00BB1553 /* TypeCellHome.swift */; };
 		4A8682982D5EFFD300BB1553 /* ConfigNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682972D5EFFD300BB1553 /* ConfigNavigationController.swift */; };
 		4A8682B42D5F2D0000BB1553 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682B32D5F2D0000BB1553 /* RegisterViewController.swift */; };
+		4A890E082DF9E557001CA9E4 /* ItemSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A890E072DF9E557001CA9E4 /* ItemSearchTableViewCell.xib */; };
+		4A890E092DF9E557001CA9E4 /* ItemSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A890E062DF9E557001CA9E4 /* ItemSearchTableViewCell.swift */; };
+		4A890E0A2DF9E557001CA9E4 /* ItemSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A890E062DF9E557001CA9E4 /* ItemSearchTableViewCell.swift */; };
+		4A890E0B2DF9E557001CA9E4 /* ItemSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A890E072DF9E557001CA9E4 /* ItemSearchTableViewCell.xib */; };
 		4A960F8E2D6C11DF00934369 /* TypeMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A960F8D2D6C11DF00934369 /* TypeMovie.swift */; };
 		4A960F902D6C1F1000934369 /* DetailMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A960F8F2D6C1F1000934369 /* DetailMovie.storyboard */; };
 		4A960F932D6C1F6800934369 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A960F922D6C1F6800934369 /* DetailMovieViewController.swift */; };
@@ -306,6 +310,8 @@
 		4A8682942D5ED48B00BB1553 /* TypeCellHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCellHome.swift; sourceTree = "<group>"; };
 		4A8682972D5EFFD300BB1553 /* ConfigNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNavigationController.swift; sourceTree = "<group>"; };
 		4A8682B32D5F2D0000BB1553 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4A890E062DF9E557001CA9E4 /* ItemSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchTableViewCell.swift; sourceTree = "<group>"; };
+		4A890E072DF9E557001CA9E4 /* ItemSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemSearchTableViewCell.xib; sourceTree = "<group>"; };
 		4A960F8D2D6C11DF00934369 /* TypeMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeMovie.swift; sourceTree = "<group>"; };
 		4A960F8F2D6C1F1000934369 /* DetailMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailMovie.storyboard; sourceTree = "<group>"; };
 		4A960F922D6C1F6800934369 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
@@ -649,13 +655,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		4A7D68FC2DF9840300724240 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		4A8682932D5ED47C00BB1553 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +689,15 @@
 				4A8682B32D5F2D0000BB1553 /* RegisterViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		4A890E052DF9E54D001CA9E4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4A890E062DF9E557001CA9E4 /* ItemSearchTableViewCell.swift */,
+				4A890E072DF9E557001CA9E4 /* ItemSearchTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4A960F912D6C1F3A00934369 /* DetailMovie */ = {
@@ -1023,7 +1031,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC88A9E2D59D2B200FCBDE1 /* SearchViewController.swift */,
-				4A7D68FC2DF9840300724240 /* Cell */,
+				4A890E052DF9E54D001CA9E4 /* Cell */,
 				4ABC76122D66B93F00E4995A /* Delegate */,
 			);
 			path = Search;
@@ -1224,6 +1232,7 @@
 				4ADAD59E2D6D4E55008DF163 /* TabCastViewController.xib in Resources */,
 				4A435E822D5B53C6001DA596 /* Montserrat-SemiBold.ttf in Resources */,
 				4A53B6862D76A0F500C86556 /* WatchMovie.storyboard in Resources */,
+				4A890E0B2DF9E557001CA9E4 /* ItemSearchTableViewCell.xib in Resources */,
 				4ADAD5A52D6D4FA8008DF163 /* ReviewTabTableViewCell.xib in Resources */,
 				4A4E52C52D55D74A00DFC7BC /* TopRatedTableViewCell.xib in Resources */,
 				4A4E52BC2D55B6CB00DFC7BC /* SearchTableViewCell.xib in Resources */,
@@ -1251,6 +1260,7 @@
 				4AEBBDE42DF0270F00407C6B /* Pods-Movies-App [DEV-ST]-acknowledgements.plist in Resources */,
 				4AE7CE6E2DEFD9F800F1C88A /* Montserrat-SemiBold.ttf in Resources */,
 				4AE7CE6F2DEFD9F800F1C88A /* WatchMovie.storyboard in Resources */,
+				4A890E082DF9E557001CA9E4 /* ItemSearchTableViewCell.xib in Resources */,
 				4AE7CE702DEFD9F800F1C88A /* ReviewTabTableViewCell.xib in Resources */,
 				4AE7CE712DEFD9F800F1C88A /* TopRatedTableViewCell.xib in Resources */,
 				4AE7CE722DEFD9F800F1C88A /* SearchTableViewCell.xib in Resources */,
@@ -1433,6 +1443,7 @@
 				4ADAD59B2D6D4E55008DF163 /* TabAboutMovieViewController.swift in Sources */,
 				4ABC76152D66B95A00E4995A /* SearchViewDelegate.swift in Sources */,
 				4ACF34532DC7B82A0075F2CB /* Auth.swift in Sources */,
+				4A890E0A2DF9E557001CA9E4 /* ItemSearchTableViewCell.swift in Sources */,
 				4A5151C62DEEE7D100546199 /* AppTrackingRes.swift in Sources */,
 				4AD885C32D65762E00D8D2AF /* GetUserRes.swift in Sources */,
 				4A960FA02D6C5AF900934369 /* DetailMoviePresenter.swift in Sources */,
@@ -1537,6 +1548,7 @@
 				4AE7CE2E2DEFD9F800F1C88A /* TabAboutMovieViewController.swift in Sources */,
 				4AE7CE2F2DEFD9F800F1C88A /* SearchViewDelegate.swift in Sources */,
 				4AE7CE302DEFD9F800F1C88A /* Auth.swift in Sources */,
+				4A890E092DF9E557001CA9E4 /* ItemSearchTableViewCell.swift in Sources */,
 				4AE7CE312DEFD9F800F1C88A /* AppTrackingRes.swift in Sources */,
 				4AE7CE322DEFD9F800F1C88A /* GetUserRes.swift in Sources */,
 				4AE7CE332DEFD9F800F1C88A /* DetailMoviePresenter.swift in Sources */,
@@ -1820,7 +1832,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.datlt.Movies-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.datlt.Movies-App1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1857,7 +1869,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.datlt.Movies-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.datlt.Movies-App1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

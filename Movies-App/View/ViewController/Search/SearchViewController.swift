@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet private weak var tableViewContent: UITableView!
-    @IBOutlet private weak var tableViewHistorySearch: UITableView!
+    @IBOutlet private weak var tableViewItemSearch: UITableView!
     @IBOutlet private weak var viewNotifyEmpty: UIView!
     @IBOutlet private weak var textFieldSearch: PaddingTextField!
 
@@ -30,9 +30,9 @@ class SearchViewController: UIViewController {
         tableViewContent.delegate = self
         tableViewContent.dataSource = self
 
-        tableViewHistorySearch.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
-        tableViewHistorySearch.delegate = self
-        tableViewHistorySearch.dataSource = self
+        tableViewItemSearch.register(ItemSearchTableViewCell.nib, forCellReuseIdentifier: ItemSearchTableViewCell.reuseIdentifier)
+        tableViewItemSearch.delegate = self
+        tableViewItemSearch.dataSource = self
 
         textFieldSearch.delegate = self
         textFieldSearch.padding = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 10)
@@ -134,17 +134,51 @@ extension SearchViewController: UITextFieldDelegate {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        searchPresenter.movies?.count ?? 0
+        if tableView == tableViewContent {
+            return searchPresenter.movies?.count ?? 0
+        }
+        if tableView == tableViewItemSearch {
+            return 20
+        }
+
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIdentifier, for: indexPath) as! MovieTableViewCell
+        if tableView == tableViewContent {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIdentifier, for: indexPath) as! MovieTableViewCell
 
-        let movie = searchPresenter.movies?[indexPath.item]
-        cell.setupData(movie: movie)
-        cell.tapMovieDelegate = self
+            let movie = searchPresenter.movies?[indexPath.item]
+            cell.setupData(movie: movie)
+            cell.tapMovieDelegate = self
 
-        return cell
+            return cell
+        }
+        if tableView == tableViewItemSearch {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: ItemSearchTableViewCell.reuseIdentifier,
+                for: indexPath
+            ) as! ItemSearchTableViewCell
+
+            let keyword = UUID().uuidString + UUID().uuidString
+            cell.setupData(type: .history, keyword: keyword)
+            cell.tapItemSearch = { [weak self] in
+                guard let self else { return }
+                self.dismissKeyboard()
+            }
+            cell.tapBtnFillSearchInput = { [weak self] in
+                guard let self else { return }
+                self.textFieldSearch.text = keyword
+            }
+
+            return cell
+        }
+
+        return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        false
     }
 }
 
