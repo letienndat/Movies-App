@@ -10,6 +10,7 @@ import Foundation
 extension AppManager {
     struct StorageKeys {
         static let appID = "movies-app"
-        static let keyHasLaunchedBefore = appID + ".hasLaunchedBefore"
+        static let hasLaunchedBefore = appID + ".hasLaunchedBefore"
+        static let historySearch = appID + ".historySearch"
     }
 }

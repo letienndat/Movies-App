@@ -16,6 +16,7 @@ def available_pods
   pod 'FacebookLogin'
   pod 'atlantis-proxyman'
   pod 'SnapKit', '~> 5.7.0'
+  pod 'IQKeyboardManagerSwift', '~> 8.0.0'
 end
 
 target 'Movies-App [DEV]' do

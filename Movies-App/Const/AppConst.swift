@@ -31,6 +31,7 @@ struct AppConst {
     public static let endPointWatchlist = "/account/21799740/watchlist/movies"
     public static let endPointGetListVideos = "/movie/{movie_id}/videos"
     public static let endPointRecommendations = "/discover/movie"
+    public static let endPointSuggestionsKeyword = "/search/keyword"
 
     public static var baseURLTMDBImage: String {
         XCConfig.baseURLTMDBImage.value

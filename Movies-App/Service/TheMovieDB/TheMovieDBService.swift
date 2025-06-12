@@ -62,7 +62,7 @@ class TheMovieDBService: BaseService {
             "language": language
         ]
 
-        AF.request(
+        AF.requestWithoutCache(
             url + AppConst.endPointSearch,
             method: method,
             parameters: params,
@@ -80,12 +80,40 @@ class TheMovieDBService: BaseService {
         }
     }
 
+    func fetchKeywords(
+        query: String,
+        page: Int = 1,
+        completion: @escaping ((Result<ResponseTheMovieDBBase<KeywordRes>, AppError>) -> Void)
+    ) {
+        let params: [String: Any] = [
+            "query": query,
+            "page": page
+        ]
+
+        AF.requestWithoutCache(
+            url + AppConst.endPointSuggestionsKeyword,
+            method: method,
+            parameters: params,
+            encoding: encoding,
+            headers: headers
+        )
+        .responseDecodable(of: ResponseTheMovieDBBase<KeywordRes>.self) { res in
+            switch res.result {
+            case .success(let keywords):
+                completion(.success(keywords))
+            case .failure(let err):
+                print(err.localizedDescription)
+                completion(.failure(AppError(from: err)))
+            }
+        }
+    }
+
     func fetchMovieDetail(
         endpoint: String,
         params: [String: Any]?,
         completion: @escaping ((Result<Movie, AppError>) -> Void)
     ) {
-        AF.request(
+        AF.requestWithoutCache(
             AppConst.baseURLTheMovieDB + endpoint,
             method: method,
             parameters: params,
@@ -110,7 +138,7 @@ class TheMovieDBService: BaseService {
     ) {
         self.headers?["content-type"] = "application/json"
 
-        AF.request(
+        AF.requestWithoutCache(
             AppConst.baseURLTheMovieDB + endpoint,
             method: .post,
             parameters: params,
@@ -156,7 +184,7 @@ class TheMovieDBService: BaseService {
         params: [String: Any]?,
         completion: @escaping ((Result<CreditsMovie, AppError>) -> Void)
     ) {
-        AF.request(
+        AF.requestWithoutCache(
             url + endpoint,
             method: method,
             parameters: params,
@@ -179,7 +207,7 @@ class TheMovieDBService: BaseService {
         params: [String: Any],
         completion: @escaping ((Result<ResponseTheMovieDBBase<Movie>, AppError>) -> Void)
     ) {
-        AF.request(
+        AF.requestWithoutCache(
             url + endpoint,
             method: method,
             parameters: params,
@@ -202,7 +230,7 @@ class TheMovieDBService: BaseService {
         params: [String: Any]?,
         completion: @escaping ((Result<VideoRes?, AppError>) -> Void)
     ) {
-        AF.request(
+        AF.requestWithoutCache(
             url + endpoint,
             method: method,
             parameters: params,

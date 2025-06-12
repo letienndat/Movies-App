@@ -17,4 +17,6 @@ extension String {
         }
         return prettyString
     }
+
+    var isNotEmpty: Bool { !isEmpty }
 }

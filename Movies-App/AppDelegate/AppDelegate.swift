@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import FacebookCore
+import IQKeyboardManagerSwift
 #if DEBUG
 import Atlantis
 #endif
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if DEBUG
         Atlantis.start()
 #endif
+        IQKeyboardManager.shared.isEnabled = true
         FirebaseApp.configure()
         DBDebugToolkit.setup()
         UINavigationBar.appearance().barStyle = .black
