@@ -97,6 +97,10 @@ class LoginViewController: UIViewController {
         loginPresenter.loginWithEmailPassword()
     }
 
+    @IBAction private func handleTappedButtonForgetPassword(_ sender: UIButton) {
+        loginPresenter.forgetPassword()
+    }
+
     @objc
     private func keyboardWillShow(_ notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -135,5 +139,12 @@ extension LoginViewController: LoginViewDelegate {
 
         view.window?.rootViewController = tabBar
         view.window?.makeKeyAndVisible()
+    }
+
+    func sendPasswordResetSuccess() {
+        showAlert(
+            title: "Success",
+            message: "We have sent you a password reset link to your email \(loginPresenter.email). Please check!"
+        )
     }
 }

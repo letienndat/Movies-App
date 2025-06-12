@@ -119,4 +119,23 @@ class LoginPresenter {
             }
         }
     }
+
+    func forgetPassword() {
+        guard !email.isEmpty else {
+            self.loginViewDelegate?.showError(title: "Error", message: AppError.missingRequiredFieldEmail.rawValue)
+            return
+        }
+        self.loginViewDelegate?.showLoading()
+
+        Auth.auth().sendPasswordReset(withEmail: email) { [weak self] err in
+            self?.loginViewDelegate?.hideLoading()
+
+            guard let self = self else { return }
+            guard err == nil else {
+                self.loginViewDelegate?.showError(title: "Error", message: err!.localizedDescription)
+                return
+            }
+            self.loginViewDelegate?.sendPasswordResetSuccess()
+        }
+    }
 }
