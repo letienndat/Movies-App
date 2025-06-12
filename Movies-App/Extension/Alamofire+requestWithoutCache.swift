@@ -16,9 +16,7 @@ extension Alamofire.Session {
         parameters: Parameters? = nil,
         encoding: ParameterEncoding = URLEncoding.default,
         headers: HTTPHeaders? = nil
-    )
-        -> DataRequest
-    {
+    ) -> DataRequest {
         do {
             var urlRequest = try URLRequest(
                 url: url, method: method, headers: headers)

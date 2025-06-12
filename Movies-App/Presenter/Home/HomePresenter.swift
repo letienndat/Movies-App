@@ -143,22 +143,24 @@ class HomePresenter {
         }
 
         dispatchGroup.enter()
-        fetchRecommendations { [weak self] in
+        fetchRecommendations { [weak self] result in
             guard let self else {
                 dispatchGroup.leave()
                 return
             }
 
-            dispatchGroup.enter()
-            self.fetchMoviesRecommendForYou {
-                self.homeViewDelegate?.displayListMovies(type: .moviesRecommendForYou)
-                dispatchGroup.leave()
-            }
+            if result {
+                dispatchGroup.enter()
+                self.fetchMoviesRecommendForYou {
+                    self.homeViewDelegate?.displayListMovies(type: .moviesRecommendForYou)
+                    dispatchGroup.leave()
+                }
 
-            dispatchGroup.enter()
-            self.fetchMoviesYouMightLike {
-                self.homeViewDelegate?.displayListMovies(type: .moviesYouMightLike)
-                dispatchGroup.leave()
+                dispatchGroup.enter()
+                self.fetchMoviesYouMightLike {
+                    self.homeViewDelegate?.displayListMovies(type: .moviesYouMightLike)
+                    dispatchGroup.leave()
+                }
             }
 
             dispatchGroup.leave()
@@ -289,7 +291,7 @@ class HomePresenter {
         }
     }
 
-    func fetchRecommendations(completion: @escaping () -> Void) {
+    func fetchRecommendations(completion: @escaping (Bool) -> Void) {
         guard let email = Auth.getCurrentUser()?.email else { return }
 
         var endpoint = AppConst.TrackingEndpoint.recommendations.endpoint
@@ -301,9 +303,9 @@ class HomePresenter {
             case .success(let data):
                 self.recommendations = data
                 AppManager.recommendationDTO = data
-                completion()
+                completion(true)
             case .failure:
-                break
+                completion(false)
             }
         }
     }
