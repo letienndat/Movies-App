@@ -28,7 +28,7 @@ private class TrackingService: BaseService {
         var params = params
         params["action"] = event.parameter
 
-        AF.request(
+        AF.requestWithoutCache(
             url + endpoint,
             method: .post,
             parameters: params,

@@ -21,7 +21,7 @@ class AppService: BaseService {
         endpoint: String,
         completion: @escaping ((Result<RecommendationDTO, AppError>) -> Void)
     ) {
-        AF.request(
+        AF.requestWithoutCache(
             url + endpoint,
             parameters: parameter,
             headers: headers

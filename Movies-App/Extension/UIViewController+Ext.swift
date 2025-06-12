@@ -43,13 +43,12 @@ extension UIViewController {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .white
         containerView.snp.makeConstraints { maker in
-            maker.top.leading.trailing.bottom.equalToSuperview()
+            maker.edges.equalToSuperview()
         }
         containerView.addSubview(indicator)
         indicator.snp.makeConstraints { maker in
             maker.center.equalToSuperview()
         }
-        controller.view.isUserInteractionEnabled = false
         indicator.startAnimating()
     }
 
@@ -59,7 +58,6 @@ extension UIViewController {
         if !controller.isKind(of: UINavigationController.self) {
             controller = controller.navigationController ?? self
         }
-        controller.view.isUserInteractionEnabled = true
         controller.view.subviews.forEach { view in
             if view.tag == indicatorParentViewTag {
                 let subviews = view.subviews.filter { v in

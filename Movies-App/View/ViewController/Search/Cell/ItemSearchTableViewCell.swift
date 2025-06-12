@@ -8,13 +8,9 @@
 import UIKit
 
 class ItemSearchTableViewCell: UITableViewCell {
-    enum ItemSearchType {
-        case search
-        case history
-    }
-
     @IBOutlet private weak var iconLeftImageView: UIImageView!
     @IBOutlet private weak var itemKeywordLabel: UILabel!
+    @IBOutlet private weak var autoFillValueSearchButton: UIButton!
 
     var tapItemSearch: (() -> Void)?
     var tapBtnFillSearchInput: (() -> Void)?
@@ -24,9 +20,13 @@ class ItemSearchTableViewCell: UITableViewCell {
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapCell))
         contentView.addGestureRecognizer(tap)
+
+        let config = UIImage.SymbolConfiguration(pointSize: 12, weight: .regular)
+        let image = UIImage(systemName: "arrow.up.left", withConfiguration: config)
+        autoFillValueSearchButton.setImage(image, for: .normal)
     }
 
-    func setupData(type: ItemSearchType, keyword: String) {
+    func setupData(type: KeywordType, keyword: String) {
         if type == .history {
             iconLeftImageView.image = UIImage(systemName: "arrow.counterclockwise")
         } else if type == .search {

@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="576" height="78"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.arrow.trianglehead.counterclockwise.rotate.90" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="P8w-bc-RRU">
-                        <rect key="frame" x="14.666666666666666" y="29.666666666666664" width="20.333333333333336" height="18.666666666666664"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P8w-bc-RRU">
+                        <rect key="frame" x="15" y="29" width="20" height="20"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="RfV-Li-RTu"/>
@@ -25,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fW-I2-wsa">
-                        <rect key="frame" x="50" y="10" width="476" height="58"/>
+                        <rect key="frame" x="50" y="10" width="461" height="58"/>
                         <attributedString key="attributedText">
                             <fragment content="Item search">
                                 <attributes>
@@ -39,14 +39,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yco-1f-qH1">
-                        <rect key="frame" x="541" y="31.666666666666671" width="15" height="15"/>
+                        <rect key="frame" x="526" y="0.0" width="30" height="78"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="Ico-z9-8Qo"/>
-                            <constraint firstAttribute="width" constant="15" id="qzX-3b-K3Y"/>
+                            <constraint firstAttribute="width" constant="30" id="qzX-3b-K3Y"/>
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" image="arrow.up.left" catalog="system"/>
                         <connections>
                             <action selector="handleTapBtnFillSearchInput:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sm6-oA-8Wj"/>
                         </connections>
@@ -62,20 +60,17 @@
                     <constraint firstAttribute="trailing" secondItem="Yco-1f-qH1" secondAttribute="trailing" constant="20" id="hOT-MQ-FKN"/>
                     <constraint firstItem="7fW-I2-wsa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jv1-NG-wFn"/>
                     <constraint firstItem="P8w-bc-RRU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ke3-8j-B4K"/>
-                    <constraint firstItem="Yco-1f-qH1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="leP-7k-xJD"/>
+                    <constraint firstItem="Yco-1f-qH1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="leP-7k-xJD"/>
                     <constraint firstItem="P8w-bc-RRU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wXc-pY-CHm"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="autoFillValueSearchButton" destination="Yco-1f-qH1" id="5Xx-0l-dkL"/>
                 <outlet property="iconLeftImageView" destination="P8w-bc-RRU" id="U3F-bF-J2e"/>
                 <outlet property="itemKeywordLabel" destination="7fW-I2-wsa" id="U0L-G2-tMO"/>
             </connections>
             <point key="canvasLocation" x="325.19083969465646" y="0.70422535211267612"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="arrow.up.left" catalog="system" width="128" height="112"/>
-        <image name="clock.arrow.trianglehead.counterclockwise.rotate.90" catalog="system" width="128" height="119"/>
-    </resources>
 </document>

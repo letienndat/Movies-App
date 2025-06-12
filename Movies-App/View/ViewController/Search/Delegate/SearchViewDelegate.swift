@@ -8,9 +8,11 @@
 import Foundation
 
 protocol SearchViewDelegate: AnyObject {
-    func reloadTableView(isLoadMore: Bool)
+    func reloadTableView(type: SearchPresenter.TableViewType, isLoadMore: Bool)
     func showNotifyEmpty()
     func showLoading()
     func hideLoading()
     func showError(title: String, message: String)
+    func changeValueSearch(keyword: String)
+    func updateStateShowItemSearch(isActive: Bool)
 }

@@ -63,6 +63,8 @@
 		4A6218232D633961004ECA2A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6218222D633961004ECA2A /* ProfileViewController.swift */; };
 		4A6218262D6339F1004ECA2A /* ProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6218252D6339F1004ECA2A /* ProfileViewDelegate.swift */; };
 		4A6218292D633A35004ECA2A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6218282D633A35004ECA2A /* ProfilePresenter.swift */; };
+		4A7D66A02DFABF0900BB4CFC /* KeywordRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7D669F2DFABF0900BB4CFC /* KeywordRes.swift */; };
+		4A7D66A12DFABF0900BB4CFC /* KeywordRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7D669F2DFABF0900BB4CFC /* KeywordRes.swift */; };
 		4A8682952D5ED48B00BB1553 /* TypeCellHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682942D5ED48B00BB1553 /* TypeCellHome.swift */; };
 		4A8682982D5EFFD300BB1553 /* ConfigNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682972D5EFFD300BB1553 /* ConfigNavigationController.swift */; };
 		4A8682B42D5F2D0000BB1553 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8682B32D5F2D0000BB1553 /* RegisterViewController.swift */; };
@@ -82,6 +84,8 @@
 		4AA0D8B42D5F419F00321BE1 /* LoginViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0D8B32D5F419F00321BE1 /* LoginViewDelegate.swift */; };
 		4AA53C152DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA53C142DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift */; };
 		4AA53C162DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA53C142DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift */; };
+		4AA53C182DFA858600FFFF38 /* UITextField+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA53C172DFA858600FFFF38 /* UITextField+Ex.swift */; };
+		4AA53C192DFA858600FFFF38 /* UITextField+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA53C172DFA858600FFFF38 /* UITextField+Ex.swift */; };
 		4AA54A9A2DF5D5F200E78059 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 4AA54A992DF5D5F200E78059 /* Ink */; };
 		4AA54A9C2DF5D60800E78059 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 4AA54A9B2DF5D60800E78059 /* Ink */; };
 		4AA93AA42D6C05380026F830 /* ListMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA93AA32D6C05380026F830 /* ListMoviesPresenter.swift */; };
@@ -309,6 +313,7 @@
 		4A6218222D633961004ECA2A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4A6218252D6339F1004ECA2A /* ProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewDelegate.swift; sourceTree = "<group>"; };
 		4A6218282D633A35004ECA2A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		4A7D669F2DFABF0900BB4CFC /* KeywordRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordRes.swift; sourceTree = "<group>"; };
 		4A8682942D5ED48B00BB1553 /* TypeCellHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCellHome.swift; sourceTree = "<group>"; };
 		4A8682972D5EFFD300BB1553 /* ConfigNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigNavigationController.swift; sourceTree = "<group>"; };
 		4A8682B32D5F2D0000BB1553 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -325,6 +330,7 @@
 		4AA0D8B02D5F3FC800321BE1 /* LoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRes.swift; sourceTree = "<group>"; };
 		4AA0D8B32D5F419F00321BE1 /* LoginViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDelegate.swift; sourceTree = "<group>"; };
 		4AA53C142DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+requestWithoutCache.swift"; sourceTree = "<group>"; };
+		4AA53C172DFA858600FFFF38 /* UITextField+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ex.swift"; sourceTree = "<group>"; };
 		4AA93AA32D6C05380026F830 /* ListMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesPresenter.swift; sourceTree = "<group>"; };
 		4AA93AA62D6C055A0026F830 /* ListMoviesViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewDelegate.swift; sourceTree = "<group>"; };
 		4AB2D2302D6EBDBE00E1D9E7 /* PageTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +498,7 @@
 				4ADE1CE12DF461940002FB07 /* UITextView+formatHTMLAndMarkDown.swift */,
 				4AEDCB602DF85F5B00D86649 /* String+Ex.swift */,
 				4AA53C142DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift */,
+				4AA53C172DFA858600FFFF38 /* UITextField+Ex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -812,6 +819,7 @@
 				4A60AC442D757BCF005B808A /* UpdateWatchListRes.swift */,
 				4A53B68B2D76B07000C86556 /* ListVideoRes.swift */,
 				4A5151C52DEEE7D100546199 /* AppTrackingRes.swift */,
+				4A7D669F2DFABF0900BB4CFC /* KeywordRes.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1433,6 +1441,7 @@
 				4ABC761F2D66E71900E4995A /* MovieTableViewCell.swift in Sources */,
 				4A435E362D5B049A001DA596 /* UICollectionViewCell+Ext.swift in Sources */,
 				4A5CC4072D7141970019599D /* HeightContentViewDelegate.swift in Sources */,
+				4AA53C182DFA858600FFFF38 /* UITextField+Ex.swift in Sources */,
 				4A6217F32D62C286004ECA2A /* UIViewController+Ext.swift in Sources */,
 				4A8682952D5ED48B00BB1553 /* TypeCellHome.swift in Sources */,
 				4A6217FB2D62C489004ECA2A /* SignUpPresenter.swift in Sources */,
@@ -1477,6 +1486,7 @@
 				4A60AC322D7535B6005B808A /* WatchListViewController.swift in Sources */,
 				4A435E2A2D5AE0CB001DA596 /* HomeViewDelegate.swift in Sources */,
 				4ADAD59A2D6D4E55008DF163 /* TabReviewsViewController.swift in Sources */,
+				4A7D66A02DFABF0900BB4CFC /* KeywordRes.swift in Sources */,
 				4A6218292D633A35004ECA2A /* ProfilePresenter.swift in Sources */,
 				4A6218232D633961004ECA2A /* ProfileViewController.swift in Sources */,
 				4ABC76112D66B73E00E4995A /* SearchPresenter.swift in Sources */,
@@ -1539,6 +1549,7 @@
 				4AE7CE212DEFD9F800F1C88A /* MovieTableViewCell.swift in Sources */,
 				4AE7CE222DEFD9F800F1C88A /* UICollectionViewCell+Ext.swift in Sources */,
 				4AE7CE232DEFD9F800F1C88A /* HeightContentViewDelegate.swift in Sources */,
+				4AA53C192DFA858600FFFF38 /* UITextField+Ex.swift in Sources */,
 				4AE7CE242DEFD9F800F1C88A /* UIViewController+Ext.swift in Sources */,
 				4AE7CE252DEFD9F800F1C88A /* TypeCellHome.swift in Sources */,
 				4AE7CE262DEFD9F800F1C88A /* SignUpPresenter.swift in Sources */,
@@ -1583,6 +1594,7 @@
 				4AE7CE4A2DEFD9F800F1C88A /* WatchListViewController.swift in Sources */,
 				4AE7CE4B2DEFD9F800F1C88A /* HomeViewDelegate.swift in Sources */,
 				4AE7CE4C2DEFD9F800F1C88A /* TabReviewsViewController.swift in Sources */,
+				4A7D66A12DFABF0900BB4CFC /* KeywordRes.swift in Sources */,
 				4AE7CE4D2DEFD9F800F1C88A /* ProfilePresenter.swift in Sources */,
 				4AE7CE4E2DEFD9F800F1C88A /* ProfileViewController.swift in Sources */,
 				4AE7CE4F2DEFD9F800F1C88A /* SearchPresenter.swift in Sources */,
