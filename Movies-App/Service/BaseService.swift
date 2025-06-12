@@ -14,7 +14,16 @@ class BaseService {
     var parameter: [String: Any]?
     var headers: HTTPHeaders?
 
-    let AF = Session(eventMonitors: [APIEventMonitor()])
+    private var configuration: URLSessionConfiguration = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = AppConst.timeout
+        configuration.timeoutIntervalForResource = AppConst.timeout
+
+        return configuration
+    }()
+    lazy var AF: Session = {
+        Session(configuration: configuration, eventMonitors: [APIEventMonitor()])
+    }()
 
     init(url: String) {
         self.url = url

@@ -49,6 +49,7 @@ struct AppConst {
     public static let colorViewTabSelected = UIColor(hex: 0x3A3F47)
 
     public static let numberItemOfPage = 20
+    public static let timeout: TimeInterval = 30
 
     enum TrackingEvent {
         case tapDetailMovie
