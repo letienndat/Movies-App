@@ -12,7 +12,7 @@
         <!--Config Navigation Controller-->
         <scene sceneID="GFM-Se-8nv">
             <objects>
-                <navigationController id="ZZx-JQ-xsT" customClass="ConfigNavigationController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="ZZx-JQ-xsT" customClass="ConfigNavigationController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s5U-9i-eup">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -31,12 +31,12 @@
         <!--Log In-->
         <scene sceneID="Fzb-8K-Xvb">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vzf-ff-VoE" customClass="LoginViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vzf-ff-VoE" customClass="LoginViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W5I-Yk-KM3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fr-SM-Iec" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fr-SM-Iec" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -64,7 +64,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-cT-Ptq" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-cT-Ptq" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                 <rect key="frame" x="31.333333333333343" y="172" width="330.33333333333326" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -91,7 +91,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLw-nN-fJG" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLw-nN-fJG" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                 <rect key="frame" x="31.333333333333343" y="273" width="330.33333333333326" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -129,6 +129,9 @@
                                                     </attributedString>
                                                     <color key="baseForegroundColor" red="0.13333333333333333" green="0.37647058823529411" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="handleTappedButtonForgetPassword:" destination="Vzf-ff-VoE" eventType="touchUpInside" id="OBI-7T-8v0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmK-zB-XiE">
                                                 <rect key="frame" x="89" y="374" width="215" height="45"/>
@@ -334,12 +337,12 @@
         <!--New Account-->
         <scene sceneID="XYe-Xr-qyv">
             <objects>
-                <viewController id="mJ2-Ff-3yH" customClass="SignUpViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mJ2-Ff-3yH" customClass="SignUpViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lEO-HK-tvB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uuo-cv-TgY" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uuo-cv-TgY" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -361,7 +364,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x11-CR-su6" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x11-CR-su6" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="36" width="333" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -403,7 +406,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPn-V9-Skp" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPn-V9-Skp" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="36" width="333" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -445,7 +448,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-gv-4AS" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-gv-4AS" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="36" width="333" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -487,7 +490,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKF-lV-nfj" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cKF-lV-nfj" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="36" width="333" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -529,7 +532,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date Of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDG-Tf-8JA" customClass="PaddingTextField" customModule="Movies_App" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date Of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDG-Tf-8JA" customClass="PaddingTextField" customModule="Movies_App__DEV_" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="36" width="333" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -782,12 +785,12 @@
         <!--Register View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="RegisterViewController" customModule="Movies_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="RegisterViewController" customModule="Movies_App__DEV_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohH-8Q-DkM" customClass="ViewBackgroundGradient" customModule="Movies_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohH-8Q-DkM" customClass="ViewBackgroundGradient" customModule="Movies_App__DEV_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>

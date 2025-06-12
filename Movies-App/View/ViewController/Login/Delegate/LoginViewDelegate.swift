@@ -12,4 +12,5 @@ protocol LoginViewDelegate: AnyObject {
     func hideLoading()
     func showError(title: String, message: String)
     func loginSuccess()
+    func sendPasswordResetSuccess()
 }
