@@ -64,7 +64,9 @@ class TabReviewsPresenter {
             case .failure:
                 self.page -= 1
                 self.isLoading = false
-                self.tabReviewViewDelegate?.fetchError("Can not fetch comments for this movie.")
+                if !isLoadMore {
+                    self.tabReviewViewDelegate?.fetchError("Can not fetch comments for this movie.")
+                }
             }
         }
     }
