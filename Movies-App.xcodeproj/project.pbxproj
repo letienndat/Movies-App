@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		243FB9859670253F882BA90B /* Pods_Movies_App__DEV_ST_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92235F1A8D33573ECE573544 /* Pods_Movies_App__DEV_ST_.framework */; };
+		4A032C9E2DFAFDAC00383924 /* UILable+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A032C9D2DFAFDAC00383924 /* UILable+Ex.swift */; };
+		4A032C9F2DFAFDAC00383924 /* UILable+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A032C9D2DFAFDAC00383924 /* UILable+Ex.swift */; };
 		4A1484722D5D88B500CB6E5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1484712D5D88B500CB6E5D /* LoginViewController.swift */; };
 		4A151A752DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */; };
 		4A151A762DF1E57500D3EF2A /* UILabel+heightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */; };
@@ -259,6 +261,7 @@
 
 /* Begin PBXFileReference section */
 		050DE0DD7595F959B417C4CA /* Pods-Movies-App [DEV-ST].release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies-App [DEV-ST].release.xcconfig"; path = "Target Support Files/Pods-Movies-App [DEV-ST]/Pods-Movies-App [DEV-ST].release.xcconfig"; sourceTree = "<group>"; };
+		4A032C9D2DFAFDAC00383924 /* UILable+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILable+Ex.swift"; sourceTree = "<group>"; };
 		4A1484712D5D88B500CB6E5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A151A742DF1E57500D3EF2A /* UILabel+heightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+heightView.swift"; sourceTree = "<group>"; };
 		4A151A772DF1EBEF00D3EF2A /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -499,6 +502,7 @@
 				4AEDCB602DF85F5B00D86649 /* String+Ex.swift */,
 				4AA53C142DFA5FDD00FFFF38 /* Alamofire+requestWithoutCache.swift */,
 				4AA53C172DFA858600FFFF38 /* UITextField+Ex.swift */,
+				4A032C9D2DFAFDAC00383924 /* UILable+Ex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1436,6 +1440,7 @@
 				4ADAD5B02D6D6EC3008DF163 /* ReviewMovie.swift in Sources */,
 				4A960F8E2D6C11DF00934369 /* TypeMovie.swift in Sources */,
 				4A60AC452D757BCF005B808A /* UpdateWatchListRes.swift in Sources */,
+				4A032C9F2DFAFDAC00383924 /* UILable+Ex.swift in Sources */,
 				4ACF34512DC7B7F10075F2CB /* Auth+Ext.swift in Sources */,
 				4A4E52BF2D55C41600DFC7BC /* UIColor+Ext.swift in Sources */,
 				4ABC761F2D66E71900E4995A /* MovieTableViewCell.swift in Sources */,
@@ -1544,6 +1549,7 @@
 				4AE7CE1C2DEFD9F800F1C88A /* ReviewMovie.swift in Sources */,
 				4AE7CE1D2DEFD9F800F1C88A /* TypeMovie.swift in Sources */,
 				4AE7CE1E2DEFD9F800F1C88A /* UpdateWatchListRes.swift in Sources */,
+				4A032C9E2DFAFDAC00383924 /* UILable+Ex.swift in Sources */,
 				4AE7CE1F2DEFD9F800F1C88A /* Auth+Ext.swift in Sources */,
 				4AE7CE202DEFD9F800F1C88A /* UIColor+Ext.swift in Sources */,
 				4AE7CE212DEFD9F800F1C88A /* MovieTableViewCell.swift in Sources */,

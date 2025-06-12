@@ -36,6 +36,12 @@ class ItemSearchTableViewCell: UITableViewCell {
         itemKeywordLabel.text = keyword
     }
 
+    func updateTextHighlight(_ text: String) {
+        let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        itemKeywordLabel.setAttributedText(highlightFont: .systemFont(ofSize: 12, weight: .bold))
+        itemKeywordLabel.setAttributedText(highlight: text, highlightFont: .systemFont(ofSize: 12, weight: .regular))
+    }
+
     @IBAction private func handleTapBtnFillSearchInput(_ sender: UIButton) {
         tapBtnFillSearchInput?()
     }

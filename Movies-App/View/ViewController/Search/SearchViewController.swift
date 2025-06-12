@@ -35,11 +35,13 @@ class SearchViewController: UIViewController {
         tableViewContent.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
         tableViewContent.delegate = self
         tableViewContent.dataSource = self
+        tableViewContent.contentInset = .init(top: 0, left: 0, bottom: 16, right: 0)
 
         tableViewItemSearch.register(ItemSearchTableViewCell.nib, forCellReuseIdentifier: ItemSearchTableViewCell.reuseIdentifier)
         tableViewItemSearch.delegate = self
         tableViewItemSearch.dataSource = self
         tableViewItemSearch.isHidden = !searchPresenter.isShowListKeywordSearch
+        tableViewItemSearch.contentInset = .init(top: 0, left: 0, bottom: 16, right: 0)
 
         textFieldSearch.delegate = self
         textFieldSearch.padding = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
@@ -110,8 +112,18 @@ class SearchViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard self.isMovingToParent else { return }
-        textFieldSearch.becomeFirstResponder()
+
+        guard let selectedIndex = tabBarController?.selectedIndex,
+              self.isMovingToParent || selectedIndex == 1 // tab search
+        else { return }
+
+        if let coordinator = self.transitionCoordinator {
+            coordinator.animate(alongsideTransition: nil) { _ in
+                self.textFieldSearch.becomeFirstResponder()
+            }
+        } else {
+            self.textFieldSearch.becomeFirstResponder()
+        }
     }
 
     @objc
@@ -131,8 +143,17 @@ class SearchViewController: UIViewController {
 
     @objc
     private func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+
         let keyboardHeight = keyboardFrame.cgRectValue.height
+        if let tabBar = tabBarController?.tabBar, tabBar.isHidden == false {
+            let heightTabbar = tabBarController?.tabBar.bounds.height ?? 0
+            constraintBottomContainerView.constant = keyboardHeight - heightTabbar
+
+            return
+        }
         constraintBottomContainerView.constant = keyboardHeight
     }
 
@@ -170,10 +191,10 @@ extension SearchViewController: UITextFieldDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.textFieldSearch.movePointerToEnd()
         }
-        if searchPresenter.keyword.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            tableViewItemSearch.reloadData()
-            tableViewItemSearch.contentOffset = .zero
-        } else if !searchPresenter.isShowListKeywordSearch {
+
+        tableViewItemSearch.reloadData()
+        tableViewItemSearch.contentOffset = .zero
+        if !searchPresenter.isShowListKeywordSearch {
             searchPresenter.fetchKeywords()
         }
         searchPresenter.isShowListKeywordSearch = true
@@ -206,7 +227,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == tableViewContent {
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIdentifier, for: indexPath) as! MovieTableViewCell
 
-            let movie = searchPresenter.movies?[indexPath.item]
+            let movie = searchPresenter.movies?[safe: indexPath.item]
             cell.setupData(movie: movie)
             cell.tapMovieDelegate = self
 
@@ -234,6 +255,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 self.searchPresenter.changeValueSearch(keyword: keyword.name)
                 self.textFieldSearch.becomeFirstResponder()
             }
+            cell.updateTextHighlight(searchPresenter.keyword)
 
             return cell
         }
@@ -243,6 +265,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         false
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView == tableViewItemSearch ? 50 : UITableView.automaticDimension
     }
 }
 

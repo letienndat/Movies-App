@@ -35,8 +35,9 @@ final class SearchPresenter {
     private(set) var keywordSuggessions: [String]?
     var allKeywordSuggessions: [KeywordRes] {
         var historySearchFilter: [KeywordRes] = historySearch.map({ .init(type: .history, name: $0) })
-        if !keyword.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            historySearchFilter = historySearch.filter({ $0.contains(keyword) })
+        let keywordTrim = keyword.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !keywordTrim.isEmpty {
+            historySearchFilter = historySearch.filter({ $0.contains(keywordTrim) })
                 .map({ .init(type: .history, name: $0) })
         }
 
