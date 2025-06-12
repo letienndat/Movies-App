@@ -192,11 +192,11 @@ extension SearchViewController: UITextFieldDelegate {
             self?.textFieldSearch.movePointerToEnd()
         }
 
-        tableViewItemSearch.reloadData()
-        tableViewItemSearch.contentOffset = .zero
         if !searchPresenter.isShowListKeywordSearch {
             searchPresenter.fetchKeywords()
         }
+        tableViewItemSearch.reloadData()
+        tableViewItemSearch.contentOffset = .zero
         searchPresenter.isShowListKeywordSearch = true
         stackViewContentSearch.isHidden = searchPresenter.isShowListKeywordSearch
         tableViewItemSearch.isHidden = !searchPresenter.isShowListKeywordSearch
@@ -282,14 +282,14 @@ extension SearchViewController: SearchViewDelegate {
             searchPresenter.isLoadingMovieSearch = false
 
             if !isLoadMore && searchPresenter.movies?.count ?? 0 > 0 {
-                tableViewContent.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+                tableViewContent.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             }
         case .keywords:
             tableViewItemSearch.reloadData()
             searchPresenter.isLoadingKeywordSearch = false
 
-            if !isLoadMore && searchPresenter.allKeywordSuggessions.isNotEmpty {
-                tableViewItemSearch.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+            if !isLoadMore && (searchPresenter.keywordSuggessions ?? []).isNotEmpty {
+                tableViewItemSearch.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             }
         }
     }

@@ -18,6 +18,9 @@ final class SearchPresenter {
 
     private(set) var keyword: String = "" {
         didSet {
+            if keyword.isEmpty {
+                keywordSuggessions = []
+            }
             searchViewDelegate?.changeValueSearch(keyword: keyword)
             fetchKeywords()
         }
@@ -78,12 +81,10 @@ final class SearchPresenter {
 
         let keyword = keyword.trimmingCharacters(in: .whitespaces)
         guard !keyword.isEmpty else {
-            searchViewDelegate?.showError(title: "Error", message: AppError.missingRequiredFields.rawValue)
             return
         }
 
         updateHistorySearch(keyword)
-        print("historySearch >>> \(historySearch)")
         isLoadingMovieSearch = true
         pageMovieSearch = isLoadMore ? pageMovieSearch + 1 : 1
 
@@ -132,10 +133,14 @@ final class SearchPresenter {
         }
 
         let keyword = keyword.trimmingCharacters(in: .whitespaces)
-        guard !keyword.isEmpty else {
-            keywordSuggessions = []
-            self.searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: false)
-            return
+        if keyword.isEmpty {
+            if isLoadMore {
+                return
+            } else {
+                keywordSuggessions = []
+                searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: false)
+                return
+            }
         }
 
         isLoadingKeywordSearch = true
@@ -177,7 +182,6 @@ final class SearchPresenter {
 
     func clearKeywordSearch() {
         changeValueSearch(keyword: "")
-        keywordSuggessions = []
     }
 
     func updateHistorySearch(_ keyword: String) {
