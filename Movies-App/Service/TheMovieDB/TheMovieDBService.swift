@@ -31,7 +31,7 @@ class TheMovieDBService: BaseService {
         isShuffle: Bool = false,
         completion: @escaping ((Result<ResponseTheMovieDBBase<Movie>, AppError>) -> Void)
     ) {
-        AF.request(
+        AF.requestWithoutCache(
             url + endpoint,
             parameters: params,
             encoding: encoding,
