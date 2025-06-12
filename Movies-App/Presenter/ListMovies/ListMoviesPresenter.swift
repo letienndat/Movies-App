@@ -114,7 +114,9 @@ class ListMoviesPresenter {
                 self.listMoviesViewDelegate?.reloadTableView()
             case .failure(let err):
                 self.page -= 1
-                self.listMoviesViewDelegate?.showError(title: "Error", message: err.rawValue)
+                if !isLoadMore {
+                    self.listMoviesViewDelegate?.showError(title: "Error", message: err.rawValue)
+                }
                 self.isLoading = false
             }
         }

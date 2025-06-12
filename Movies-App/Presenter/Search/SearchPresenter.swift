@@ -74,7 +74,9 @@ final class SearchPresenter {
                     self.isLoading = false
                 case .failure(let err):
                     self.page -= 1
-                    self.searchViewDelegate?.showError(title: "Error", message: err.rawValue)
+                    if !isLoadMore {
+                        self.searchViewDelegate?.showError(title: "Error", message: err.rawValue)
+                    }
                     self.isLoading = false
                 }
         }
