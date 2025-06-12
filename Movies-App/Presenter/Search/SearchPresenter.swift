@@ -22,7 +22,7 @@ final class SearchPresenter {
                 keywordSuggessions = []
             }
             searchViewDelegate?.changeValueSearch(keyword: keyword)
-            fetchKeywords()
+            debouncedFetchKeywords()
         }
     }
     private var pageMovieSearch = 1
@@ -59,6 +59,8 @@ final class SearchPresenter {
     }
     var isLoadingMovieSearch = false
     var isLoadingKeywordSearch = false
+
+    var debounceWorkItem: DispatchWorkItem?
 
     init(searchViewDelegate: SearchViewDelegate) {
         self.searchViewDelegate = searchViewDelegate
@@ -121,60 +123,77 @@ final class SearchPresenter {
         }
     }
 
-    func fetchKeywords(isLoadMore: Bool = false) {
-        if isLoadingKeywordSearch {
-            return
+    func debouncedFetchKeywords() {
+        debounceWorkItem?.cancel()
+
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.fetchKeywords()
         }
 
-        if (isLoadMore && keywordSuggessions == nil) ||
-            (isLoadMore && keywordSuggessions != nil && keywordSuggessions!.count >= totalPagesKeywordSearch) ||
-            (isLoadMore && pageKeywordSearch >= totalPagesKeywordSearch) {
-            return
-        }
+        debounceWorkItem = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: workItem)
+    }
 
+    private func fetchKeywords() {
         let keyword = keyword.trimmingCharacters(in: .whitespaces)
-        if keyword.isEmpty {
-            if isLoadMore {
-                return
-            } else {
-                keywordSuggessions = []
-                searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: false)
-                return
-            }
+        guard keyword.isNotEmpty else {
+            keywordSuggessions = []
+            searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: false)
+            return
         }
 
-        isLoadingKeywordSearch = true
-        pageKeywordSearch = isLoadMore ? pageKeywordSearch + 1 : 1
-
-        if isLoadMore {
-            searchViewDelegate?.showLoading()
-        }
-
-        theMovieDBService.fetchKeywords(query: keyword, page: pageKeywordSearch) { [weak self] res in
+        theMovieDBService.fetchKeywords(query: keyword) { [weak self] res in
             guard let self = self else { return }
-
-            if isLoadMore {
-                searchViewDelegate?.hideLoading()
-            }
 
             switch res {
             case .success(let keywords):
                 let keywordResult = keywords.results.map(\.name)
                 self.pageKeywordSearch = self.pageKeywordSearch > keywords.totalPages ? keywords.totalPages : self.pageKeywordSearch
-                if isLoadMore {
-                    self.keywordSuggessions = (self.keywordSuggessions ?? []) + keywordResult
-                } else {
-                    self.keywordSuggessions = keywordResult
-                }
+                self.keywordSuggessions = keywordResult
                 self.totalPagesKeywordSearch = keywords.totalPages
                 self.totalPagesKeywordSearch = keywords.totalResults
-                self.searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: isLoadMore)
-                self.isLoadingKeywordSearch = false
+                self.searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: false)
             case .failure(let err):
+                self.searchViewDelegate?.showError(title: "Error", message: err.rawValue)
+            }
+        }
+    }
+
+    func fetchKeywordsLoadMore() {
+        if isLoadingKeywordSearch {
+            return
+        }
+
+        if keywordSuggessions == nil ||
+            (keywordSuggessions != nil && keywordSuggessions!.count >= totalPagesKeywordSearch) ||
+            pageKeywordSearch >= totalPagesKeywordSearch {
+            return
+        }
+
+        let keyword = keyword.trimmingCharacters(in: .whitespaces)
+        guard keyword.isNotEmpty else { return }
+
+        isLoadingKeywordSearch = true
+        pageKeywordSearch += 1
+
+        searchViewDelegate?.showLoading()
+
+        theMovieDBService.fetchKeywords(query: keyword, page: pageKeywordSearch) { [weak self] res in
+            guard let self = self else { return }
+
+            searchViewDelegate?.hideLoading()
+
+            switch res {
+            case .success(let keywords):
+                let keywordResult = keywords.results.map(\.name)
+                self.pageKeywordSearch = self.pageKeywordSearch > keywords.totalPages ? keywords.totalPages : self.pageKeywordSearch
+                self.keywordSuggessions = (self.keywordSuggessions ?? []) + keywordResult
+                self.totalPagesKeywordSearch = keywords.totalPages
+                self.totalPagesKeywordSearch = keywords.totalResults
+                self.searchViewDelegate?.reloadTableView(type: .keywords, isLoadMore: true)
+                self.isLoadingKeywordSearch = false
+            case .failure:
                 self.pageKeywordSearch -= 1
-                if !isLoadMore {
-                    self.searchViewDelegate?.showError(title: "Error", message: err.rawValue)
-                }
                 self.isLoadingKeywordSearch = false
             }
         }

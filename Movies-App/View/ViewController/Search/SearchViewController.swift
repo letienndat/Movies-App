@@ -193,7 +193,7 @@ extension SearchViewController: UITextFieldDelegate {
         }
 
         if !searchPresenter.isShowListKeywordSearch {
-            searchPresenter.fetchKeywords()
+            searchPresenter.debouncedFetchKeywords()
         }
         tableViewItemSearch.reloadData()
         tableViewItemSearch.contentOffset = .zero
@@ -286,10 +286,13 @@ extension SearchViewController: SearchViewDelegate {
             }
         case .keywords:
             tableViewItemSearch.reloadData()
-            searchPresenter.isLoadingKeywordSearch = false
 
-            if !isLoadMore && (searchPresenter.keywordSuggessions ?? []).isNotEmpty {
-                tableViewItemSearch.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            if isLoadMore {
+                searchPresenter.isLoadingKeywordSearch = false
+            } else {
+                if (searchPresenter.keywordSuggessions ?? []).isNotEmpty {
+                    tableViewItemSearch.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                }
             }
         }
     }
@@ -336,7 +339,7 @@ extension SearchViewController: UIScrollViewDelegate {
         }
 
         if searchPresenter.isShowListKeywordSearch {
-            searchPresenter.fetchKeywords(isLoadMore: true)
+            searchPresenter.fetchKeywordsLoadMore()
         } else {
             searchPresenter.search(isLoadMore: true)
         }
