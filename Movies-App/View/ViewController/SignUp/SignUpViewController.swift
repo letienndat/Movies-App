@@ -36,7 +36,9 @@ class SignUpViewController: UIViewController {
         textFieldMobileNumber.padding = UIEdgeInsets(top: 0, left: 13.54, bottom: 0, right: 13.54)
         textFieldDateOfBirth.padding = UIEdgeInsets(top: 0, left: 13.54, bottom: 0, right: 13.54)
 
-        buttonShowPassword.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        let config = UIImage.SymbolConfiguration(pointSize: 12, weight: .regular)
+        let imageShowPassword = UIImage(systemName: "eye.slash", withConfiguration: config)
+        buttonShowPassword.setImage(imageShowPassword, for: .normal)
         buttonShowPassword.tintColor = .black
         if #available(iOS 15.0, *) {
             var configButtonShowPassword = UIButton.Configuration.plain()
@@ -101,7 +103,12 @@ class SignUpViewController: UIViewController {
     @objc
     private func handleTapShowPassword(_ sender: UITextField) {
         textFieldPassword.isSecureTextEntry.toggle()
-        buttonShowPassword.setImage(UIImage(systemName: textFieldPassword.isSecureTextEntry ? "eye.slash" : "eye"), for: .normal)
+        let config = UIImage.SymbolConfiguration(pointSize: 12, weight: .regular)
+        let imageIcon = UIImage(
+            systemName: textFieldPassword.isSecureTextEntry ? "eye.slash" : "eye",
+            withConfiguration: config
+        )
+        buttonShowPassword.setImage(imageIcon, for: .normal)
     }
 
     @objc
