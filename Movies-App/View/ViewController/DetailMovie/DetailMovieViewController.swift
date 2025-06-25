@@ -43,6 +43,8 @@ class DetailMovieViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        title = detailMoviePresenter.movie?.title ?? "Detail Movie"
+
         /// Tracking
         guard let movie = detailMoviePresenter.movie,
               let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds
@@ -106,8 +108,6 @@ class DetailMovieViewController: UIViewController {
     }
 
     private func setupNav() {
-        title = detailMoviePresenter.movie?.title ?? "Detail Movie"
-
         buttonSaveToWatchList.tintColor = UIColor(hex: 0xFFFFFF)
         buttonSaveToWatchList.setImage(UIImage(systemName: "bookmark"), for: .normal)
         let rightBarButton = UIBarButtonItem(customView: buttonSaveToWatchList)
