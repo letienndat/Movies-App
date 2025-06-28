@@ -43,8 +43,6 @@ class DetailMovieViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = detailMoviePresenter.movie?.title ?? "Detail Movie"
-
         /// Tracking
         guard let movie = detailMoviePresenter.movie,
               let genres = movie.genres?.map({ $0.id }) ?? movie.genreIds
@@ -108,6 +106,8 @@ class DetailMovieViewController: UIViewController {
     }
 
     private func setupNav() {
+        title = detailMoviePresenter.movie?.title ?? "Detail Movie"
+
         buttonSaveToWatchList.tintColor = UIColor(hex: 0xFFFFFF)
         buttonSaveToWatchList.setImage(UIImage(systemName: "bookmark"), for: .normal)
         let rightBarButton = UIBarButtonItem(customView: buttonSaveToWatchList)
@@ -121,6 +121,8 @@ class DetailMovieViewController: UIViewController {
     }
 
     func setupShowData() {
+        title = detailMoviePresenter.movie?.title ?? "Detail Movie"
+
         imageBackdrop.setImage(with: detailMoviePresenter.movie?.backdropUrl)
         imagePoster.setImage(with: detailMoviePresenter.movie?.posterUrl)
         labelTitle.text = detailMoviePresenter.movie?.title
@@ -166,6 +168,11 @@ class DetailMovieViewController: UIViewController {
 
         let storyboard = UIStoryboard(name: "WatchMovie", bundle: nil)
         guard let vc = storyboard.instantiateInitialViewController() as? WatchMovieViewController else { return }
+
+        let backItem = UIBarButtonItem()
+        // Remove text "Back" in icon back on next screen
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
 
         vc.setupData(movie: movie)
         self.navigationController?.pushViewController(vc, animated: true)

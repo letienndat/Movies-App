@@ -37,7 +37,6 @@ class WatchMovieViewController: UIViewController {
 
     func setupNav() {
         title = watchMoviePresenter.movie?.title ?? "Trailer"
-        navigationController?.navigationBar.topItem?.title = ""
     }
 
     func fetchData() {
